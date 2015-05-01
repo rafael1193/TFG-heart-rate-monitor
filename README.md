@@ -18,6 +18,7 @@ Pulsómetro
     Please see the CERN OHL v.1.2 for applicable conditions.
  
  * img/
+
     Copyright (C) 2015  Rafael Bailón-Ruiz
  
     This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
