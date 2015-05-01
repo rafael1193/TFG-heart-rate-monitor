@@ -1,0 +1,8 @@
+*.bak
+*.elf
+*.obj
+
+build/
+debug/
+dist/
+private/
