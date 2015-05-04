@@ -46,9 +46,15 @@ void high_isr(void)
       /* TODO Add High Priority interrupt routine code here. */
 
       /* Determine which flag generated the interrupt */
-    if(INTCONbits.INT0IE && INTCONbits.INT0IF) {
-        led_on ^= 1; // ^= makes led_on toggle its value
-        INTCONbits.INT0IF=0; // Clear interrupt flag
+    if(INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
+        if(conteo_timer0 >=38) { // Si se desborda 75 veces, ha pasado casi un segundo (0.999987s)
+            led_on ^= 1; // ^= makes led_on toggle its value
+            conteo_timer0 = 0;
+            TMR0L = 39; // 75 para 1s, 
+        } else {
+            conteo_timer0 += 1; // Incrementar contador de desborde de timer0
+        }
+        INTCONbits.TMR0IF = 0;      // Limpiamos bandera de desborde
     }
 }
 

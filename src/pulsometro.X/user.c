@@ -34,7 +34,7 @@ void InitApp(void)
     //1=input, 0=output
     TRISAbits.RA1 = 0;
     
-    TRISBbits.RB0 = 1; // Configure port RB1/INT0 as input
+//    TRISBbits.RB0 = 1; // Configure port RB1/INT0 as input
  
     //LATA register sets whether voltage on output pin is 5V or 0V
     //0=low voltage(0V), 1=high voltage (5V)
@@ -46,9 +46,22 @@ void InitApp(void)
     /* Configure the IPEN bit (1=on) in RCON to turn on/off int priorities */
 
     /* Enable interrupts */
-    INTCONbits.INT0IF = 0;
-    INTCONbits.INT0IE = 1;
-    INTCON2bits.INTEDG0 = 1;
-    ei();
+    
+    TMR0L = 161; // Desfase para que cuente de segundo en segundo
+    T0CONbits.T0PS0 = 1;
+    T0CONbits.T0PS1 = 1;
+    T0CONbits.T0PS2 = 1; //TOPS2:TOPS0 -> 1/2 a 1/256
+    T0CONbits.PSA = 0; // Use prescaler: 0
+    T0CONbits.T0CS = 0; // 0: Internal instruction cycle clock = Fosc/4
+    T0CONbits.TMR0ON = 1;
+    T0CONbits.T08BIT = 1;
+    INTCONbits.TMR0IE = 1;
+    INTCONbits.GIE = 1;
+    // T_t0overflow = 4 * Tosc * 256 * TOPS
+    
+//    INTCONbits.INT0IF = 0;
+//    INTCONbits.INT0IE = 1;
+//    INTCON2bits.INTEDG0 = 1;
+//    ei();
 }
 

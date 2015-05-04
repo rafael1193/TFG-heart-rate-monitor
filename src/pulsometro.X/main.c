@@ -37,7 +37,7 @@ void main(void)
 
     /* Initialize I/O and Peripherals for application */
     InitApp();
-
+    
     //The main while loop (loops forever)
     while(1)
     {
