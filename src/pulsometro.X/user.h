@@ -13,6 +13,9 @@
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
 unsigned int conteo_timer0;
+unsigned int timer1_ov_count;
+unsigned long int period;
 int led_on = 1;
+int led1_on = 1;
 
 void InitApp(void);         /* I/O and Peripheral Initialization */

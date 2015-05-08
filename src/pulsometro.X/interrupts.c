@@ -55,7 +55,36 @@ void high_isr(void)
             conteo_timer0 += 1; // Incrementar contador de desborde de timer0
         }
         INTCONbits.TMR0IF = 0;      // Limpiamos bandera de desborde
+        
     }
+    
+    /* Timer1
+     * timer1_ov_count se incrementa cada vez que timer1 se desborda para
+     * poder registrar intervalos mayores de tiempo a 65536 pulsos
+     */
+    if(T1CONbits.TMR1ON && PIR1bits.TMR1IF) {
+        led1_on ^= 1;
+        timer1_ov_count += 1;
+
+        PIR1bits.TMR1IF = 0;
+    }
+    
+    /* CCP interrupt handler
+     * Cuando llega un flanco de subida, se almacena en CCPR1 el valor de TMR1
+     * y se resetea. El valor de CCPR1 es el periodo de la señal. Se tiene en
+     * cuenta el desbordamiento que se hubiera producido en timer1 entre pulsos.
+     * 
+     * TMR1 debe resetearse manualmente.
+     */
+    if (PIE1bits.CCP1IE && PIR1bits.CCP1IF) {
+        TMR1 = 0;
+        timer1_ov_count = 0;
+        period = CCPR1 + (65536 * timer1_ov_count);
+        PIR1bits.CCP1IF = 0; 
+        PIR1bits.TMR1IF = 0;
+    }
+    
+    
 }
 
 /* Low-priority interrupt routine */

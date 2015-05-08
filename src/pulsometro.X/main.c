@@ -42,6 +42,7 @@ void main(void)
     while(1)
     {
         LATAbits.LA1 = led_on;
+        LATAbits.LA2 = led1_on;
     }
     
 }

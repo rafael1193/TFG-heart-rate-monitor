@@ -33,12 +33,14 @@ void InitApp(void)
     //We're using an output on Pin 3, which is "RA1" (see datasheet)
     //1=input, 0=output
     TRISAbits.RA1 = 0;
+    TRISAbits.RA2 = 0;
     
-//    TRISBbits.RB0 = 1; // Configure port RB1/INT0 as input
+    TRISCbits.RC2 = 1; // Pin 13, CCP1
  
     //LATA register sets whether voltage on output pin is 5V or 0V
     //0=low voltage(0V), 1=high voltage (5V)
-    LATAbits.LA1 = 1;
+    LATAbits.LA1 = 0;
+    LATAbits.LA2 = 0;
     /* Setup analog functionality and port direction */
 
     /* Initialize peripherals */
@@ -47,6 +49,9 @@ void InitApp(void)
 
     /* Enable interrupts */
     
+    /* Timer 0 
+     * T_t0overflow = 4 * Tosc * 256 * TOPS
+     */
     TMR0L = 161; // Desfase para que cuente de segundo en segundo
     T0CONbits.T0PS0 = 1;
     T0CONbits.T0PS1 = 1;
@@ -56,12 +61,22 @@ void InitApp(void)
     T0CONbits.TMR0ON = 1;
     T0CONbits.T08BIT = 1;
     INTCONbits.TMR0IE = 1;
-    INTCONbits.GIE = 1;
-    // T_t0overflow = 4 * Tosc * 256 * TOPS
+
+
+    /* Timer 1 */
+    TMR1 = 0;
+    T1CONbits.RD16 = 1; // 1: 16bit mode
+    T1CONbits.T1CKPS = 0b11; // b11: Prescale 1/8
+    T1CONbits.TMR1CS = 0; // 0: Internal clock
+    T1CONbits.TMR1ON = 1; // 1: Enables Timer1
     
-//    INTCONbits.INT0IF = 0;
-//    INTCONbits.INT0IE = 1;
-//    INTCON2bits.INTEDG0 = 1;
-//    ei();
+    /* CCP1 in Capture mode
+     * Section 15.0 of Datasheet
+     */
+    CCP1CONbits.CCP1M = 0b0101; // 0101: Capture every rising edge
+    PIE1bits.CCP1IE = 1;
+    
+    /* Enable interrupts */
+    INTCONbits.GIE = 1;
 }
 
