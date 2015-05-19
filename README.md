@@ -5,7 +5,7 @@ Pulsómetro
 ## Licensing
 
  * circuitos/
-``` 
+ ``` 
     Copyright (C) 2015 Rafael Bailón-Ruiz
     
     This documentation describes Open Hardware and is licensed under the
