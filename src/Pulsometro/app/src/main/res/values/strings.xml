@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">Pulsometro</string>
+    <string name="app_name">Pulsómetro</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="hello_universe">Hello universe!</string>
+    <string name="BPM">PPM</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_wellcome">Pulsómetro</string>
     <string name="start">Conectar</string>
+    <string name="plot_bpm_series">Conectar</string>
 </resources>

@@ -14,7 +14,9 @@
         android:src="@mipmap/pulsometro_icon"
         android:layout_above="@+id/connectButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:minHeight="64dp"
+        android:minWidth="64dp" />
 
     <Button
         android:layout_width="wrap_content"
