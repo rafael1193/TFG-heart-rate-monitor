@@ -1,4 +1,23 @@
 /*
+ * Pulsómetro
+ * Copyright (C) 2015 Rafael-Bailón Ruiz <rafaelbailon@ieee.org>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * This file incorporates work covered by the following copyright and
+ * permission notice:
+ *
  * Copyright (C) 2014 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +44,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.example.android.common.logger.Log;
+import rafael1193.pulsometro.common.logger.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,13 +57,13 @@ import java.util.UUID;
  * incoming connections, a thread for connecting with a device, and a
  * thread for performing data transmissions when connected.
  */
-public class BluetoothChatService {
+public class BluetoothCommunicationService {
     // Debugging
-    private static final String TAG = "BluetoothDebuggerService";
+    private static final String TAG = "BluetoothCommunicationService";
 
     // Name for the SDP record when creating server socket
-    private static final String NAME_SECURE = "BluetoothDebuggerSecure";
-    private static final String NAME_INSECURE = "BluetoothDebuggerInsecure";
+    private static final String NAME_SECURE = "BluetoothCommunicationSecure";
+    private static final String NAME_INSECURE = "BluetoothCommunicationInsecure";
 
     // Unique UUID for this application
     private static final UUID MY_UUID_SECURE =
@@ -74,7 +93,7 @@ public class BluetoothChatService {
      * @param context The UI Activity Context
      * @param handler A Handler to send messages back to the UI Activity
      */
-    public BluetoothChatService(Context context, Handler handler) {
+    public BluetoothCommunicationService(Context context, Handler handler) {
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         mState = STATE_NONE;
         mHandler = handler;
@@ -265,7 +284,7 @@ public class BluetoothChatService {
         mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothChatService.this.start();
+        BluetoothCommunicationService.this.start();
     }
 
     /**
@@ -280,7 +299,7 @@ public class BluetoothChatService {
         mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothChatService.this.start();
+        BluetoothCommunicationService.this.start();
     }
 
     /**
@@ -332,7 +351,7 @@ public class BluetoothChatService {
 
                 // If a connection was accepted
                 if (socket != null) {
-                    synchronized (BluetoothChatService.this) {
+                    synchronized (BluetoothCommunicationService.this) {
                         switch (mState) {
                             case STATE_LISTEN:
                             case STATE_CONNECTING:
@@ -424,7 +443,7 @@ public class BluetoothChatService {
             }
 
             // Reset the ConnectThread because we're done
-            synchronized (BluetoothChatService.this) {
+            synchronized (BluetoothCommunicationService.this) {
                 mConnectThread = null;
             }
 
@@ -491,7 +510,7 @@ public class BluetoothChatService {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
                     // Start the service over to restart listening mode
-                    BluetoothChatService.this.start();
+                    BluetoothCommunicationService.this.start();
                     break;
                 }
             }
