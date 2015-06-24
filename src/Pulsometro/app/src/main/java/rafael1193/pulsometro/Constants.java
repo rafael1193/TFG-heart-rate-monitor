@@ -17,7 +17,7 @@
 package rafael1193.pulsometro;
 
 /**
- * Defines several constants used between {@link BluetoothChatService} and the UI.
+ * Defines several constants used between {@link BluetoothCommunicationService} and the UI.
  */
 public interface Constants {
 
