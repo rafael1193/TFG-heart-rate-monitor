@@ -123,3 +123,10 @@ CND_ARTIFACT_PATH_PIC18F2550_simulador=dist/PIC18F2550_simulador/production/puls
 CND_PACKAGE_DIR_PIC18F2550_simulador=${CND_DISTDIR}/PIC18F2550_simulador/package
 CND_PACKAGE_NAME_PIC18F2550_simulador=pulsometro.x.tar
 CND_PACKAGE_PATH_PIC18F2550_simulador=${CND_DISTDIR}/PIC18F2550_simulador/package/pulsometro.x.tar
+# PIC18LF2553 configuration
+CND_ARTIFACT_DIR_PIC18LF2553=dist/PIC18LF2553/production
+CND_ARTIFACT_NAME_PIC18LF2553=pulsometro.X.production.hex
+CND_ARTIFACT_PATH_PIC18LF2553=dist/PIC18LF2553/production/pulsometro.X.production.hex
+CND_PACKAGE_DIR_PIC18LF2553=${CND_DISTDIR}/PIC18LF2553/package
+CND_PACKAGE_NAME_PIC18LF2553=pulsometro.x.tar
+CND_PACKAGE_PATH_PIC18LF2553=${CND_DISTDIR}/PIC18LF2553/package/pulsometro.x.tar
