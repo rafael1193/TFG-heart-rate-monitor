@@ -31,6 +31,7 @@
 
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>       /* For true/false definition */
+#include <usart.h>
 
 #endif
 
@@ -58,6 +59,16 @@ void main(void)
     //The main while loop (loops forever)
     while(1)
     {
+        if(send_value == true)
+        {
+            send_value = false;
+            /* If only 1 byte is sent, it doesnt arrive to phone
+             * but it we send 2, they arrive!
+             */
+
+            WriteUSART(75); // TODO: send the real value!
+            
+        }
         LATAbits.LA1 = led_on;
         LATAbits.LA2 = led1_on;
     }

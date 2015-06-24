@@ -34,5 +34,6 @@ unsigned int timer1_ov_count;
 unsigned long int period;
 int led_on = 1;
 int led1_on = 1;
+bool send_value = false;
 
 void InitApp(void);         /* I/O and Peripheral Initialization */

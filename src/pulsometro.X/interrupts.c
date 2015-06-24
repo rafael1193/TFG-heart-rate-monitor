@@ -66,6 +66,7 @@ void high_isr(void)
     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
         if(conteo_timer0 >=38) { // Si se desborda 75 veces, ha pasado casi un segundo (0.999987s)
             led_on ^= 1; // ^= makes led_on toggle its value
+            send_value = true;
             conteo_timer0 = 0;
             TMR0L = 39; // 75 para 1s, 
         } else {
