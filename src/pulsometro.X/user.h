@@ -29,11 +29,11 @@
 
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
-unsigned int conteo_timer0;
-unsigned int timer1_ov_count;
-unsigned long int period;
-int led_on = 1;
-int led1_on = 1;
-bool send_value = false;
+volatile unsigned int conteo_timer0;
+volatile unsigned int timer1_ov_count;
+volatile unsigned long int period;
+volatile int led_on = 1;
+volatile int led1_on = 1;
+volatile bool send_value = false;
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
