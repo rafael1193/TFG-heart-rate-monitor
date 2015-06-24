@@ -31,6 +31,7 @@
 
 #include <stdint.h>         /* For uint8_t definition */
 #include <stdbool.h>        /* For true/false definition */
+#include <usart.h>
 
 #endif
 
@@ -61,6 +62,22 @@ void InitApp(void)
     /* Setup analog functionality and port direction */
 
     /* Initialize peripherals */
+    
+    /* UART initialization 
+     * 
+     * Set baud rate at 115K (default of RN42 module)
+     * baudrate = F_osc/[16 (n + 1)] -> n~10. With this value, baudrate is 
+     * 113.636, meaning an error of -1.36%.
+     * (This formula is valid with SYNC = 0 BRGH = 1 BRG16 = 0)
+     * See TABLE 20-3 of datasheet
+     */
+    const unsigned SPBRG = 10;
+    OpenUSART( USART_TX_INT_OFF  &
+               USART_RX_INT_OFF  &
+               USART_ASYNCH_MODE &
+               USART_EIGHT_BIT   &
+               USART_BRGH_HIGH,
+               SPBRG              );
 
     /* Configure the IPEN bit (1=on) in RCON to turn on/off int priorities */
 
