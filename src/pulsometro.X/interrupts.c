@@ -95,10 +95,10 @@ void high_isr(void)
      * TMR1 debe resetearse manualmente.
      */
     if (PIE1bits.CCP1IE && PIR1bits.CCP1IF) {
-        TMR1 = 0;
-        timer1_ov_count = 0;
         period = CCPR1 + (65536 * timer1_ov_count);
-        PIR1bits.CCP1IF = 0; 
+        timer1_ov_count = 0;
+        TMR1 = 0;
+        PIR1bits.CCP1IF = 0;
         PIR1bits.TMR1IF = 0;
     }
     
