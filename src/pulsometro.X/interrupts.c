@@ -64,7 +64,7 @@ void high_isr(void)
 
       /* Determine which flag generated the interrupt */
     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
-        if(conteo_timer0 >=38) { // Si se desborda 75 veces, ha pasado casi un segundo (0.999987s)
+        if(conteo_timer0 >=100) { // Si se desborda 75 veces, ha pasado casi un segundo (0.999987s)
             led_on ^= 1; // ^= makes led_on toggle its value
             send_value = true;
             conteo_timer0 = 0;
