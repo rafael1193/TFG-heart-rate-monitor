@@ -32,6 +32,7 @@
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>       /* For true/false definition */
 #include <usart.h>
+#include <math.h>
 
 #endif
 
@@ -62,12 +63,13 @@ void main(void)
         if(send_value == true)
         {
             send_value = false;
-            /* If only 1 byte is sent, it doesnt arrive to phone
-             * but it we send 2, they arrive!
+            /* Computation formula:
+             *
+             * T(s) = period * 8 * 4 * 1e-6 * 0.05 * 60 =
+             *      = period * 96 * 1e-6
              */
-
-            WriteUSART(75); // TODO: send the real value!
-            
+            char byte_period = (char) round((period * 96) * 1e-6);
+            WriteUSART(byte_period); // TODO: send the real value!
         }
         LATAbits.LA1 = led_on;
         LATAbits.LA2 = led1_on;
