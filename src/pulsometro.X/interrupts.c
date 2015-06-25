@@ -64,7 +64,7 @@ void high_isr(void)
 
       /* Determine which flag generated the interrupt */
     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
-        if(conteo_timer0 >=100) { // Si se desborda 75 veces, ha pasado casi un segundo (0.999987s)
+        if(conteo_timer0 >=150) { // Si se desborda 75 veces, ha pasado casi un segundo (0.999987s)
             led_on ^= 1; // ^= makes led_on toggle its value
             send_value = true;
             conteo_timer0 = 0;
@@ -95,7 +95,12 @@ void high_isr(void)
      * TMR1 debe resetearse manualmente.
      */
     if (PIE1bits.CCP1IE && PIR1bits.CCP1IF) {
-        period = CCPR1 + (65536 * timer1_ov_count);
+        period_tmp = CCPR1 + (65536 * timer1_ov_count);
+        /* Store period value only if it's between 40 and 200 BPM */
+        if(period_tmp >= 0x02DC6C && period_tmp <= 0x0E4E1C)
+        {
+            period = period_tmp;
+        }
         timer1_ov_count = 0;
         TMR1 = 0;
         PIR1bits.CCP1IF = 0;

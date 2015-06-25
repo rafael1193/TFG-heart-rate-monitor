@@ -65,11 +65,18 @@ void main(void)
             send_value = false;
             /* Computation formula:
              *
-             * T(s) = period * 8 * 4 * 1e-6 * 0.05 * 60 =
-             *      = period * 96 * 1e-6
+             * T(s) = period * 8 * 4 * 0.05e-6=
+             *      = period * 1.6e-6
+             * BPM = 60 / T
              */
-            char byte_period = (char) round((period * 96) * 1e-6);
-            WriteUSART(byte_period); // TODO: send the real value!
+            double dob = 60 / (period * 1.6e-6) ;
+            unsigned long int per = round(dob);
+            char byte_period = (char) per;
+            if(byte_period >= 40 && byte_period <= 200)
+            {
+                WriteUSART(byte_period);
+                period = 0;
+            }
         }
         LATAbits.LA1 = led_on;
         LATAbits.LA2 = led1_on;

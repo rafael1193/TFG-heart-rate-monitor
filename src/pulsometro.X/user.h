@@ -32,6 +32,7 @@
 volatile unsigned int conteo_timer0;
 volatile unsigned int timer1_ov_count;
 volatile unsigned long int period;
+volatile unsigned long int period_tmp;
 volatile int led_on = 1;
 volatile int led1_on = 1;
 volatile bool send_value = false;
