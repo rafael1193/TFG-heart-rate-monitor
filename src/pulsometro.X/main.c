@@ -70,10 +70,13 @@ void main(void)
              * BPM = 60 / T
              */
             char byte_period = (char) round(60 / (period * 1.6e-6));
+            period = 0;
             if(byte_period >= 40 && byte_period <= 200)
             {
                 WriteUSART(byte_period);
-                period = 0;
+            } else
+            {
+                WriteUSART(0);
             }
         }
         LATAbits.LA1 = led_on;
