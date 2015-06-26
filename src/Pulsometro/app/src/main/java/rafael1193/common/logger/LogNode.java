@@ -18,7 +18,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *     Copyright (C) 2014 The Android Open Source Project
+ *     Copyright (C) 2012 The Android Open Source Project
  *
  *     Licensed under the Apache License, Version 2.0 (the "License");
  *     you may not use this file except in compliance with the License.
@@ -32,23 +32,27 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-
-package rafael1193.pulsometro;
+package rafael1193.common.logger;
 
 /**
- * Defines several constants used between {@link BluetoothChatService} and the UI.
+ * Basic interface for a logging system that can output to one or more targets.
+ * Note that in addition to classes that will output these logs in some format,
+ * one can also implement this interface over a filter and insert that in the chain,
+ * such that no targets further down see certain data, or see manipulated forms of the data.
+ * You could, for instance, write a "ToHtmlLoggerNode" that just converted all the log data
+ * it received to HTML and sent it along to the next node in the chain, without printing it
+ * anywhere.
  */
-public interface Constants {
+public interface LogNode {
 
-    // Message types sent from the BluetoothChatService Handler
-    public static final int MESSAGE_STATE_CHANGE = 1;
-    public static final int MESSAGE_READ = 2;
-    public static final int MESSAGE_WRITE = 3;
-    public static final int MESSAGE_DEVICE_NAME = 4;
-    public static final int MESSAGE_TOAST = 5;
-
-    // Key names received from the BluetoothChatService Handler
-    public static final String DEVICE_NAME = "device_name";
-    public static final String TOAST = "toast";
+    /**
+     * Instructs first LogNode in the list to print the log data provided.
+     * @param priority Log level of the data being logged.  Verbose, Error, etc.
+     * @param tag Tag for for the log data.  Can be used to organize log statements.
+     * @param msg The actual message to be logged. The actual message to be logged.
+     * @param tr If an exception was thrown, this can be sent along for the logging facilities
+     *           to extract and print useful information.
+     */
+    public void println(int priority, String tag, String msg, Throwable tr);
 
 }

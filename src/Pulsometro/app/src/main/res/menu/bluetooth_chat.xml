@@ -33,30 +33,22 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <item
+        android:id="@+id/secure_connect_scan"
+        android:icon="@drawable/ic_action_device_access_bluetooth_searching"
+        android:showAsAction="ifRoom"
+        android:title="@string/secure_connect"/>
 
-    <!--  BluetoothChat -->
-    <string name="send">Send</string>
-    <string name="cr">CR</string>
-    <string name="not_connected">You are not connected to a device</string>
-    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Bluetooth Chat.</string>
-    <string name="title_connecting">connecting...</string>
-    <string name="title_connected_to">connected to <xliff:g id="device_name">%1$s</xliff:g></string>
-    <string name="title_not_connected">not connected</string>
+    <item
+        android:id="@+id/insecure_connect_scan"
+        android:showAsAction="never"
+        android:title="@string/insecure_connect"/>
 
-    <!--  DeviceListActivity -->
-    <string name="scanning">scanning for devices...</string>
-    <string name="select_device">select a device to connect</string>
-    <string name="none_paired">No devices have been paired</string>
-    <string name="none_found">No devices found</string>
-    <string name="title_paired_devices">Paired Devices</string>
-    <string name="title_other_devices">Other Available Devices</string>
-    <string name="button_scan">Scan for devices</string>
+    <item
+        android:id="@+id/discoverable"
+        android:showAsAction="never"
+        android:title="@string/discoverable"/>
 
-    <!-- Options Menu -->
-    <string name="secure_connect">Connect a device - Secure</string>
-    <string name="insecure_connect">Connect a device - Insecure</string>
-    <string name="discoverable">Make discoverable</string>
-
-</resources>
+</menu>

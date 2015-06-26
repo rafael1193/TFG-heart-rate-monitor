@@ -14,87 +14,116 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * This file incorporates work covered by the following copyright and
+ * permission notice:
+ *
+ *     Copyright 2013 The Android Open Source Project
+ *
+ *     Licensed under the Apache License, Version 2.0 (the "License");
+ *     you may not use this file except in compliance with the License.
+ *     You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
  */
 
 
 package rafael1193.pulsometro;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import com.androidplot.xy.SimpleXYSeries;
-import com.androidplot.xy.XYSeries;
-import com.androidplot.xy.*;
+import android.widget.ViewAnimator;
 
-import com.androidplot.xy.PointLabelFormatter;
+import rafael1193.common.activities.SampleActivityBase;
+import rafael1193.common.logger.Log;
+import rafael1193.common.logger.LogFragment;
+import rafael1193.common.logger.LogWrapper;
+import rafael1193.common.logger.MessageOnlyLogFilter;
 
-import java.util.Arrays;
+/**
+ * A simple launcher activity containing a summary sample description, sample log and a custom
+ * {@link android.support.v4.app.Fragment} which can display a view.
+ * <p>
+ * For devices with displays with a width of 720dp or greater, the sample log is always visible,
+ * on other devices it's visibility is controlled by an item on the Action Bar.
+ */
+public class MainActivity extends SampleActivityBase {
 
+    public static final String TAG = "MainActivity";
 
-public class MainActivity extends ActionBarActivity {
-
-    private XYPlot plot;
+    // Whether the Log Fragment is currently shown
+    private boolean mLogShown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        plot = (XYPlot) findViewById(R.id.XYPlot);
-
-        plot.getLegendWidget().setVisible(false);
-
-        // Create a couple arrays of y-values to plot:
-        Number[] series1Numbers = {70, 65, 83, 72, 75, 68};
-
-        // Turn the above arrays into XYSeries':
-        XYSeries series1 = new SimpleXYSeries(
-                Arrays.asList(series1Numbers),          // SimpleXYSeries takes a List so turn our array into a List
-                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                String.valueOf(R.string.plot_bpm_series));                             // Set the display title of the series
-
-        // Create a formatter to use for drawing a series using LineAndPointRenderer
-        // and configure it from xml:
-        LineAndPointFormatter series1Format = new LineAndPointFormatter();
-        series1Format.setPointLabelFormatter(new PointLabelFormatter());
-        series1Format.configure(getApplicationContext(),
-                R.xml.line_point_formatter_with_plf1);
-
-        // add a new series' to the xyplot:
-        plot.addSeries(series1, series1Format);
-
-        // reduce the number of range labels
-        plot.setTicksPerRangeLabel(6);
-        //plot.getGraphWidget().setDomainLabelOrientation(-45);
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            BluetoothChatFragment fragment = new BluetoothChatFragment();
+            transaction.replace(R.id.sample_content_fragment, fragment);
+            transaction.commit();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
-    public void onClickHelloButton (View v) {
-        //TextView hello_text = (TextView) findViewById(R.id.hello_textView);
-        //hello_text.setText(R.string.hello_universe);
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem logToggle = menu.findItem(R.id.menu_toggle_log);
+        logToggle.setVisible(findViewById(R.id.sample_output) instanceof ViewAnimator);
+        logToggle.setTitle(mLogShown ? R.string.sample_hide_log : R.string.sample_show_log);
+
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId()) {
+            case R.id.menu_toggle_log:
+                mLogShown = !mLogShown;
+                ViewAnimator output = (ViewAnimator) findViewById(R.id.sample_output);
+                if (mLogShown) {
+                    output.setDisplayedChild(1);
+                } else {
+                    output.setDisplayedChild(0);
+                }
+                supportInvalidateOptionsMenu();
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    /** Create a chain of targets that will receive log data */
+    @Override
+    public void initializeLogging() {
+        // Wraps Android's native log framework.
+        LogWrapper logWrapper = new LogWrapper();
+        // Using Log, front-end to the logging chain, emulates android.util.log method signatures.
+        Log.setLogNode(logWrapper);
+
+        // Filter strips out everything except the message text.
+        MessageOnlyLogFilter msgFilter = new MessageOnlyLogFilter();
+        logWrapper.setNext(msgFilter);
+
+        // On screen logging via a fragment with a TextView.
+        LogFragment logFragment = (LogFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.log_fragment);
+        msgFilter.setNext(logFragment.getLogView());
+
+        Log.i(TAG, "Ready");
     }
 }

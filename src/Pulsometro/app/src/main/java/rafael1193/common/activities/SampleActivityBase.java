@@ -18,7 +18,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *     Copyright (C) 2014 The Android Open Source Project
+ *     Copyright 2013 The Android Open Source Project
  *
  *     Licensed under the Apache License, Version 2.0 (the "License");
  *     you may not use this file except in compliance with the License.
@@ -33,22 +33,39 @@
  *     limitations under the License.
  */
 
-package rafael1193.pulsometro;
+package rafael1193.common.activities;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+import rafael1193.common.logger.Log;
+import rafael1193.common.logger.LogWrapper;
 
 /**
- * Defines several constants used between {@link BluetoothChatService} and the UI.
+ * Base launcher activity, to handle most of the common plumbing for samples.
  */
-public interface Constants {
+public class SampleActivityBase extends FragmentActivity {
 
-    // Message types sent from the BluetoothChatService Handler
-    public static final int MESSAGE_STATE_CHANGE = 1;
-    public static final int MESSAGE_READ = 2;
-    public static final int MESSAGE_WRITE = 3;
-    public static final int MESSAGE_DEVICE_NAME = 4;
-    public static final int MESSAGE_TOAST = 5;
+    public static final String TAG = "SampleActivityBase";
 
-    // Key names received from the BluetoothChatService Handler
-    public static final String DEVICE_NAME = "device_name";
-    public static final String TOAST = "toast";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
+    @Override
+    protected  void onStart() {
+        super.onStart();
+        initializeLogging();
+    }
+
+    /** Set up targets to receive log data */
+    public void initializeLogging() {
+        // Using Log, front-end to the logging chain, emulates android.util.log method signatures.
+        // Wraps Android's native log framework
+        LogWrapper logWrapper = new LogWrapper();
+        Log.setLogNode(logWrapper);
+
+        Log.i(TAG, "Ready");
+    }
 }

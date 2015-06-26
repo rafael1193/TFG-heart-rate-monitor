@@ -18,7 +18,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *     Copyright (C) 2014 The Android Open Source Project
+ *     Copyright (C) 2013 The Android Open Source Project
  *
  *     Licensed under the Apache License, Version 2.0 (the "License");
  *     you may not use this file except in compliance with the License.
@@ -32,23 +32,48 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-
-package rafael1193.pulsometro;
+package rafael1193.common.logger;
 
 /**
- * Defines several constants used between {@link BluetoothChatService} and the UI.
+ * Simple {@link LogNode} filter, removes everything except the message.
+ * Useful for situations like on-screen log output where you don't want a lot of metadata displayed,
+ * just easy-to-read message updates as they're happening.
  */
-public interface Constants {
+public class MessageOnlyLogFilter implements LogNode {
 
-    // Message types sent from the BluetoothChatService Handler
-    public static final int MESSAGE_STATE_CHANGE = 1;
-    public static final int MESSAGE_READ = 2;
-    public static final int MESSAGE_WRITE = 3;
-    public static final int MESSAGE_DEVICE_NAME = 4;
-    public static final int MESSAGE_TOAST = 5;
+    LogNode mNext;
 
-    // Key names received from the BluetoothChatService Handler
-    public static final String DEVICE_NAME = "device_name";
-    public static final String TOAST = "toast";
+    /**
+     * Takes the "next" LogNode as a parameter, to simplify chaining.
+     *
+     * @param next The next LogNode in the pipeline.
+     */
+    public MessageOnlyLogFilter(LogNode next) {
+        mNext = next;
+    }
+
+    public MessageOnlyLogFilter() {
+    }
+
+    @Override
+    public void println(int priority, String tag, String msg, Throwable tr) {
+        if (mNext != null) {
+            getNext().println(Log.NONE, null, msg, null);
+        }
+    }
+
+    /**
+     * Returns the next LogNode in the chain.
+     */
+    public LogNode getNext() {
+        return mNext;
+    }
+
+    /**
+     * Sets the LogNode data will be sent to..
+     */
+    public void setNext(LogNode node) {
+        mNext = node;
+    }
 
 }
