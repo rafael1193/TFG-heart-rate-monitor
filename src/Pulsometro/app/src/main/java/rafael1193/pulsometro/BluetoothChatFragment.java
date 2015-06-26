@@ -166,6 +166,7 @@ public class BluetoothChatFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mBeatsTextView = (TextView) view.findViewById(R.id.beatsTextView);
+        mBeatsTextView.setText(getString(R.string.beats_per_minute, "‒‒"));
     }
 
     /**
@@ -309,7 +310,11 @@ public class BluetoothChatFragment extends Fragment {
                     }
 
                     Log.d(TAG, "Recv(unsigned): " + firstValue.toString());
-                    mBeatsTextView.setText(getString(R.string.beats_per_minute, firstValue.toString()));
+                    if (firstValue == 0){
+                        mBeatsTextView.setText(getString(R.string.beats_per_minute, "‒‒"));
+                    }else {
+                        mBeatsTextView.setText(getString(R.string.beats_per_minute, firstValue.toString()));
+                    }
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
