@@ -69,9 +69,7 @@ void main(void)
              *      = period * 1.6e-6
              * BPM = 60 / T
              */
-            double dob = 60 / (period * 1.6e-6) ;
-            unsigned long int per = round(dob);
-            char byte_period = (char) per;
+            char byte_period = (char) round(60 / (period * 1.6e-6));
             if(byte_period >= 40 && byte_period <= 200)
             {
                 WriteUSART(byte_period);
