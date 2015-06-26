@@ -27,10 +27,10 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.1003914"
-     inkscape:cx="49.907412"
-     inkscape:cy="-11.454189"
-     inkscape:current-layer="layer1"
+     inkscape:zoom="6.2007828"
+     inkscape:cx="29.024718"
+     inkscape:cy="31.465547"
+     inkscape:current-layer="layer2"
      showgrid="true"
      inkscape:document-units="px"
      inkscape:grid-bbox="true"
@@ -43,18 +43,6 @@
      id="defs4154">
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient5077">
-      <stop
-         style="stop-color:#eeeeec;stop-opacity:1;"
-         offset="0"
-         id="stop5079" />
-      <stop
-         style="stop-color:#d3d7cf;stop-opacity:1"
-         offset="1"
-         id="stop5081" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
        id="linearGradient4778">
       <stop
          style="stop-color:#000000;stop-opacity:1;"
@@ -65,17 +53,6 @@
          offset="1"
          id="stop5067" />
     </linearGradient>
-    <radialGradient
-       gradientTransform="matrix(-1.874212,0,0,-1.5519744,91.974776,81.66318)"
-       gradientUnits="userSpaceOnUse"
-       r="32.5"
-       fy="32"
-       fx="32"
-       cy="32"
-       cx="32"
-       id="radialGradient4759"
-       xlink:href="#linearGradient4778"
-       inkscape:collect="always" />
     <radialGradient
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(5.034682e-8,1.2343747,-0.99002213,4.0380336e-8,30.345982,0.21637536)"
@@ -157,7 +134,19 @@
        x2="108.37921"
        y2="10.721044"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-44.701754,-10.491227)" />
+       gradientTransform="translate(-44.701755,-10.491227)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5077">
+      <stop
+         style="stop-color:#eeeeec;stop-opacity:1;"
+         offset="0"
+         id="stop5079" />
+      <stop
+         style="stop-color:#d3d7cf;stop-opacity:1"
+         offset="1"
+         id="stop5081" />
+    </linearGradient>
   </defs>
   <metadata
      id="metadata4157">
@@ -167,14 +156,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:groupmode="layer"
-     inkscape:label="Layer 1"
-     id="layer1">
+     id="layer2"
+     inkscape:label="Rectangulo"
+     style="display:inline">
     <rect
        rx="4.9230766"
        ry="4.9230771"
@@ -183,7 +173,12 @@
        height="63.015385"
        width="63.015385"
        id="rect4700"
-       style="fill:url(#linearGradient5083);fill-opacity:1;stroke:url(#radialGradient4759);stroke-width:0.98461539;stroke-opacity:1" />
+       style="fill:url(#linearGradient5083);fill-opacity:1;stroke:#c6c6c6;stroke-width:0.98461539;stroke-opacity:1" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1"
+     id="layer1">
     <g
        id="g4879"
        transform="matrix(1.3567406,0,0,1.3567406,-1.0575601,-1.3736751)">
