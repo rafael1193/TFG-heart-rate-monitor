@@ -300,9 +300,16 @@ public class BluetoothChatFragment extends Fragment {
                     break;
                 case Constants.MESSAGE_READ:
                     byte[] readBuf = (byte[]) msg.obj;
-                    // construct a string from the valid bytes in the buffer
-                    String readMessage = new String(readBuf, 0, msg.arg1);
-                    mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
+
+                    Integer firstValue = (int)readBuf[0];
+                    // This hack is needed because java doesn't have unsigned numbers...
+                    if(readBuf[0] < 0)
+                    {
+                        firstValue= (int) readBuf[0] & 0xff;
+                    }
+
+                    Log.d(TAG, "Recv(unsigned): " + firstValue.toString());
+                    mBeatsTextView.setText(getString(R.string.beats_per_minute, firstValue.toString()));
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
