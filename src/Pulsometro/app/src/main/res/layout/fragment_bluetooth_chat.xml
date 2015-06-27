@@ -45,4 +45,12 @@
         android:text="@string/beats_per_minute"
         android:id="@+id/beatsTextView"
         android:layout_gravity="center_horizontal" />
+
+    <view
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        class="com.androidplot.xy.XYPlot"
+        android:id="@+id/historyPlot"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

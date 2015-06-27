@@ -40,6 +40,7 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -61,6 +62,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidplot.util.PlotStatistics;
+import com.androidplot.xy.BoundaryMode;
+import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.PointLabelFormatter;
+import com.androidplot.xy.SimpleXYSeries;
+import com.androidplot.xy.XYPlot;
+import com.androidplot.xy.XYSeriesFormatter;
+
 import rafael1193.common.logger.Log;
 
 /**
@@ -69,6 +78,7 @@ import rafael1193.common.logger.Log;
 public class BluetoothChatFragment extends Fragment {
 
     private static final String TAG = "BluetoothDebuggerFragment";
+    private static final int HISTORY_SIZE = 10;
 
     // Intent request codes
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
@@ -77,6 +87,8 @@ public class BluetoothChatFragment extends Fragment {
 
     // Layout Views
     private TextView mBeatsTextView;
+    private XYPlot mHistoryPlot = null;
+    private SimpleXYSeries mBeatsHistorySeries = null;
 
     /**
      * Name of the connected device
@@ -167,6 +179,22 @@ public class BluetoothChatFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mBeatsTextView = (TextView) view.findViewById(R.id.beatsTextView);
         mBeatsTextView.setText(getString(R.string.beats_per_minute, "‒‒"));
+
+        final PlotStatistics histStats = new PlotStatistics(1000, false);
+
+        mHistoryPlot = (XYPlot) view.findViewById(R.id.historyPlot);
+        mBeatsHistorySeries = new SimpleXYSeries(getString(R.string.beats));
+        mBeatsHistorySeries.useImplicitXVals();
+        mHistoryPlot.setRangeBoundaries(40, 200, BoundaryMode.FIXED);
+        mHistoryPlot.setDomainBoundaries(0, HISTORY_SIZE, BoundaryMode.FIXED);
+        mHistoryPlot.addSeries(mBeatsHistorySeries, new LineAndPointFormatter());
+        mHistoryPlot.setDomainStepValue(6);
+        mHistoryPlot.setTicksPerRangeLabel(2);
+        mHistoryPlot.setDomainLabel(getString(R.string.time));
+        mHistoryPlot.getDomainLabelWidget().pack();
+        mHistoryPlot.setRangeLabel(getString(R.string.beats));
+        mHistoryPlot.getRangeLabelWidget().pack();
+        mHistoryPlot.addListener(histStats);
     }
 
     /**
@@ -270,6 +298,20 @@ public class BluetoothChatFragment extends Fragment {
         actionBar.setSubtitle(subTitle);
     }
 
+    public void updatePlot(Integer value) {
+
+        // get rid the oldest sample in history:
+        if (mBeatsHistorySeries.size() > HISTORY_SIZE) {
+            mBeatsHistorySeries.removeFirst();
+        }
+
+        // add the latest history sample:
+        mBeatsHistorySeries.addLast(null, value);
+
+        // redraw the Plots:
+        mHistoryPlot.redraw();
+    }
+
     /**
      * The Handler that gets information back from the BluetoothChatService
      */
@@ -315,6 +357,8 @@ public class BluetoothChatFragment extends Fragment {
                     }else {
                         mBeatsTextView.setText(getString(R.string.beats_per_minute, firstValue.toString()));
                     }
+
+                    updatePlot(firstValue);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
