@@ -40,37 +40,30 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidplot.util.PlotStatistics;
 import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.LineAndPointFormatter;
-import com.androidplot.xy.PointLabelFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
-import com.androidplot.xy.XYSeriesFormatter;
 
-import java.util.List;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.lang.Math;
 
 import rafael1193.common.logger.Log;
 
@@ -90,6 +83,9 @@ public class PulseMeterDisplayFragment extends Fragment {
     private TextView mBeatsTextView;
     private XYPlot mHistoryPlot = null;
     private SimpleXYSeries mBeatsHistorySeries = null;
+
+    private static final int MEAN_SIZE = 5;
+    private int[] beats_mean_window = new int[MEAN_SIZE];
 
     /**
      * Name of the connected device
@@ -281,6 +277,9 @@ public class PulseMeterDisplayFragment extends Fragment {
                         case BluetoothChatService.STATE_LISTEN:
                         case BluetoothChatService.STATE_NONE:
                             setStatus(R.string.title_not_connected);
+                            // Reset state
+                            mBeatsTextView.setText(getString(R.string.beats_per_minute, "‒‒"));
+                            beats_mean_window = new int[MEAN_SIZE];
                             break;
                     }
                     break;
@@ -295,13 +294,42 @@ public class PulseMeterDisplayFragment extends Fragment {
                     }
 
                     Log.d(TAG, "Recv(unsigned): " + firstValue.toString());
-                    if (firstValue == 0){
-                        mBeatsTextView.setText(getString(R.string.beats_per_minute, "‒‒"));
-                    }else {
-                        mBeatsTextView.setText(getString(R.string.beats_per_minute, firstValue.toString()));
+
+                    float mean = 0.0f;
+                    // Valid values holds values != 0 for calculation of mean value
+                    LinkedList<Integer> valid_values = new LinkedList<>();
+
+                    // Shift values
+                    for(int i = beats_mean_window.length - 1; i > 0; --i) {
+                        beats_mean_window[i] = beats_mean_window [i - 1];
+                        // If value > 0, then is valid and add it to mean.
+                        if (beats_mean_window[i] > 0){
+                            valid_values.add(beats_mean_window[i]);
+                        }
                     }
 
-                    updatePlot(firstValue);
+                    // Put new value at the beginning
+                    beats_mean_window[0] = firstValue;
+
+                    if (beats_mean_window[0] > 0){
+                        valid_values.add(beats_mean_window[0]);
+                    }
+
+                    Iterator iter = valid_values.listIterator();
+                    while(iter.hasNext())
+                    {
+                        mean += (Integer)iter.next() / valid_values.size();
+                    }
+
+                    Integer int_mean = new Integer(Math.round(mean));
+
+                    if (valid_values.size() > 0){
+                        mBeatsTextView.setText(getString(R.string.beats_per_minute, int_mean.toString()));
+                    }else {
+                        mBeatsTextView.setText(getString(R.string.beats_per_minute, "‒‒"));
+                    }
+
+                    updatePlot(int_mean);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
