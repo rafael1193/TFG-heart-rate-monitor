@@ -70,12 +70,14 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeriesFormatter;
 
+import java.util.List;
+
 import rafael1193.common.logger.Log;
 
 /**
  * This fragment controls Bluetooth to communicate with other devices.
  */
-public class BluetoothChatFragment extends Fragment {
+public class PulseMeterDisplayFragment extends Fragment {
 
     private static final String TAG = "BluetoothDebuggerFragment";
     private static final int HISTORY_SIZE = 10;
