@@ -178,12 +178,28 @@ public class BluetoothChatFragment extends Fragment {
         mHistoryPlot.setDomainBoundaries(0, HISTORY_SIZE, BoundaryMode.FIXED);
         mHistoryPlot.addSeries(mBeatsHistorySeries, new LineAndPointFormatter());
         mHistoryPlot.setDomainStepValue(6);
-        mHistoryPlot.setTicksPerRangeLabel(2);
+        mHistoryPlot.setRangeStepValue(9);
+        mHistoryPlot.setTicksPerRangeLabel(1);
         mHistoryPlot.setDomainLabel(getString(R.string.time));
         mHistoryPlot.getDomainLabelWidget().pack();
         mHistoryPlot.setRangeLabel(getString(R.string.beats));
         mHistoryPlot.getRangeLabelWidget().pack();
         mHistoryPlot.addListener(histStats);
+
+        //Adjust sizes
+        mHistoryPlot.getGraphWidget().getDomainLabelPaint().setTextSize(25.0f);
+        mHistoryPlot.getGraphWidget().getRangeLabelPaint().setTextSize(25.0f);
+        mHistoryPlot.getGraphWidget().setMarginBottom(30.0f);
+        mHistoryPlot.getGraphWidget().setMarginLeft(30.0f);
+        mHistoryPlot.getGraphWidget().setMarginRight(30.0f);
+        mHistoryPlot.getGraphWidget().setMarginTop(30.0f);
+        mHistoryPlot.getRangeLabelWidget().getLabelPaint().setTextSize(20.0f);
+        //mHistoryPlot.getRangeLabelWidget().setWidth(50.0f);
+        mHistoryPlot.getRangeLabelWidget().setMarginRight(50.0f);
+        mHistoryPlot.getDomainLabelWidget().setVisible(false);
+
+        //mHistoryPlot.getGraphWidget().setDomainLabelWidth(20.0f);
+        mHistoryPlot.getLegendWidget().setVisible(false);
     }
 
     /**
