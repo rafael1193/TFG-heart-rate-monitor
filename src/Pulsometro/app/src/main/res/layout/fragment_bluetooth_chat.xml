@@ -41,10 +41,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="@android:style/TextAppearance.Large"
         android:text="@string/beats_per_minute"
         android:id="@+id/beatsTextView"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:elegantTextHeight="false"
+        android:textColor="@android:color/secondary_text_light"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:textSize="48sp"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_large" />
 
     <view
         android:layout_width="wrap_content"
