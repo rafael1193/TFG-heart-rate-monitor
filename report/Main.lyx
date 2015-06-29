@@ -1,0 +1,487 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass scrbook
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman libertine
+\font_sans biolinum
+\font_typewriter libertine-mono
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Diseño de un pulsómetro por infrarrojos
+\end_layout
+
+\begin_layout Author
+Rafael Bailón Ruiz
+\end_layout
+
+\begin_layout Date
+Julio 2015
+\end_layout
+
+\begin_layout Chapter
+Introducción, motivación y objetivos
+\end_layout
+
+\begin_layout Section
+Introducción
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introducción"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los signos vitales son los parámetros que permiten valorar el estado de
+ las funciones corporales básicas de los seres humanos.
+ Dichos signos son cuatro:
+\end_layout
+
+\begin_layout Itemize
+Temperatura corporal
+\end_layout
+
+\begin_layout Itemize
+Frecuencia cardíaca
+\end_layout
+
+\begin_layout Itemize
+Tensión arterial
+\end_layout
+
+\begin_layout Itemize
+Frecuencia respiratoria
+\end_layout
+
+\begin_layout Standard
+Valores anómalos en alguno de estos parámetros puede ser síntoma de peligro
+ en la vida de un individuo.
+\end_layout
+
+\begin_layout Standard
+La 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+frecuencia cardíaca
+\end_layout
+
+\end_inset
+
+frecuencia cardíaca es la tasa de latidos del corazón, e indica el nivel
+ de actividad de este.
+ Los latidos provocan el bombeo de la sangre a través de los vasos sanguíneos
+ que recorren todo el cuerpo humano.
+ Como consecuencia del paso de la sangre, se produce una expansión periódica
+ de los vasos llamada pulso.
+ Para una persona sana en reposo la frecuencia cardíaca se encuentra entre
+ 60 y 100 pulsaciones por minuto.
+\end_layout
+
+\begin_layout Standard
+La adquisición de la frecuencia cardíaca se puede realizar mediante tres
+ métodos:
+\end_layout
+
+\begin_layout Itemize
+Contando pulsos
+\end_layout
+
+\begin_layout Itemize
+Electrocardiograma
+\end_layout
+
+\begin_layout Itemize
+Pletismograma
+\end_layout
+
+\begin_layout Standard
+El método clásico de medida consiste en contar el número de pulsos cardíacos
+ que ocurren en un periodo de un minuto.
+ Los pulsos se pueden tomar con un esfigmomanómetro y directamente usando
+ el dedo índice sobre zonas en las que las arterias se encuentran cerca
+ de la piel; por ejemplo, cuello o muñeca.
+\end_layout
+
+\begin_layout Standard
+El electrocardiograma es la medida de la actividad eléctrica que se produce
+ en los músculos del corazón durante el ciclo cardíaco.
+ Esta prueba se realiza colocando electrodos sobre el cuerpo y adquiriendo
+ las señales eléctricas con un electrocardiógrafo.
+ El periodo de las señales corresponde con la tasa de latidos y por tanto,
+ con la frecuencia cardíaca.
+\end_layout
+
+\begin_layout Standard
+El pletismograma es el resultado de convertir la variación en el volumen
+ de un órgano o una parte del cuerpo humano en una señal eléctrica.
+ Cuando se usa un sensor óptico, se llama fotopletismograma.
+\end_layout
+
+\begin_layout Standard
+El dispositivo para obtener la tasa cardíaca a partir de un fotopletismograma
+ es el pulsómetro, el objeto del presente Trabajo Fin de Grado.
+\end_layout
+
+\begin_layout Section
+Motivación
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Motivación"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Todos tienen la misma precisión pero otras caracterisitcas distintas
+\end_layout
+
+\begin_layout Standard
+Medir contando pulsos ->cutre, lento, factor humano (que tampoco es tan
+ determianante)
+\end_layout
+
+\begin_layout Standard
+:::Buscar articulo comparando metodos de pulsimetria
+\end_layout
+
+\begin_layout Standard
+Medir con electrocardigrama costoso y aparatoso por los electrodos: que
+ hay que colocar adecuacadmente (con su pasta conductora), valen caros;se
+ tarda mas tiempo
+\end_layout
+
+\begin_layout Standard
+Medir con pulsómetro, guay porque no es invasivo (no hay que colocar los
+ electrodos) necesita menos tiempo que medir contando manualmente, mas barato
+ por el aparato y por no tener que usar electrodos
+\end_layout
+
+\begin_layout Standard
+::::(Mirar precio electrodos)
+\end_layout
+
+\begin_layout Standard
+Se pretende dar un enfoque mas 
+\begin_inset Quotes fld
+\end_inset
+
+tecnologico
+\begin_inset Quotes frd
+\end_inset
+
+ con la app de android que permite la monitorizacion a distancia.
+ Es un wearable
+\end_layout
+
+\begin_layout Section
+Objetivos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Objetivos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los objetivos de este Trabajo Fin de Grado son:
+\end_layout
+
+\begin_layout Itemize
+Estudio bibliográfico de las señales cardíacas, así como los circuitos electróni
+cos necesarios para su acondicionamiento.
+\end_layout
+
+\begin_layout Itemize
+Diseño y fabricación de un pulsómetro con sensor infrarrojo
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Obtención del fotopletismograma
+\end_layout
+
+\begin_layout Itemize
+Procesado de la señal
+\end_layout
+
+\begin_layout Itemize
+Adquisición mediante un microcontrolador
+\end_layout
+
+\begin_layout Itemize
+Comunicación inalámbrica con un sistema monitorización
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Diseño e implementación de una aplicación móvil para monitorizar el pulso
+ de un paciente
+\end_layout
+
+\begin_layout Chapter
+Estado del Arte 
+\end_layout
+
+\begin_layout Section
+Fundamento Teórico
+\end_layout
+
+\begin_layout Subsection
+Electrocardiograma
+\end_layout
+
+\begin_layout Subsection
+Pulsimetría
+\end_layout
+
+\begin_layout Standard
+Puntos de medida del pulso
+\end_layout
+
+\begin_layout Standard
+Formula para determinar la frecuencia cardíaca en funcion de la edad
+\end_layout
+
+\begin_layout Subsection
+Fotopletismografía
+\end_layout
+
+\begin_layout Standard
+Fases del ciclo cardiaco
+\end_layout
+
+\begin_layout Section
+Dispositivos comerciales
+\end_layout
+
+\begin_layout Standard
+::::Buscar catálogo de siemens
+\end_layout
+
+\begin_layout Standard
+::::Buscar descripción del galaxy gear fit
+\end_layout
+
+\begin_layout Standard
+:::: Wearable
+\end_layout
+
+\begin_layout Chapter
+Diseño y desarrollo del sistema
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/rafael/src/stable/TFG-heart-rate-monitor/img/diagrama-sistema.svg
+	lyxscale 5
+	width 100text%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-conceptual-del"
+
+\end_inset
+
+Diagrama conceptual del sistema
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sistema de pulsimetría desarrollado se compone de los elementos que se
+ muestran en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-conceptual-del"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El módulo de
+\end_layout
+
+\begin_layout Section
+Hardware
+\end_layout
+
+\begin_layout Standard
+El hardware diseño del pulsómetro está compuesto por tres etapas:
+\end_layout
+
+\begin_layout Standard
+Etapa de adquisición
+\end_layout
+
+\begin_layout Standard
+Etapa de filtrado
+\end_layout
+
+\begin_layout Standard
+Etapa de discretización
+\end_layout
+
+\begin_layout Subsection
+Adquisición
+\end_layout
+
+\begin_layout Subsection
+Filtrado
+\end_layout
+
+\begin_layout Standard
+(Ver papel)
+\end_layout
+
+\begin_layout Standard
+Mencionar SpiceGUI :p
+\end_layout
+
+\begin_layout Subsection
+Discretizado
+\end_layout
+
+\begin_layout Standard
+microcontrolador
+\end_layout
+
+\begin_layout Standard
+unidad de potencia
+\end_layout
+
+\begin_layout Section
+Firmware
+\end_layout
+
+\begin_layout Section
+Software
+\end_layout
+
+\begin_layout Chapter
+Resultados
+\end_layout
+
+\begin_layout Chapter
+Conclusiones y trabajos futuros
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\begin_layout Section
+Trabajos Futuros
+\end_layout
+
+\begin_layout Standard
+Implementarlo como wearable.
+ miniaturización.
+\end_layout
+
+\end_body
+\end_document
