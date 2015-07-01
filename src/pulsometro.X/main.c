@@ -51,17 +51,10 @@
 
 void main(void)
 {
-    /* Configure the oscillator for the device */
-    ConfigureOscillator();
-
-    /* Initialize I/O and Peripherals for application */
     InitApp();
     
-    //The main while loop (loops forever)
-    while(1)
-    {
-        if(send_value == true)
-        {
+    while(1) {
+        if(send_value == true) {
             send_value = false;
             /* Computation formula:
              *
@@ -71,16 +64,12 @@ void main(void)
              */
             char byte_period = (char) round(60 / (period * 1.6e-6));
             period = 0;
-            if(byte_period >= 40 && byte_period <= 200)
-            {
+            if(byte_period >= 40 && byte_period <= 200) {
                 WriteUSART(byte_period);
-            } else
-            {
+            } else {
                 WriteUSART(0);
             }
         }
-        LATAbits.LA1 = led_on;
-        LATAbits.LA2 = led1_on;
     }
     
 }

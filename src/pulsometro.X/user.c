@@ -45,23 +45,7 @@
 
 void InitApp(void)
 {
-    /* TODO Initialize User Ports/Peripherals/Project here */
- 
-    //TRISA register sets whether pins on Port A are inputs or outputs
-    //We're using an output on Pin 3, which is "RA1" (see datasheet)
-    //1=input, 0=output
-    TRISAbits.RA1 = 0;
-    TRISAbits.RA2 = 0;
-    
     TRISCbits.RC2 = 1; // Pin 13, CCP1
- 
-    //LATA register sets whether voltage on output pin is 5V or 0V
-    //0=low voltage(0V), 1=high voltage (5V)
-    LATAbits.LA1 = 0;
-    LATAbits.LA2 = 0;
-    /* Setup analog functionality and port direction */
-
-    /* Initialize peripherals */
     
     /* UART initialization 
      * 
@@ -72,21 +56,17 @@ void InitApp(void)
      * See TABLE 20-3 of datasheet
      */
     const unsigned SPBRG = 10;
-    OpenUSART( USART_TX_INT_OFF  &
-               USART_RX_INT_OFF  &
-               USART_ASYNCH_MODE &
-               USART_EIGHT_BIT   &
-               USART_BRGH_HIGH,
+    OpenUSART( USART_TX_INT_OFF  & // Desactiva interrupción TX
+               USART_RX_INT_OFF  & // Desactiva interrupción RX
+               USART_ASYNCH_MODE & // Modo asíncrono
+               USART_EIGHT_BIT   & // Sin bit de paridad
+               USART_BRGH_HIGH,    // Transmisión de alta velocidad
                SPBRG              );
 
-    /* Configure the IPEN bit (1=on) in RCON to turn on/off int priorities */
-
-    /* Enable interrupts */
-    
     /* Timer 0 
      * T_t0overflow = 4 * Tosc * 256 * TOPS
      */
-    TMR0L = 161; // Desfase para que cuente de segundo en segundo
+    TMR0L = 0;
     T0CONbits.T0PS0 = 1;
     T0CONbits.T0PS1 = 1;
     T0CONbits.T0PS2 = 1; //TOPS2:TOPS0 -> 1/2 a 1/256
@@ -95,7 +75,6 @@ void InitApp(void)
     T0CONbits.TMR0ON = 1;
     T0CONbits.T08BIT = 1;
     INTCONbits.TMR0IE = 1;
-
 
     /* Timer 1 */
     TMR1 = 0;

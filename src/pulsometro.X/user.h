@@ -22,6 +22,8 @@
 /* TODO Application specific user parameters used in user.c may go here */
 
 #define _XTAL_FREQ 20000000
+#define SYS_FREQ   20000000L
+#define FCY        SYS_FREQ/4
 
 /******************************************************************************/
 /* User Function Prototypes                                                   */
@@ -33,8 +35,6 @@ volatile unsigned int conteo_timer0;
 volatile unsigned int timer1_ov_count;
 volatile unsigned long int period;
 volatile unsigned long int period_tmp;
-volatile int led_on = 1;
-volatile int led1_on = 1;
 volatile bool send_value = false;
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
