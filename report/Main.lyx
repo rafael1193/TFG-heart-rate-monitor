@@ -4,10 +4,27 @@
 \begin_header
 \textclass scrbook
 \begin_preamble
-\usepackage[spanish]{babel}
+\usepackage[style=numeric,backend=biber]{biblatex}
+
+\addbibresource{/home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/report/bibliography.bib}
+\renewcommand\listingname{Listado}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
+\begin_local_layout
+Format 49
+Float
+    Type                  listing
+    GuiName               Code Listing
+    Placement             tbp
+    Extension             lol
+    NumberWithin          chapter
+    Style                 ruled
+    ListName              "List of Listings"
+    IsPredefined false
+    UsesFloatPkg true
+End
+\end_local_layout
 \language spanish
 \language_package babel
 \inputencoding utf8
@@ -25,11 +42,21 @@
 \graphics default
 \default_output_format default
 \output_sync 0
-\bibtex_command default
+\bibtex_command biber
 \index_command default
+\float_placement h
 \paperfontsize 12
 \spacing onehalf
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry true
 \use_package amsmath 1
@@ -97,8 +124,25 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset nomencl_print
+LatexCommand printnomenclature
+set_width "auto"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Introducción, motivación y objetivos
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Introducción,-motivación-y"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -207,35 +251,39 @@ name "sec:Motivación"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Todos tienen la misma precisión pero otras caracterisitcas distintas
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Medir contando pulsos ->cutre, lento, factor humano (que tampoco es tan
  determianante)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 :::Buscar articulo comparando metodos de pulsimetria
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Medir con electrocardigrama costoso y aparatoso por los electrodos: que
  hay que colocar adecuacadmente (con su pasta conductora), valen caros;se
  tarda mas tiempo
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Medir con pulsómetro, guay porque no es invasivo (no hay que colocar los
  electrodos) necesita menos tiempo que medir contando manualmente, mas barato
  por el aparato y por no tener que usar electrodos
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 ::::(Mirar precio electrodos)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Se pretende dar un enfoque mas 
 \begin_inset Quotes fld
 \end_inset
@@ -246,6 +294,11 @@ tecnologico
 
  con la app de android que permite la monitorizacion a distancia.
  Es un wearable
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -301,7 +354,8 @@ Estado del Arte
 
 \begin_layout Section
 Fundamento Teórico
-\end_layout
+\begin_inset Note Note
+status open
 
 \begin_layout Subsection
 Electrocardiograma
@@ -311,11 +365,11 @@ Electrocardiograma
 Pulsimetría
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Puntos de medida del pulso
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Formula para determinar la frecuencia cardíaca en funcion de la edad
 \end_layout
 
@@ -323,8 +377,13 @@ Formula para determinar la frecuencia cardíaca en funcion de la edad
 Fotopletismografía
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Fases del ciclo cardiaco
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -332,23 +391,46 @@ Dispositivos comerciales
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 ::::Buscar catálogo de siemens
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 ::::Buscar descripción del galaxy gear fit
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 :::: Wearable
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
 Diseño y desarrollo del sistema
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Diseño-y-desarrollo"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Introducción
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introducción-1"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -426,22 +508,26 @@ Hay que poner flechas desde unidad de energia hacia adquisición y filtrado
 \begin_layout Standard
 Todos los documentos, esquemas y código fuente creados para el desarrollo
  de este Trabajo Fin de Grado se pueden encontrar bajo licencias libres
- en el repositorio del proyecto.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Referencia al repo
-\end_layout
+ en el repositorio del proyecto
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bailon-ruiz_rafael1193/tfg-heart-rate-monitor_????"
 
 \end_inset
 
-
+.
+ 
 \end_layout
 
 \begin_layout Section
 Hardware
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Hardware"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -512,7 +598,59 @@ Circuito del pulsómetro
 \end_layout
 
 \begin_layout Subsection
-Unidad de energía
+Alimentación
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Alimentación"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-alimentacion.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuito-de-alimentación"
+
+\end_inset
+
+Circuito de alimentación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -521,8 +659,14 @@ El pulsómetro está diseñado para operar a una tensión regulada,
 \end_inset
 
 , de 3,3V, alimentandose a partir de un sistema de baterías.
- La regulación la realiza el componente MCP1700 que permite alimentar hasta
- 250
+ La regulación la realiza el componente MCP1700
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_mcp1700_2013"
+
+\end_inset
+
+ que permite alimentar hasta 250
 \begin_inset space ~
 \end_inset
 
@@ -584,12 +728,9 @@ datasheet
 \end_inset
 
  en la Figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-XXXXXX
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-de-alimentación"
 
 \end_inset
 
@@ -597,12 +738,21 @@ XXXXXX
 \end_layout
 
 \begin_layout Standard
-Finalmente se incluye un LED, polarizado adecuadamente, como indicador de
+Finalmente, se incluye un LED polarizado adecuadamente como indicador de
  encendido.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 El consumo del sistema en funcionamiento es 
+\end_layout
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
@@ -617,11 +767,69 @@ Calcular consumo con el polimetro.
 
 \begin_layout Subsection
 Adquisición
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Adquisición"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-La etapa de adquisición se encarga de convertir las pulsaciones de los vasos
- sanguíneos en una señal eléctrica.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-adquisicion.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuito-de-adquisición"
+
+\end_inset
+
+Circuito de adquisición
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La etapa de adquisición, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-de-adquisición"
+
+\end_inset
+
+, se encarga de convertir las pulsaciones de los vasos sanguíneos en una
+ señal eléctrica.
  Para ello se utiliza el componente TCRT1010, un sensor óptico reflectivo
  y salida con transistor.
  Este dispositivo emite luz infrarroja a 950
@@ -711,6 +919,13 @@ V.
 
 \begin_layout Subsection
 Filtrado
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Filtrado"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -726,16 +941,60 @@ mV y está superpuesta a una señal contínua.
 
 \begin_layout Subsubsection
 Filtro paso alta
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Filtro-paso-alta"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-f-pasoalta.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuito-del-filtro-p-alta"
+
+\end_inset
+
+Circuito del filtro paso alta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 El filtro paso alta, Figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insertar figura
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-del-filtro-p-alta"
 
 \end_inset
 
@@ -956,6 +1215,10 @@ Valores de los componentes del filtro paso alta
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 En la Figura 
 \begin_inset Note Note
 status open
@@ -977,20 +1240,73 @@ ngspice
  para sistemas operativos GNU/Linux.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Filtro paso baja y amplificación
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Filtro-paso-baja"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-f-pasobaja.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuito-del-filtro-p-baja"
+
+\end_inset
+
+Circuito del filtro paso baja con amplificación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 En esta etapa se limita el ancho de banda y se amplifica la señal.
- Está compuesta por un filtro paso baja RC activo de primer órden, con ganancia
- XXXXX, como se muestra en la Figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insertar figura
-\end_layout
+ Está compuesta por un filtro paso baja RC activo de primer órden, con ganancia,
+ como se muestra en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-del-filtro-p-baja"
 
 \end_inset
 
@@ -1078,16 +1394,13 @@ V, la ganancia mas adecuada se encuentra entorno a
 
  para aprovechar todo el rango disponible.
  El filtro con amplificación de la Figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insertar figura del circuito
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-del-filtro-p-baja"
 
 \end_inset
 
- está en configuración no inversora, por tanto, el factor de amplificación
+ está en configuración no inversora y por tanto el factor de amplificación
  viene determinado por la Ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1141,7 +1454,15 @@ reference "tab:Valores-filtro-paso-baja-amplificacion"
 \end_inset
 
 .
- K está ajustada para que R_5 coincida con un valor comercial.
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ está ajustada para que 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ coincida con un valor comercial.
  La tolerancia de los componentes no influye significativamente en el desempeño.
 \end_layout
 
@@ -1310,6 +1631,10 @@ Valores de los componentes del filtro paso baja con amplificación
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 En la Figura 
 \begin_inset Note Note
 status open
@@ -1324,14 +1649,16 @@ insertar figura de simulación
  baja con amplificación.
 \end_layout
 
-\begin_layout Standard
-El amplificador operacional escogido es el TLV2471
-\begin_inset Note Note
-status open
+\end_inset
 
-\begin_layout Plain Layout
-insertar referencia del datasheet del operacional
+
 \end_layout
+
+\begin_layout Standard
+El amplificador operacional escogido es el TLV2472
+\begin_inset CommandInset citation
+LatexCommand cite
+key "texas_instruments_family_2007"
 
 \end_inset
 
@@ -1345,6 +1672,53 @@ rail-to-rail
 
 \begin_layout Subsubsection
 Filtro rechaza banda
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Filtro-rechaza-banda"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-f-notch.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuito-del-filtro-notch"
+
+\end_inset
+
+Circuito del filtro rechaza banda estrecho centrado a 50Hz
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1360,38 +1734,1967 @@ Hz, 60 Hz en otros lugares del mundo, debe ser atenuada lo máximo posible.
 
 \begin_layout Standard
 El pulsómetro incluye un circuito elimina banda selectivo a 50Hz para eliminar
- este ruido, Figura XXXXX
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Insertar figura filtro
-\end_layout
+ este ruido, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-del-filtro-notch"
 
 \end_inset
 
 .
- La topología escogida
+ Se ha escogido la topología 
+\emph on
+Fliedge
+\emph default
+ por varias ventajas
+\begin_inset CommandInset citation
+LatexCommand cite
+key "carter_high-speed_2006"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Solo se requieren 4 componentes precisos, dos resistencias y dos condensadores
+ para ajustar la frecuencia central.
+\end_layout
+
+\begin_layout Itemize
+Pequeños desajustes en el emparejamiento de los componentes afecta a la
+ frecuencia central, pero no a la profundidad del rechazo.
+\end_layout
+
+\begin_layout Itemize
+La frecuencia central puede ajustarse independientemente del factor de calidad
+ del filtro.
+\end_layout
+
+\begin_layout Standard
+Estas características hacen que se pueda incluir el potenciómetro 
+\begin_inset Formula $R_{14}$
+\end_inset
+
+para ajustar la frecuencia central manteniendo buenas prestaciones.
+\end_layout
+
+\begin_layout Standard
+Los valores de los componentes se han calculado usando una herramienta online
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_notch_????"
+
+\end_inset
+
+ con los datos del Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Requisitos-del-filtro-fliedge"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dato
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Frecuencia central
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $50\,Hz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Factor de calidad (
+\emph on
+Q
+\emph default
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Serie de resistencias
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E24
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Serie de condensadores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Escala de las resistencias
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10000\,\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Requisitos-del-filtro-fliedge"
+
+\end_inset
+
+Requisitos del filtro rechaza banda con topolgía 
+\emph on
+Fliedge
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Valores-de-resistencias-fliedge"
+
+\end_inset
+
+ están los resultados del cálculo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{8}\,R_{9}\,R_{10}\,R_{11}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $47\,k\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{6}\,R_{7}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $931\,k\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{3}\,C_{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $68\,nF$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Valores-de-resistencias-fliedge"
+
+\end_inset
+
+Valores de resistencias y condensadores del filtro rechaza banda con topología
+ 
+\emph on
+Fliedge
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los amplificadores operacionales no requieren características especiales.
+ Se mantiene el TLV2472 para mantener el rango 
+\emph on
+rail-to-rail
+\emph default
+.
 \end_layout
 
 \begin_layout Subsection
 Discretizado
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Discretizado"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-comparador.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuito-comparador"
+
+\end_inset
+
+Circuito comparador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La fase de discretizado, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-comparador"
+
+\end_inset
+
+, consiste en convertir la señal del PPG 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definir PPG
+\end_layout
+
+\end_inset
+
+ en pulsos digitales.
+ La técnica escogida para ello es utilizar un comparador cuya salida salte
+ entre 
+\begin_inset Formula $V_{DD}$
+\end_inset
+
+ y 
+\begin_inset Formula $GND$
+\end_inset
+
+ en función del umbral fijado por el potenciómetro 
+\begin_inset Formula $R_{13}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los pulsos de salida de la fase de discretizado son leidos por el microcontrolad
+or a través del pin 
+\emph on
+CCP1
+\emph default
+ .
 \end_layout
 
 \begin_layout Subsection
 Microcontrolador
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Microcontrolador"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-microcontrolador.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Microcontrolador y circuito auxiliar 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El microcontrolador se encarga de tomar los pulsos, procesarlos y transmitir
+ el resultado al módulo de comunicación.
+ En este apartado se describe las conexiones eléctricas entre microcontrolador
+ y otros elementos del sistema.
+\end_layout
+
+\begin_layout Standard
+El procesador utilizado es un PIC18LF2553, en encapsulado de 28 pines, que
+ permite el funcionamiento a 3,3
+\begin_inset space ~
+\end_inset
+
+V.
+\end_layout
+
+\begin_layout Standard
+Entre los pines 9, 
+\emph on
+OSC1
+\emph default
+, y 10, 
+\emph on
+OSC2
+\emph default
+, se conecta el oscilador, de 20
+\begin_inset space ~
+\end_inset
+
+Mhz, y los condensadores necesarios, 
+\begin_inset Formula $C_{6}$
+\end_inset
+
+y 
+\begin_inset Formula $C_{7}$
+\end_inset
+
+, que según la hoja de características deben ser de 15pF
+\begin_inset CommandInset citation
+LatexCommand cite
+key "microcontrollers_28/40/44-pin_2007"
+
+\end_inset
+
+.
+ El pin 13 recibe los pulsos a través del interfaz CCP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CCP"
+description "Capture, Compare, and PWM"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Se ha incorporado un conector para la interfaz ICSP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ICSP"
+description "In-Circuit Serial Programming"
+
+\end_inset
+
+, que permite reprogramar el firmware.
+\end_layout
+
+\begin_layout Standard
+Los pines 17, 
+\emph on
+TX
+\emph default
+, y 18, 
+\emph on
+RX
+\emph default
+, conectan el microcontrolador con el módulo de comunicación mediante interfaz
+ UART
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UART"
+description "Universal Asynchronous Receiver-Transmitter"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
 Módulo de comunicación
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Módulo-de-comunicación"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/RN-42 bluetooth module.jpg
+	lyxscale 20
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Módulo-de-comunicación"
+
+\end_inset
+
+Módulo de comunicación Bluetooth RN-42
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El módulo de comunicación es un dispositivo Bluetooh modelo RN42 como el
+ de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Módulo-de-comunicación"
+
+\end_inset
+
+.
+ Recibe mediante UART las pulsaciones por minuto del paciente y las envía
+ inalámbricamente al smartphone.
+\end_layout
+
+\begin_layout Standard
+Por defecto la velocidad de transmisión a través de la interfaz serie es
+ 115200
+\begin_inset space ~
+\end_inset
+
+baudios
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roving_networks_roving_2009"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
 Firmware
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Firmware"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El firmware está compuesto por el software del microcontrolador, que se
+ encarga de medir el periodo entre pulsos y enviar este dato al módulo bluetooth.
+\end_layout
+
+\begin_layout Standard
+El codigo fuente del microcontrolador, escrito en C, se encuentra en carpeta
+ 
+\family typewriter
+\size small
+/src/pulsometro.X
+\family default
+\size default
+ del proyecto.
+ Es necesario el compilador XC8 y se ha utilizado el IDE
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "IDE"
+description "Integrated Development Environment"
+
+\end_inset
+
+ MPLAB X para su desarrollo.
+\end_layout
+
+\begin_layout Standard
+El programa se distribuirse bajo los términos de la licencia GNU GPL versión
+ 3 o posterior (el texto completo de la licencia se encuentra en el archivo
+ 
+\family typewriter
+\size small
+/src/LICENSE
+\family default
+\size default
+)
+\end_layout
+
+\begin_layout Subsection
+Configuración del oscilador
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Configuración-del-oscilador"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al utilizar un oscilador externo, hay que indicar al compilador que active
+ los bits de configuración necesarios para que lo utilice.
+ Esto se realiza mediante directivas del compilador del tipo 
+\family typewriter
+\size small
+#pragma config 
+\emph on
+configuración
+\emph default
+ = 
+\emph on
+valor
+\family default
+\size default
+\emph default
+.
+ El IDE MPLAB X permite establecer estas directivas en el proyecto mediante
+ una interfaz gráfica que se lanza haciendo click en el menu 
+\family sans
+Window \SpecialChar \menuseparator
+ PIC Memory Views \SpecialChar \menuseparator
+ Configuration Bits
+\family default
+.
+ Este método hace mas sencilla la configuración porque muestra la descripcion
+ de caa configuracion y los valores disponibles.
+ De esta manera no hay que consultar la documentación del compilador XC8.
+\end_layout
+
+\begin_layout Standard
+Las directivas modifcadas para configurar el oscilador externo a 20
+\begin_inset space ~
+\end_inset
+
+Mhz son las que aparecen en el Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Directivas-del-compilador"
+
+\end_inset
+
+, que es un extracto del archivo 
+\family typewriter
+\size small
+configuration_bits.c
+\family default
+\size default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Selección del Postscaler (Dividir por 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+#pragma config CPUDIV = OSC1_PLL2
+\end_layout
+
+\begin_layout Plain Layout
+
+// Selección del oscilador (Oscilador HS)
+\end_layout
+
+\begin_layout Plain Layout
+
+#pragma config FOSC = HS
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Directivas-del-compilador"
+
+\end_inset
+
+Directivas del compilador para configurar el oscilador a 20
+\begin_inset space ~
+\end_inset
+
+MHz
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además, para que funcionen algunas bibliotecas y macros, es necesario definir
+ la frecuencia del oscilador que se está utilizando con el código del Listado
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Macros-para-definir"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#define _XTAL_FREQ	20000000
+\end_layout
+
+\begin_layout Plain Layout
+
+#define SYS_FREQ	20000000L
+\end_layout
+
+\begin_layout Plain Layout
+
+#define FCY			SYS_FREQ/4
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Macros-para-definir"
+
+\end_inset
+
+Macros para definir la frecuencia del oscilador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Medida de las pulsaciones
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Medida-de-las"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El cálculo de las pulsaciones por minuto instantáneas se realiza midiendo
+ el periodo entre latidos.
+ El microcontrolador escogido viene con un módulo CCP integrado
+\begin_inset CommandInset citation
+LatexCommand cite
+key "microcontrollers_28/40/44-pin_2007"
+
+\end_inset
+
+, que entre otras cosas, permite medir, con ayuda del 
+\emph on
+Timer 1
+\emph default
+, el tiempo que transcurre entre pulsos que lleguen al pin CCP1.
+\end_layout
+
+\begin_layout Standard
+El sistema CCP debe estar configurado en modo 
+\emph on
+Capture
+\emph default
+.
+ En esta situación, el registro CCPR1 se carga con el valor de TMR1 cuando
+ ocurre un flanco en el pin CCP1.
+ Para medir el periodo de una señal los pasos son los siguientes
+\begin_inset CommandInset citation
+LatexCommand cite
+key "microcontrollers_picmicro_2003"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Configurar los bits de control CCP1M3:CCP1M0 para capturar los flancos de
+ subida.
+\end_layout
+
+\begin_layout Enumerate
+Configurar el 
+\emph on
+prescaler
+\emph default
+ del 
+\emph on
+Timer 1
+\emph default
+ para aumentar el tiempo máximo que puede contar.
+ Al estar midiendo una señal de muy baja frecuencia, entorno a 1
+\begin_inset space ~
+\end_inset
+
+Hz, inevitablemente el registro TMR1, de 16 bits, se desbordará.
+\end_layout
+
+\begin_layout Enumerate
+Activar las interrupciones CCP poniendo a 1 el bit CCP1IE.
+\end_layout
+
+\begin_layout Enumerate
+Cuando ocurra una interrupción CCP:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Almacenar el valor del registro CCPR1.
+\end_layout
+
+\begin_layout Enumerate
+Resetear el 
+\emph on
+Timer 1
+\emph default
+ poniendo a cero el registro TMR1.
+\end_layout
+
+\begin_layout Enumerate
+Limpiar la bandera CCP1IF.
+\end_layout
+
+\begin_layout Enumerate
+Limpiar la bandera TMR1F, por si estuviera activa.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Cuando ocurre un interrupción por desbordamiento del 
+\emph on
+Timer 1
+\emph default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Almacenar el número de veces que TMR1 se ha desbordado desde la última interrupc
+ión CCP (
+\begin_inset Formula $N_{desbordamientos}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Limpiar la bandera TMR1F.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El periodo de los latidos, en unidades de ciclo de reloj, se calcula según
+ la Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:periodo-en-ciclos"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+periodo=CCPR1+\left(65536*N_{desbordamientos}\right)\label{eq:periodo-en-ciclos}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Configuración-del-Timer-1"
+
+\end_inset
+
+, se configura el 
+\emph on
+Timer 1
+\emph default
+ en modo 16 bits y preescala de 
+\begin_inset Formula $\nicefrac{1}{8}$
+\end_inset
+
+ para conseguir los mínimos desbordamientos.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+TMR1 = 0;					// Pone a 0 el regsitro TMR1
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.RD16 = 1;			// 1: Modo 16 bits
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.T1CKPS = 0b11;	// 0b11: Preescala 1/8
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.TMR1CS = 0;		// 0: Reloj interno
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.TMR1ON = 1;		// 1: Activa el Timer1
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-del-Timer-1"
+
+\end_inset
+
+Configuración del 
+\emph on
+Timer 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Configuración-del-modo-CCP"
+
+\end_inset
+
+ se inicializa el módulo CCP para capturar los flancos de subida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+CCP1CONbits.CCP1M = 0b0101; // 0101: Captura cada flanco de subida
+\end_layout
+
+\begin_layout Plain Layout
+
+PIE1bits.CCP1IE = 1;		// 1: Activa las interrupciones CCP
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-del-modo-CCP"
+
+\end_inset
+
+Configuración del modo CCP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El manejo de las interrupciones se realiza en la función 
+\family typewriter
+\size small
+high_isr()
+\family default
+\size default
+ que se ejecuta cada vez que se activa una interrupción.
+ Discriminar cual de las interrupciones se ha lanzado corresponde al programador
+: Hay que comprobar las banderas y los bits de activación de las interrupciones
+ que se desean manejar.
+ En esta función no se deben realizar muchos cálculos ya que su ejecución
+ paraliza el flujo normal del programa e impide manejar otras interrupciones
+ que se lancen mientras se ejecuta.
+\end_layout
+
+\begin_layout Standard
+La implementación del conteo de pulsos se encuentra en el Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Obtención-del-periodo"
+
+\end_inset
+
+.
+ Solo queda por destacar de ella que se desprecian los pulsos cuyo periodo
+ no esté comprendido entre 187500 y 937500 pulsos, que corresponden respectivame
+nte a 40 y 200 pulsaciones por minuto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* Timer1
+\end_layout
+
+\begin_layout Plain Layout
+
+ * timer1_ov_count se incrementa cada vez que timer1 se desborda para
+\end_layout
+
+\begin_layout Plain Layout
+
+ * poder registrar intervalos mayores de tiempo a 65536 pulsos
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+if(T1CONbits.TMR1ON && PIR1bits.TMR1IF) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    timer1_ov_count += 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+    PIR1bits.TMR1IF = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/* CCP interrupt handler
+\end_layout
+
+\begin_layout Plain Layout
+
+ * Cuando llega un flanco de subida, se almacena en CCPR1 el valor de TMR1
+\end_layout
+
+\begin_layout Plain Layout
+
+ * y se resetea.
+ El valor de CCPR1 es el periodo de la señal.
+ Se tiene en
+\end_layout
+
+\begin_layout Plain Layout
+
+ * cuenta el desbordamiento que se hubiera producido en timer1 entre pulsos
+\end_layout
+
+\begin_layout Plain Layout
+
+ * 
+\end_layout
+
+\begin_layout Plain Layout
+
+ * TMR1 debe resetearse manualmente.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+if (PIE1bits.CCP1IE && PIR1bits.CCP1IF) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    period_tmp = CCPR1 + (65536 * timer1_ov_count);
+\end_layout
+
+\begin_layout Plain Layout
+
+    /* Almacena el valor del periodo si está entre 40 y 200 PPM */
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(period_tmp >= 0x02DC6C && period_tmp <= 0x0E4E1C) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        period = period_tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    timer1_ov_count = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    TMR1 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    PIR1bits.CCP1IF = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    PIR1bits.TMR1IF = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Obtención-del-periodo"
+
+\end_inset
+
+Obtención del periodo de los latidos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El valor que almacena la variable periodo es el periodo en unidades de ciclo
+ de reloj.
+ Para convertirlo a pulsaciones por minuto se hace según las Ecuaciones
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:periodo-en-segundos"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:periodo-en-ppm"
+
+\end_inset
+
+, donde 
+\begin_inset Formula $T(s)$
+\end_inset
+
+ es el periodo en segundos; 
+\begin_inset Formula $T(ciclos)$
+\end_inset
+
+, el periodo en ciclos; 
+\begin_inset Formula $preescala_{Timer1}$
+\end_inset
+
+, el valor del 
+\emph on
+preescaler
+\emph default
+ del 
+\emph on
+Timer 1
+\emph default
+; 
+\begin_inset Formula $T_{clk}$
+\end_inset
+
+, el periodo de un ciclo de reloj del micorcontrolador y 
+\begin_inset Formula $PPM$
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "PPM"
+description "Pulsaciones Por Minuto"
+
+\end_inset
+
+ el pulso medido en pulsaciones por minuto.
+ Este cálculo se computa en el momento en el que se va a enviar el dato
+ al módulo de comunicaciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T\left(s\right)=T\left(ciclos\right)\cdot preescala_{Timer1}\cdot4\cdot T_{clk}=T\left(ciclos\right)\cdot8\cdot4\cdot\left(0,05\cdot10^{-6}\right)\label{eq:periodo-en-segundos}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+PPM=\frac{60}{T(s)}\label{eq:periodo-en-ppm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Envío de datos al módulo de comunicaciones
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Envío-de-datos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La última fase del proceso en el microcontrolador es enviar las pulsaciones
+ por minuto al módulo de comunicaciones para que las transmita al 
+\emph on
+smartphone
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Esta transmisión se hace mediante la interfaz UART y para configrarla se
+ ha utilizado la biblioteca 
+\family typewriter
+\size small
+uart.h
+\family default
+\size default
+ que incluye el compilador XC8.
+\end_layout
+
+\begin_layout Standard
+Para inicializar la comunicación se llama a la función 
+\family typewriter
+\size small
+OpenUSART
+\family default
+\size default
+ con las banderas que se quieren activar como se hace en el Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Configuración-de-UART"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+const unsigned SPBRG = 10;
+\end_layout
+
+\begin_layout Plain Layout
+
+OpenUSART( USART_TX_INT_OFF  & // Desactiva interrupción TX
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_RX_INT_OFF  & // Desactiva interrupción RX
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_ASYNCH_MODE & // Modo asíncrono
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_EIGHT_BIT   & // Sin bit de paridad
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_BRGH_HIGH,    // Transmisión de alta velocidad
+\end_layout
+
+\begin_layout Plain Layout
+
+           SPBRG              );
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-de-UART"
+
+\end_inset
+
+Configuración de la interfaz UART
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El registro SPBRG permite configurar la velocidad de transmisión (
+\emph on
+baud rate
+\emph default
+).
+ En función de las banderas de configuración activadas, su valor genera
+ velocidades distintas.
+ Según la hoja de características
+\begin_inset CommandInset citation
+LatexCommand cite
+key "microcontrollers_28/40/44-pin_2007"
+
+\end_inset
+
+ para conseguir los 115200
+\begin_inset space ~
+\end_inset
+
+baudios que requiere el módulo bluetooth el valor de SPBRG debe ser 10.
+\end_layout
+
+\begin_layout Standard
+Para enviar un byte a través de UART se llama a la función 
+\family typewriter
+\size small
+WriteUSART()
+\family default
+\size default
+ que acepta un byte como argumento.
+ El dato de pulsaciones por minuto, que siempre estará entre 40 y 200 se
+ puede codificar sin problemas con un solo byte lo que simplifica la comunicació
+n.
+\end_layout
+
+\begin_layout Standard
+El envío de información se debe hacer periodicamente.
+ Para ello se configura el 
+\emph on
+Timer 0
+\emph default
+ con el objetivo de activar una señal cada varios segundos (Listado
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Configuración-del-Timer"
+
+\end_inset
+
+).
+ El tiempo de desbordamieno de este temporizador viene determinado por la
+ Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:desbordamiento-timer0"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T_{desbordamiento}=4\cdot T_{clk}\cdot256\cdot TOPS=4\cdot\left(0,05\cdot10^{-6}\right)\cdot256\cdot256=13\,ms\label{eq:desbordamiento-timer0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+TMR0L = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0PS0 = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0PS1 = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0PS2 = 1; //TOPS2:TOPS0 -> 1/256
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.PSA = 0;   // 0: Usar prescaler
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0CS = 0;  // 0: Usar reloj interno -> Fosc/4
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.TMR0ON = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T08BIT = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+INTCONbits.TMR0IE = 1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-del-Timer"
+
+\end_inset
+
+Configuración del 
+\emph on
+Timer 0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la funcion 
+\family typewriter
+high_isr()
+\family default
+ se añade el código para detectar los desbordamientos del 
+\emph on
+Timer 0
+\emph default
+ (Listado
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Manejo-del-desbordamiento"
+
+\end_inset
+
+).
+ Cada 152 desbordamientos transcurren 2 segundos aproximadamente y se activa
+ la variable 
+\family typewriter
+\size small
+send_value
+\family default
+\size default
+, que indica al código de la función principal que debe enviar el dato de
+ pulsaciones (Listado XXXXXX).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if(INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(conteo_timer0 >=152) { // 2 segundos aprox.
+\end_layout
+
+\begin_layout Plain Layout
+
+        send_value = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+        conteo_timer0 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    } else {
+\end_layout
+
+\begin_layout Plain Layout
+
+        conteo_timer0 += 1; // Incrementar contador de desborde de timer0
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    INTCONbits.TMR0IF = 0; // Limpiamos bandera de desborde  
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Manejo-del-desbordamiento"
+
+\end_inset
+
+Manejo del desbordamiento del 
+\emph on
+Timer 0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Software
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Software"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -1411,18 +3714,48 @@ Trabajos Futuros
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Implementarlo como wearable.
  miniaturización.
 \end_layout
 
-\begin_layout Chapter*
-Acrónimos
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset nomencl_print
-LatexCommand printnomenclature
-set_width "auto"
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliography"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+printbibliography
+\end_layout
 
 \end_inset
 
