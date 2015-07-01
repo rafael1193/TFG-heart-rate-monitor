@@ -3,10 +3,13 @@
 \begin_document
 \begin_header
 \textclass scrbook
+\begin_preamble
+\usepackage[spanish]{babel}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language spanish
-\language_package default
+\language_package babel
 \inputencoding utf8
 \fontencoding global
 \font_roman libertine
@@ -85,6 +88,15 @@ Rafael Bailón Ruiz
 Julio 2015
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Introducción, motivación y objetivos
 \end_layout
@@ -128,17 +140,7 @@ Valores anómalos en alguno de estos parámetros puede ser síntoma de peligro
 \end_layout
 
 \begin_layout Standard
-La 
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-frecuencia cardíaca
-\end_layout
-
-\end_inset
-
-frecuencia cardíaca es la tasa de latidos del corazón, e indica el nivel
+La frecuencia cardíaca es la tasa de latidos del corazón, e indica el nivel
  de actividad de este.
  Los latidos provocan el bombeo de la sangre a través de los vasos sanguíneos
  que recorren todo el cuerpo humano.
@@ -294,7 +296,7 @@ Diseño e implementación de una aplicación móvil para monitorizar el pulso
 \end_layout
 
 \begin_layout Chapter
-Estado del Arte 
+Estado del Arte
 \end_layout
 
 \begin_layout Section
@@ -345,15 +347,20 @@ Dispositivos comerciales
 Diseño y desarrollo del sistema
 \end_layout
 
+\begin_layout Section
+Introducción
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/rafael/src/stable/TFG-heart-rate-monitor/img/diagrama-sistema.svg
+	filename ../img/diagrama-sistema.svg
 	lyxscale 5
 	width 100text%
 	rotateOrigin center
@@ -381,6 +388,120 @@ Diagrama conceptual del sistema
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sistema de pulsimetría desarrollado se compone de los elementos que se
+ muestran en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-conceptual-del"
+
+\end_inset
+
+.
+ Las flechas indican la relación entre los componentes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hay que poner flechas desde unidad de energia hacia adquisición y filtrado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Todos los documentos, esquemas y código fuente creados para el desarrollo
+ de este Trabajo Fin de Grado se pueden encontrar bajo licencias libres
+ en el repositorio del proyecto.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Referencia al repo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Hardware
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+A continuación se describe y justifica de manera pormenorizada el diseño
+ del 
+\emph on
+hardware
+\emph default
+ del pulsómetro, cuyo circuito es el de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Circuito-del-pulsómetro"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../img/circuito.svg
+	lyxscale 25
+	rotateAngle 90
+	rotateOrigin center
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuito-del-pulsómetro"
+
+\end_inset
+
+Circuito del pulsómetro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
 
 \end_layout
@@ -390,12 +511,171 @@ Diagrama conceptual del sistema
 
 \end_layout
 
+\begin_layout Subsection
+Unidad de energía
+\end_layout
+
 \begin_layout Standard
-El sistema de pulsimetría desarrollado se compone de los elementos que se
- muestran en la Figura 
+El pulsómetro está diseñado para operar a una tensión regulada, 
+\begin_inset Formula $V_{DD}$
+\end_inset
+
+, de 3,3V, alimentandose a partir de un sistema de baterías.
+ La regulación la realiza el componente MCP1700 que permite alimentar hasta
+ 250
+\begin_inset space ~
+\end_inset
+
+mA con un consumo de 1,6
+\begin_inset space ~
+\end_inset
+
+µA (valor típico).
+ Posee proteccion integrada contra corctocircuito y sobre calientamiento,
+ y admite hasta 6
+\begin_inset space ~
+\end_inset
+
+V en el terminal de entrada.
+\end_layout
+
+\begin_layout Standard
+Se ha elegido utilizar un regulador en lugar de un conversor DC-DC, mas
+ eficiente, ya que su diseño e implementación en el sistema se escapa de
+ los objetivos de este Trabajo Fin de Grado.
+ 
+\end_layout
+
+\begin_layout Standard
+La alimentación se realiza mediante 4
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿o 3 baterías?
+\end_layout
+
+\end_inset
+
+ baterías tipo AA de 1,5
+\begin_inset space ~
+\end_inset
+
+V conectadas en serie, sumando 6
+\begin_inset space ~
+\end_inset
+
+V en total.
+ Siendo esta configuración muy habitual en dispositivos portátiles.
+ Para el funcionamiento del regulador se necesita, segun el 
+\emph on
+datasheet
+\emph default
+, dos condensadores de 1
+\begin_inset space ~
+\end_inset
+
+µF: 
+\begin_inset Formula $C_{8}$
+\end_inset
+
+ y 
+\begin_inset Formula $C_{5}$
+\end_inset
+
+ en la Figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+XXXXXX
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Finalmente se incluye un LED, polarizado adecuadamente, como indicador de
+ encendido.
+\end_layout
+
+\begin_layout Standard
+El consumo del sistema en funcionamiento es 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Calcular consumo con el polimetro.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Adquisición
+\end_layout
+
+\begin_layout Standard
+La etapa de adquisición se encarga de convertir las pulsaciones de los vasos
+ sanguíneos en una señal eléctrica.
+ Para ello se utiliza el componente TCRT1010, un sensor óptico reflectivo
+ y salida con transistor.
+ Este dispositivo emite luz infrarroja a 950
+\begin_inset space ~
+\end_inset
+
+nm, parte de ella es reflejada por los vasos sanguineos y es recibida por
+ el transistor que se activa con la luz recibida.
+ Según la hoja de características el sensor óptico tiene incorporado un
+ filtro que bloquea la luz visible.
+\end_layout
+
+\begin_layout Standard
+El diodo emisor se ha polarizado para que pase por él una corriente 
+\begin_inset Formula $I_{F}$
+\end_inset
+
+ de 10
+\begin_inset space ~
+\end_inset
+
+mA.
+ Según la Figura 3 del 
+\emph on
+datasheet
+\emph default
+, para dicha corriente la caida de tensión 
+\begin_inset Formula $V_{F}$
+\end_inset
+
+ es 1,1
+\begin_inset space ~
+\end_inset
+
+V.
+ Con esta información, la resistencia de polarización 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ viene dada por la Ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Diagrama-conceptual-del"
+reference "eq:polarización-diodo-sensor"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{1}=\frac{V_{DD}-V_{F}}{I_{F}}=220\,\Omega\label{eq:polarización-diodo-sensor}
+\end{equation}
 
 \end_inset
 
@@ -403,31 +683,30 @@ reference "fig:Diagrama-conceptual-del"
 \end_layout
 
 \begin_layout Standard
-El módulo de
-\end_layout
+En el lado del transistor, la resistencia 
+\begin_inset Formula $R_{2}$
+\end_inset
 
-\begin_layout Section
-Hardware
-\end_layout
+ lo polariza.
+ Para que el transistor esté siempre funcionando en zona activa, su tensión
+ colector--emisor, 
+\begin_inset Formula $V_{CE}$
+\end_inset
 
-\begin_layout Standard
-El hardware diseño del pulsómetro está compuesto por tres etapas:
-\end_layout
+, debe ser mayor que 0,3
+\begin_inset space ~
+\end_inset
 
-\begin_layout Standard
-Etapa de adquisición
-\end_layout
+V.
+ Fijando el valor de 
+\begin_inset Formula $R_{2}$
+\end_inset
 
-\begin_layout Standard
-Etapa de filtrado
-\end_layout
+ a 
+\begin_inset Formula $10\,k\Omega$
+\end_inset
 
-\begin_layout Standard
-Etapa de discretización
-\end_layout
-
-\begin_layout Subsection
-Adquisición
+ se cumple este criterio.
 \end_layout
 
 \begin_layout Subsection
@@ -435,23 +714,676 @@ Filtrado
 \end_layout
 
 \begin_layout Standard
-(Ver papel)
+La señal eléctrica obtenida en la fase de adquisición es muy débil: su amplitud
+ es del orden de 10
+\begin_inset space ~
+\end_inset
+
+mV y está superpuesta a una señal contínua.
+ En esta fase del procesado, se adecúa la onda para poder identificar los
+ pulsos en la fase posterior.
+\end_layout
+
+\begin_layout Subsubsection
+Filtro paso alta
 \end_layout
 
 \begin_layout Standard
-Mencionar SpiceGUI :p
+El filtro paso alta, Figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insertar figura
+\end_layout
+
+\end_inset
+
+ elimina la componente continua de la señal debida a la polarización del
+ transistor y otras componentes no deseadas.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(la reflexión de los tejidos, el flujo capilar y el flujo venoso)
+\end_layout
+
+\end_inset
+
+Con uno de tipo pasivo, de primer orden, y frecuencia de corte 
+\begin_inset Formula $f_{PA}$
+\end_inset
+
+ a 0,41
+\begin_inset space ~
+\end_inset
+
+Hz es suficiente para alzancanzar los requerimientos exigidos.
+ La función de transferencia del filtro es la descrita en la Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:f-transferencia-paso-alta"
+
+\end_inset
+
+, donde 
+\begin_inset Formula $\omega_{0}=\nicefrac{1}{2\pi f_{_{PA}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T_{PA}(j\omega)=\frac{K}{1-j\left(\frac{\omega_{PA}}{\omega}\right)}\label{eq:f-transferencia-paso-alta}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+referencia a sedra y smith
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al ser un filtro RC, los valores de los componentes, Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Valores-filtro-paso-alta"
+
+\end_inset
+
+, se pueden calcular mediante la Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:corte-paso-alta"
+
+\end_inset
+
+.
+ Se fija en primer lugar la capacidad del condensador, ya que hay menos
+ valores disponibles y se despeja 
+\begin_inset Formula $R$
+\end_inset
+
+ de la Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:corte-paso-alta"
+
+\end_inset
+
+.
+ La constante 
+\begin_inset Formula $K$
+\end_inset
+
+, de ganancia, es 1 ya que se trata de un filtro pasivo.
+ La tolerancia de los componentes no influye significativamente en el desempeño.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f_{PA}=\frac{1}{2\pi\omega_{PA}}=\frac{1}{2\pi RC}\label{eq:corte-paso-alta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="decimal" decimal_point="." valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $470\,nF$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $820\,k\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Valores-filtro-paso-alta"
+
+\end_inset
+
+Valores de los componentes del filtro paso alta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insertar figura de simulación
+\end_layout
+
+\end_inset
+
+ se muestra la simulación del filtro realizada con el programa 
+\emph on
+SpiceGUI
+\emph default
+, una interfaz gráfica del simulador 
+\emph on
+ngspice
+\emph default
+ para sistemas operativos GNU/Linux.
+\end_layout
+
+\begin_layout Subsubsection
+Filtro paso baja y amplificación
+\end_layout
+
+\begin_layout Standard
+En esta etapa se limita el ancho de banda y se amplifica la señal.
+ Está compuesta por un filtro paso baja RC activo de primer órden, con ganancia
+ XXXXX, como se muestra en la Figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insertar figura
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La frecuencia de corte 
+\begin_inset Formula $f_{PB}$
+\end_inset
+
+ escogida es 41
+\begin_inset space ~
+\end_inset
+
+Hz, suficiente tratandose de un sistema para monitorización y no diagnóstico.
+ Se elimina el ruido significativamente a cambio de perden componentes de
+ frecuencias superiores a la de corte.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T_{PB}(j\omega)=\frac{K}{1+j\left(\frac{\omega}{\omega_{PB}}\right)}\label{eq:f-transferencia-paso-baja}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+referencia a Sedra y Smith
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de la función de transferencia del filtro paso baja de primer órden,
+ Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:f-transferencia-paso-baja"
+
+\end_inset
+
+, y sabiendo que es de tipo RC, se obtiene la expresión que relaciona la
+ frecuencia de corte con los valores de R y C, Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:corte-paso-baja"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f_{PB}=\frac{1}{2\pi\omega_{PB}}=\frac{1}{2\pi RC}\label{eq:corte-paso-baja}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como la señal de de entrada tiene amplitud del orden de 10
+\begin_inset space ~
+\end_inset
+
+mV y la tensión de alimentación es 3,3
+\begin_inset space ~
+\end_inset
+
+V, la ganancia mas adecuada se encuentra entorno a 
+\begin_inset Formula $K=200$
+\end_inset
+
+ para aprovechar todo el rango disponible.
+ El filtro con amplificación de la Figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insertar figura del circuito
+\end_layout
+
+\end_inset
+
+ está en configuración no inversora, por tanto, el factor de amplificación
+ viene determinado por la Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ganancia-paso-baja"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K=1+\frac{R_{4}}{R_{5}}\label{eq:ganancia-paso-baja}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fijando 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $K$
+\end_inset
+
+, se obtienen los valores del resto de componentes mediante las Ecuaciones
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:corte-paso-baja"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ganancia-paso-baja"
+
+\end_inset
+
+, Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Valores-filtro-paso-baja-amplificacion"
+
+\end_inset
+
+.
+ K está ajustada para que R_5 coincida con un valor comercial.
+ La tolerancia de los componentes no influye significativamente en el desempeño.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="decimal" decimal_point="." valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4,7\,nF$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $820\,k\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $174$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4,7\,k\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Valores-filtro-paso-baja-amplificacion"
+
+\end_inset
+
+Valores de los componentes del filtro paso baja con amplificación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insertar figura de simulación
+\end_layout
+
+\end_inset
+
+ se muestra la simulación de la función de transferencia del filtro paso
+ baja con amplificación.
+\end_layout
+
+\begin_layout Standard
+El amplificador operacional escogido es el TLV2471
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insertar referencia del datasheet del operacional
+\end_layout
+
+\end_inset
+
+ por permitir usar alimentación asimétrica y ser 
+\emph on
+rail-to-rail
+\emph default
+, importante al trabajar con baterías y con rangos de voltaje limitados
+ como es el caso.
+\end_layout
+
+\begin_layout Subsubsection
+Filtro rechaza banda
+\end_layout
+
+\begin_layout Standard
+Cualquier dispositivo electrónico que procese señales de baja frecuencia,
+ como ocurre con el pulsómetro, se ve sometido de manera significativa al
+ ruido electromagnético con produce la red eléctrica.
+ Esta interferencia de frecuencia 50
+\begin_inset space ~
+\end_inset
+
+Hz, 60 Hz en otros lugares del mundo, debe ser atenuada lo máximo posible.
+\end_layout
+
+\begin_layout Standard
+El pulsómetro incluye un circuito elimina banda selectivo a 50Hz para eliminar
+ este ruido, Figura XXXXX
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Insertar figura filtro
+\end_layout
+
+\end_inset
+
+.
+ La topología escogida
 \end_layout
 
 \begin_layout Subsection
 Discretizado
 \end_layout
 
-\begin_layout Standard
-microcontrolador
+\begin_layout Subsection
+Microcontrolador
 \end_layout
 
-\begin_layout Standard
-unidad de potencia
+\begin_layout Subsection
+Módulo de comunicación
 \end_layout
 
 \begin_layout Section
@@ -481,6 +1413,20 @@ Trabajos Futuros
 \begin_layout Standard
 Implementarlo como wearable.
  miniaturización.
+\end_layout
+
+\begin_layout Chapter*
+Acrónimos
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset nomencl_print
+LatexCommand printnomenclature
+set_width "auto"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
