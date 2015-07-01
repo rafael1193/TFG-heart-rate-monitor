@@ -190,31 +190,12 @@ In this library the device names are the same as the pin names of the symbols, t
 <text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="+3V3" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
-<symbol name="+5V">
-<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="+3V3" prefix="+3V3">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="+3V3" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="+5V" prefix="P+">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="+5V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -15924,7 +15905,6 @@ Spark Fun Electronics SKU : COM-00107</description>
 <part name="R13" library="rcl" deviceset="POTENTIOMETER_" device="PT-10" value="100k"/>
 <part name="R14" library="rcl" deviceset="POTENTIOMETER_" device="PT-10" value="10k"/>
 <part name="SUPPLY7" library="supply2" deviceset="GND" device=""/>
-<part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="SUPPLY8" library="supply2" deviceset="GND" device=""/>
 <part name="IC3" library="microchip" deviceset="PIC18F2*_28" device="DIP" technology="550"/>
 <part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="10k"/>
@@ -15944,6 +15924,7 @@ Spark Fun Electronics SKU : COM-00107</description>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="U1" library="SparkFun-PowerIC" deviceset="V_REG_78XX" device="TO-92_UNTESTED"/>
 <part name="C8" library="rcl" deviceset="CPOL-EU" device="E2.5-5" value="1u"/>
+<part name="P+5" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15982,7 +15963,6 @@ Spark Fun Electronics SKU : COM-00107</description>
 <instance part="R14" gate="1" x="162.56" y="10.16" rot="R90"/>
 <instance part="IC2" gate="P" x="45.72" y="76.2"/>
 <instance part="SUPPLY7" gate="GND" x="111.76" y="-2.54"/>
-<instance part="P+5" gate="1" x="203.2" y="10.16"/>
 <instance part="SUPPLY8" gate="GND" x="203.2" y="-5.08"/>
 <instance part="IC3" gate="G$1" x="167.64" y="71.12"/>
 <instance part="R15" gate="G$1" x="121.92" y="93.98" rot="R90"/>
@@ -16002,6 +15982,7 @@ Spark Fun Electronics SKU : COM-00107</description>
 <instance part="JP1" gate="G$1" x="76.2" y="99.06"/>
 <instance part="U1" gate="G$1" x="20.32" y="86.36"/>
 <instance part="C8" gate="G$1" x="7.62" y="76.2"/>
+<instance part="P+5" gate="G$1" x="203.2" y="10.16"/>
 </instances>
 <busses>
 </busses>
@@ -16010,10 +15991,6 @@ Spark Fun Electronics SKU : COM-00107</description>
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="P+1" gate="G$1" pin="+3V3"/>
-</segment>
-<segment>
-<pinref part="R13" gate="1" pin="1"/>
-<pinref part="P+5" gate="1" pin="+5V"/>
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="VDD"/>
@@ -16053,6 +16030,10 @@ Spark Fun Electronics SKU : COM-00107</description>
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="P+4" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="R13" gate="1" pin="1"/>
+<pinref part="P+5" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="N$3" class="0">
