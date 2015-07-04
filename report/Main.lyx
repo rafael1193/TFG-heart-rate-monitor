@@ -8,6 +8,7 @@
 
 \addbibresource{/home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/report/bibliography.bib}
 \renewcommand\listingname{Listado}
+\addto\captionsspanish{\renewcommand{\lstlistlistingname}{Índice de Listados}}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -92,8 +93,8 @@ End
 \paragraph_indentation default
 \quotes_language french
 \papercolumns 1
-\papersides 1
-\paperpagestyle default
+\papersides 2
+\paperpagestyle headings
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -115,9 +116,60 @@ Rafael Bailón Ruiz
 Julio 2015
 \end_layout
 
+\begin_layout Dedication
+Quiero agradecer a mis tutores de este Trabajo Fin de Grado la ayuda en
+ su realización.
+ Asimismo, expreso mi gratitud a los profesores del Grado en Ingeniería
+ Electrónica Industrial por el conocimiento que me han transmitido.
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+A mis padres, mi hermano y mis amigos, que me apoyan en la aventura de ser
+ ingeniero.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename anexos.pdf
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList listing
 
 \end_inset
 
@@ -179,39 +231,53 @@ Frecuencia respiratoria
 \end_layout
 
 \begin_layout Standard
-Valores anómalos en alguno de estos parámetros puede ser síntoma de peligro
- en la vida de un individuo.
-\end_layout
-
-\begin_layout Standard
 La frecuencia cardíaca es la tasa de latidos del corazón, e indica el nivel
  de actividad de este.
  Los latidos provocan el bombeo de la sangre a través de los vasos sanguíneos
  que recorren todo el cuerpo humano.
  Como consecuencia del paso de la sangre, se produce una expansión periódica
  de los vasos llamada pulso.
- Para una persona sana en reposo la frecuencia cardíaca se encuentra entre
- 60 y 100 pulsaciones por minuto.
 \end_layout
 
 \begin_layout Standard
-La adquisición de la frecuencia cardíaca se puede realizar mediante tres
- métodos:
-\end_layout
+La adquisición de la tasa de latidos es un procedimiento básico en el diagnóstic
+o de un paciente y la pulsimetría es uno de los métodos utilizadas para
+ ello.
+ Esta técnica se basa en el procesamiento de un Fotopletismograma (PPG
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "PPG"
+description "Photoplethysmogram, fotopletismograma"
 
-\begin_layout Itemize
-Contando pulsos
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-Electrocardiograma
-\end_layout
-
-\begin_layout Itemize
-Pletismograma
+), una representación de la variación volumétrica de las arterias obtenida
+ con un sensor óptico.
+ 
 \end_layout
 
 \begin_layout Standard
+La pulsimétria es un método basado en fotopletismograma para monitorizar
+ el pulso cardíaco.
+ Usa las variaciones pulsátiles en la absorbancia óptica de los tejidos
+ y la sangre bajo luz infrarroja.
+\end_layout
+
+\begin_layout Standard
+Este Trabajo Fin de Grado presenta el diseño de un dispositivo pulsimétrico
+ con comunicación con 
+\emph on
+smartphone
+\emph default
+ para realizar la monitorización remota de la frecuencia cardíaca de un
+ paciente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 El método clásico de medida consiste en contar el número de pulsos cardíacos
  que ocurren en un periodo de un minuto.
  Los pulsos se pueden tomar con un esfigmomanómetro y directamente usando
@@ -219,7 +285,7 @@ El método clásico de medida consiste en contar el número de pulsos cardíacos
  de la piel; por ejemplo, cuello o muñeca.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 El electrocardiograma es la medida de la actividad eléctrica que se produce
  en los músculos del corazón durante el ciclo cardíaco.
  Esta prueba se realiza colocando electrodos sobre el cuerpo y adquiriendo
@@ -228,15 +294,20 @@ El electrocardiograma es la medida de la actividad eléctrica que se produce
  con la frecuencia cardíaca.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 El pletismograma es el resultado de convertir la variación en el volumen
  de un órgano o una parte del cuerpo humano en una señal eléctrica.
  Cuando se usa un sensor óptico, se llama fotopletismograma.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 El dispositivo para obtener la tasa cardíaca a partir de un fotopletismograma
  es el pulsómetro, el objeto del presente Trabajo Fin de Grado.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -251,54 +322,85 @@ name "sec:Motivación"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Todos tienen la misma precisión pero otras caracterisitcas distintas
-\end_layout
-
-\begin_layout Plain Layout
-Medir contando pulsos ->cutre, lento, factor humano (que tampoco es tan
- determianante)
-\end_layout
-
-\begin_layout Plain Layout
-:::Buscar articulo comparando metodos de pulsimetria
-\end_layout
-
-\begin_layout Plain Layout
-Medir con electrocardigrama costoso y aparatoso por los electrodos: que
- hay que colocar adecuacadmente (con su pasta conductora), valen caros;se
- tarda mas tiempo
-\end_layout
-
-\begin_layout Plain Layout
-Medir con pulsómetro, guay porque no es invasivo (no hay que colocar los
- electrodos) necesita menos tiempo que medir contando manualmente, mas barato
- por el aparato y por no tener que usar electrodos
-\end_layout
-
-\begin_layout Plain Layout
-::::(Mirar precio electrodos)
-\end_layout
-
-\begin_layout Plain Layout
-Se pretende dar un enfoque mas 
-\begin_inset Quotes fld
-\end_inset
-
-tecnologico
-\begin_inset Quotes frd
-\end_inset
-
- con la app de android que permite la monitorizacion a distancia.
- Es un wearable
-\end_layout
+La población en los países desarrollados es cada vez más anciana y cada
+ vez son necesarios más medios su cuidado.
+ Gracias a los avances sanitarios, muchas enfermedades ya no suponen el
+ fallecimiento inmediato sino que se han convertido en crónicas.
+ Los pacientes pueden mantener una gran calidad de vida si están tratados
+ adecuadamente y se mantiene una revisión periódica de su estado de salud.
+ No obstante los recursos son limitados y con los métodos tradicionales
+ de trato con los pacientes son insuficientes para cubrir sus expectativas.
+ El 
+\emph on
+telecuidado
+\emph default
+ se pantea como un posible solución al incremento de necesidades sanitarias
+ de los ciudadanos
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gonzalez-landaeta_heart_2008"
 
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Standard
+Otro factor que hace necesario el telecuidado es el incremento en el numero
+ de incidentes inesperadas, infarto y muerte súbita, que causan el fallecimiento
+ en el hogar o en zonas alejadas de las instalaciones médicas
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ramlee_low_2014"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los sistemas de 
+\emph on
+cuidado en casa
+\emph default
+ actuales requieren conectar electrodos u otros sensores al cuerpo, lo que
+ puede resultar incómodo al paciente, que ve su libertad de movimiento limitada
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ramlee_low_2014"
+
+\end_inset
+
+.
+ Gracias a las comunicaciones inalámbricas, ZigBee, Bluetooth, WiFi, y a
+ internet la 
+\emph on
+telemedicina
+\emph default
+ es ahora posible.
+\end_layout
+
+\begin_layout Standard
+Estas nuevas situaciones hacen necesario idear sistemas revolucionarios
+ que permitan conectar de manera más fácil y eficiente a los pacientes con
+ los profesionales sanitarios.
+ Los 
+\emph on
+smartphones
+\emph default
+, teléfonos inteligentes, y 
+\emph on
+wearable devices
+\emph default
+, dispositivos vestibles, tienen en la actualidad la potencia y la conectividad
+ suficiente para la piedra angular de la medicina del futuro
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lamonaca_health_2015"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -317,12 +419,12 @@ Los objetivos de este Trabajo Fin de Grado son:
 \end_layout
 
 \begin_layout Itemize
-Estudio bibliográfico de las señales cardíacas, así como los circuitos electróni
-cos necesarios para su acondicionamiento.
+Estudio bibliográfico de las señales cardíacas y de dispositivos existentes
+ para su medida.
 \end_layout
 
 \begin_layout Itemize
-Diseño y fabricación de un pulsómetro con sensor infrarrojo
+Diseño y fabricación de un pulsómetro con sensor infrarrojo.
 \end_layout
 
 \begin_deeper
@@ -344,8 +446,8 @@ Comunicación inalámbrica con un sistema monitorización
 
 \end_deeper
 \begin_layout Itemize
-Diseño e implementación de una aplicación móvil para monitorizar el pulso
- de un paciente
+Diseño e implementación de una aplicación móvil para la monitorización remota
+ el pulso cardíaco de un paciente.
 \end_layout
 
 \begin_layout Chapter
@@ -354,31 +456,47 @@ Estado del Arte
 
 \begin_layout Section
 Fundamento Teórico
-\begin_inset Note Note
+\end_layout
+
+\begin_layout Standard
+El corazón es el órgano principal del aparato circulatorio.
+ Es un músculo hueco situado en la cavidad torácica que funciona como una
+ bomba impulsando la sangre a todo el cuerpo
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_corazon_2015"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
-\begin_layout Subsection
-Electrocardiograma
-\end_layout
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/corazon.svg
+	lyxscale 10
+	width 50text%
 
-\begin_layout Subsection
-Pulsimetría
-\end_layout
+\end_inset
+
+
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Puntos de medida del pulso
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-del-corazón"
 
-\begin_layout Plain Layout
-Formula para determinar la frecuencia cardíaca en funcion de la edad
-\end_layout
+\end_inset
 
-\begin_layout Subsection
-Fotopletismografía
-\end_layout
-
-\begin_layout Plain Layout
-Fases del ciclo cardiaco
+Diagrama del corazón
 \end_layout
 
 \end_inset
@@ -386,8 +504,942 @@ Fases del ciclo cardiaco
 
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este músculo está dividido en cuatro cámaras, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-del-corazón"
+
+\end_inset
+
+: dos aurículas, derecha e izquierda y dos ventrículos, derecho e izquierdo.
+\end_layout
+
+\begin_layout Subsection
+Ciclo cardíaco
+\end_layout
+
+\begin_layout Standard
+El ciclo cardíaco es la secuencia de eventos eléctricos, mecánicos, sonoros
+ y de presión, relacionados con el flujo de sangre a través de las cavidades
+ cardiacas, la contracción y relajación de cada una de ellas (aurículas
+ y ventrículos), el cierre y apertura de las válvulas y la producción de
+ ruidos a ellas asociados
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_ciclo_2015"
+
+\end_inset
+
+.
+ Latido es el nombre que recibe cada repetición del ciclo cardíaco.
+\end_layout
+
+\begin_layout Standard
+En cada latido se distinguen cinco fases:
+\end_layout
+
+\begin_layout Enumerate
+Sístole auricular
+\end_layout
+
+\begin_layout Enumerate
+Contracción ventricular isovolumétrica
+\end_layout
+
+\begin_layout Enumerate
+Eyección
+\end_layout
+
+\begin_layout Enumerate
+Relajación ventricular isovolumétrica
+\end_layout
+
+\begin_layout Enumerate
+Llenado auricular pasivo
+\end_layout
+
+\begin_layout Standard
+Las tres primeras fases son llamadas la sístole (contracción) y las dos
+ últimas, diástole (relajación).
+ La duración de la sístole es un tercio del ciclo cardíaco y la de la diástole,
+ dos terceras partes del periodo.
+\end_layout
+
+\begin_layout Description
+Sístole
+\begin_inset space \space{}
+\end_inset
+
+auricular Las aurículas se contraen y toda la sangre que contienen pasan
+ a los ventrículos (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sístole-ventricular"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Description
+Contracción
+\begin_inset space \space{}
+\end_inset
+
+ventricular
+\begin_inset space \space{}
+\end_inset
+
+isovolumétrica Aumenta la presión en el interior de los ventrículos debido
+ a su contracción.
+ El cierre de las válvulas auriculoventriculares impide el retorno de la
+ sangre.
+\end_layout
+
+\begin_layout Description
+Eyección La válvula del tronco pulmonar y la válvula de la aorta se abren.
+ La sangre del ventrículo derecho se impulsa a través de la arteria pulmonar
+ hacia los pulmones para oxigenarse y la sangre del ventrículo izquierdo
+ viaja hacia el resto de cuerpo a través de la arteria aorta.
+ El volumen eyectado es de aproximadamente 70
+\begin_inset space ~
+\end_inset
+
+mL.
+\end_layout
+
+\begin_layout Description
+Relajación
+\begin_inset space \space{}
+\end_inset
+
+ventricular
+\begin_inset space \space{}
+\end_inset
+
+isovolumétrica Disminuye la presión en los ventrículos provocando el cierre
+ de las válvulas sigmoideas (arteriales) y la apertura de las válvulas auriculov
+entrales.
+\end_layout
+
+\begin_layout Description
+Llenado
+\begin_inset space \space{}
+\end_inset
+
+ventricular
+\begin_inset space \space{}
+\end_inset
+
+pasivo Durante las otras fases las aurículas han estado llenandose de sangre.
+ El aumento del la presión en estas cavidades respecto a la de los ventrículos
+ provoca que la sangre fluya hacia ellos, comenzando el siguiente ciclo
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diástole-ventricular"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/Heart_systole.svg
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sístole-ventricular"
+
+\end_inset
+
+Sístole ventricular
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mtcv_human_2008"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/Heart_diasystole.svg
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diástole-ventricular"
+
+\end_inset
+
+Diástole ventricular
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sjef_human_2008"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Movimientos cardíacos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La frecuencia cardíaca en reposo evoluciona con la edad y el estado físico
+ del sujeto, pero suele estar entre 60 y 100
+\begin_inset space ~
+\end_inset
+
+PPM.
+\end_layout
+
+\begin_layout Subsection
+Las señales cardíacas
+\end_layout
+
+\begin_layout Subsubsection
+Electrocardiograma
+\end_layout
+
+\begin_layout Standard
+El movimiento del músculo cardíaco tiene su origen en la actividad eléctrica
+ del corazón.
+ El electrocardiograma es la representación gráfica del voltaje durante
+ el ciclo cardíaco.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/ECG_Complex_es.svg
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Electrocardiograma"
+
+\end_inset
+
+Electrocardiograma
+\begin_inset CommandInset citation
+LatexCommand cite
+key "helvete_dibujo_2014"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se muestra en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Electrocardiograma"
+
+\end_inset
+
+ el electrocardiograma está compuesto por ondas y segmentos sobre la línea
+ base
+\begin_inset CommandInset citation
+LatexCommand cite
+key "garcia-porrero_anatomia_2013"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+La onda P es la señal eléctrica que corresponde a la despolarización auricular.
+ Su amplitud es inferior a 25
+\begin_inset space ~
+\end_inset
+
+mV y si duración está entre 0,07 y 0,11 segundos.
+ Tras esta onda, tiene origen el segmento PR.
+ Este segmento representa el tiempo que tarda el impulso eléctrico en viajar
+ desde la aurícula al ventrículo.
+ La espera es importante porque permite que la sangre se desplace hacia
+ la aurícula desde el ventrículo.
+\end_layout
+
+\begin_layout Standard
+El complejo QRS se produce por la superposición de las señales eléctricas
+ durante la contracción ventricular.
+ Es uno de los segmentos mas característicos para la detección de la frecuencia
+ cardíaca y su amplitud es mayor porque el área muscular del ventrículo
+ es mucho mas poderosa, para poder bombear la sangre.
+\end_layout
+
+\begin_layout Standard
+El segmento ST refleja la despolarización auricular, es decir, la diástole
+ y la onda T la repolarización previa a la apertura de las válvulas para
+ el nuevo ciclo.
+\end_layout
+
+\begin_layout Subsubsection
+Fotopletismograma
+\end_layout
+
+\begin_layout Standard
+El paso de la sangre a través de las arterias da lugar a un incremento volumeric
+o en las mismas ligado a las variaciones de presión en el corazón.
+ El diagrama de Wigger, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Wiggers"
+
+\end_inset
+
+, representa bajo los mismos ejes la evolución en la presión, el volumen
+\end_layout
+
+\begin_layout Standard
+La medida de este incremento es conocida como fotopletismograma.
+\end_layout
+
+\begin_layout Standard
+El fotopletismograma se obtiene mediante sensores ópticos que miden la variación
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/Wiggers_Diagram.svg
+	lyxscale 10
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-Wiggers"
+
+\end_inset
+
+Diagrama de Wiggers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Medida de las pulsaciones
+\end_layout
+
 \begin_layout Section
 Dispositivos comerciales
+\end_layout
+
+\begin_layout Standard
+Existe una gran variedad de instrumentos portátiles para la medida de la
+ frecuencia cardíaca basados principalmente en electrocardiograma y fotopletismo
+grama.
+\end_layout
+
+\begin_layout Subsection
+Primeros pulsómetros portátiles
+\end_layout
+
+\begin_layout Standard
+El instrumento mas rudimentatio para la medida de las pulsaciones es el
+ el propio ser humano.
+ Cualquier persona puede 
+\emph on
+tomar el pulso
+\emph default
+ de si mismo o de otro posando su dedo sobre zonas donde los cambios de
+ presión arteriales son palpables, habitualmente muñeca y cuello.
+ El método consiste en contar los pulsos durante un periodo de tiempo, normalmen
+te 1 minuto para obtener el dato en pulsaciones por minuto (PPM).
+ Esta forma es poco eficiente pues al no ser automático el individuo que
+ realiza el procedimiento debe prestar su atención durante el tiempo de
+ la prueba y realizar tareas de monitorización se hacen inviables.
+ En algunas ocasiones el pulso del sujeto es débil y puede ser difícil encontrar
+lo
+\end_layout
+
+\begin_layout Standard
+Otro método clásico para determinar las pulsaciones por minuto de un sujeto
+ es utilizar un estetoscopio sobre el pecho de un paciente.
+ Un estetoscopio, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Estetoscopio"
+
+\end_inset
+
+, es un dispositivo acústico para oir los sonidos internos del cuerpo.
+ Este procedimiento solo puede ser aplicado por un especialista, que posee
+ el instrumento adecuado y tiene el entrenamiento para realizarlo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/Stethoscope-bn.jpg
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Estetoscopio"
+
+\end_inset
+
+Estetoscopio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pulsómetros basados en electrocardiograma
+\end_layout
+
+\begin_layout Standard
+Todos los centros hospitalarios están equipados con instrmental para la
+ realización de electrocardiogramas, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Electrocardiógrafo-portátil"
+
+\end_inset
+
+.
+ Sin embargo su uso en este ámbito está mucho mas orientado al diagnóstico
+ de enfermedades cardíacas mas que a la monitorización del pulso.
+ El ECG proporciona mucha mas información al especialista a costa de de
+ una preparación del paciente más compleja.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/portable-ecg.jpg
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Electrocardiógrafo-portátil"
+
+\end_inset
+
+Electrocardiógrafo portátil
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_role_????"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fuera del ámbito sanitario, en el mundo del deporte, existen mutitiud de
+ dispositivos para monitorizar la frecuencia cardíaca
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_decathlon_????"
+
+\end_inset
+
+.
+ Para un deportista es importante conocer su pulso porque indica el nivel
+ de esfuerzo que está realizando.
+ En el mercado hay una gran variedad con características adicionales como
+ reloj, los más básicos y GPS o conexión con 
+\emph on
+smartphones
+\emph default
+, los más avanzados.
+ Estos dispositivos son conocidos con el nombre de cardiógrafos y están
+ compuestos de dos partes: una banda que se coloca sobre el pecho, que contiene
+ el circuito para realizar el ECG y un emisor de radiofrecuencia, y un receptor
+ que se coloca en la muñeca con una pantalla para mostrar la información
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cardiofrecuencímetro-Cardio-ONrh"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/cardiofrecuencimetro.jpg
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cardiofrecuencímetro-Cardio-ONrh"
+
+\end_inset
+
+Cardiofrecuencímetro 
+\emph on
+Cardio ONrhythm 50
+\emph default
+ de 
+\emph on
+Geonaute
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_cardio_????"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los cardiofrecuencímetros son mucho más prácticos de usar que realizar un
+ ECG convencional y se pueden utilizar mientras se hace deporte al aire
+ libre.
+ Sin embargo presentan algunos problemas orginados por la naturaleza eléctrica
+ de la prueba:
+\end_layout
+
+\begin_layout Itemize
+La zona del pecho donde se coloca la banda, a la altura del corazón, debe
+ estar húmeda.
+ Los electrodos necesitan un medio que favorezca la conducción eléctrica.
+\end_layout
+
+\begin_layout Itemize
+Su uso está fuertemente desaconsejado en usuarios de marcapasos pues el
+ cardiofrecuencímetro puede interferír sobre él.
+ 
+\end_layout
+
+\begin_layout Standard
+Estos aparatos no se podrían usar para la monitorización muchas personas,
+ sobre todo ancianas, que tienen problemas de corazón.
+ Y son precisamente los cardiópatas los que mas lo necesitan.
+\end_layout
+
+\begin_layout Subsection
+Pulsómetros basados en fotopletismograma
+\end_layout
+
+\begin_layout Standard
+Los pulsómetros basados en foto pletismograma actualmente tienen su nicho
+ en la monitorización hospitalaria, sin embargo ha habido y sigue habiendo
+ intentos en universalizar su uso fuera de ese ámbito.
+\end_layout
+
+\begin_layout Standard
+Uno de los primeros dispostivos de pulsimetría de uso no hospitalario es
+ el reloj BP-400 fabricado por Casio en los años 90 del siglo XX, que ya
+ incorporaba un sensor óptico para obtener las pulsaciones.
+ el usuario debía colocar su dedo sobre la zona del sensor, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Casio-BP-400-(1994)"
+
+\end_inset
+
+, y esperar unos instantes hasta que la medida a pareciera en la pantalla
+ LCD.
+ Tuvo un exito limitado ya que requería calibrarlo para cada persona que
+ fuera a utilizarlo
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_casio_????"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dos décadas despues la empresa Apple comercializa un reloj inteligente,
+ 
+\emph on
+smartwatch
+\emph default
+, que incorpora un sensor pulsimétrico (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Apple-Watch-(2015)"
+
+\end_inset
+
+).
+ En esta ocasión el dispositivo no requiere calibración y puede leer el
+ pulso directamente desde la muñeca.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/BP-400.jpg
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Casio-BP-400-(1994)"
+
+\end_inset
+
+Casio BP-400 (1994)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/apple-watch.jpg
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Apple-Watch-(2015)"
+
+\end_inset
+
+Apple Watch (2015)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Evolución de relojes-pulsómetro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El fotopletismograma se puedede realizar sobre otras zonas del cuerpo como
+ dedos y orejas.
+\end_layout
+
+\begin_layout Standard
+PINZA PULSIMETRICA EN DEDO
+\end_layout
+
+\begin_layout Standard
+PINZA SOBRE OREJA
+\end_layout
+
+\begin_layout Standard
+El prinicpal aspecto de innovación de los pulsómetros PPG es la colocación
+ del sensor, ya que si es correcta se reduce en gran medida los artefactos
+ comentados en el apartado 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+XXXXXX
+\end_layout
+
+\end_inset
+
+.
+ Existen numerosas patentes y modelos de utilidad con invenciones interesantes
+ en este ámbito.
 \end_layout
 
 \begin_layout Standard
@@ -403,7 +1455,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-:::: Wearable
+::::Wearable
 \end_layout
 
 \end_inset
@@ -489,20 +1541,8 @@ reference "fig:Diagrama-conceptual-del"
 \end_inset
 
 .
- Las flechas indican la relación entre los componentes.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Hay que poner flechas desde unidad de energia hacia adquisición y filtrado
-\end_layout
-
-\end_inset
-
-
+ Las flechas indican la relación de transferencia de información o energía
+ entre los componentes.
 \end_layout
 
 \begin_layout Standard
@@ -1026,6 +2066,13 @@ reference "eq:f-transferencia-paso-alta"
 
 \end_inset
 
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sedra_microelectronic_2011"
+
+\end_inset
+
 , donde 
 \begin_inset Formula $\omega_{0}=\nicefrac{1}{2\pi f_{_{PA}}}$
 \end_inset
@@ -1038,16 +2085,6 @@ reference "eq:f-transferencia-paso-alta"
 \begin{equation}
 T_{PA}(j\omega)=\frac{K}{1-j\left(\frac{\omega_{PA}}{\omega}\right)}\label{eq:f-transferencia-paso-alta}
 \end{equation}
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-referencia a sedra y smith
-\end_layout
 
 \end_inset
 
@@ -1336,21 +2373,17 @@ T_{PB}(j\omega)=\frac{K}{1+j\left(\frac{\omega}{\omega_{PB}}\right)}\label{eq:f-
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-referencia a Sedra y Smith
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-A partir de la función de transferencia del filtro paso baja de primer órden,
- Ecuación 
+A partir de la función de transferencia del filtro paso baja de primer órden
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sedra_microelectronic_2011"
+
+\end_inset
+
+, Ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:f-transferencia-paso-baja"
@@ -2201,17 +3234,7 @@ reference "fig:Circuito-comparador"
 
 \end_inset
 
-, consiste en convertir la señal del PPG 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Definir PPG
-\end_layout
-
-\end_inset
-
- en pulsos digitales.
+, consiste en convertir la señal del PPG en pulsos digitales.
  La técnica escogida para ello es utilizar un comparador cuya salida salte
  entre 
 \begin_inset Formula $V_{DD}$
@@ -2463,6 +3486,31 @@ key "roving_networks_roving_2009"
 .
 \end_layout
 
+\begin_layout Subsection
+Placa de circuito impreso
+\end_layout
+
+\begin_layout Standard
+La placa de circuito impreso, Figura XXXXXXX
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+INSERTAR FIGURA
+\end_layout
+
+\end_inset
+
+, integra los circuitos analógicos, el microcontrolador y el módulo de comunicac
+iones bluetooth.
+ No se ha podido realizar su implementación física por falta de tiempo pero
+ se puede construir usando los archivos 
+\emph on
+gerber
+\emph default
+ que se encuentran en el repositorio del proyecto.
+\end_layout
+
 \begin_layout Section
 Firmware
 \begin_inset CommandInset label
@@ -2500,9 +3548,11 @@ description "Integrated Development Environment"
 \end_layout
 
 \begin_layout Standard
-El programa se distribuirse bajo los términos de la licencia GNU GPL versión
- 3 o posterior (el texto completo de la licencia se encuentra en el archivo
- 
+El programa se distribuirse bajo los términos de la licencia 
+\emph on
+GNU GPL versión 3 o posterior
+\emph default
+ (el texto completo de la licencia se encuentra en el archivo 
 \family typewriter
 \size small
 /src/LICENSE
@@ -3604,6 +4654,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
 inline false
 status open
 
@@ -3686,6 +4737,15 @@ Timer 0
 
 \end_layout
 
+\begin_layout Standard
+Si en el periodo entre envíos el pulsómetro no ha detectado ninguna pulsación
+ válida, es decir, que esté entre 40 y 200
+\begin_inset space ~
+\end_inset
+
+PPM, se envía un byte con valor 0 que el smartphone interpreta como nulo.
+\end_layout
+
 \begin_layout Section
 Software
 \begin_inset CommandInset label
@@ -3697,8 +4757,3382 @@ name "sec:Software"
 
 \end_layout
 
+\begin_layout Standard
+El 
+\emph on
+software
+\emph default
+ del pulsómetro se encarga de mostrar al usuario los datos de pulsaciones
+ por minuto obtenidos por el 
+\emph on
+hardware
+\emph default
+.
+ El programa está escrito en lenguaje Java para el sistema operativo Android.
+\end_layout
+
+\begin_layout Standard
+El desarrollo se ha realizado con el IDE Android Studio y un smartphone
+ Motorola Moto E.
+ La aplicación se ha probado sobre Android 5.0, pero puede funcionar en cualquier
+ dispositivo con Android 4.0 o superior.
+ El programa se distribuye bajo los términos de la licencia 
+\emph on
+GNU GPL versión 3 o posterior
+\emph default
+ (el texto completo de la licencia se encuentra en el archivo 
+\family typewriter
+\size small
+/src/LICENSE
+\family default
+\size default
+) e incluye código desarrollado por el 
+\emph on
+Android Open Source Project
+\emph default
+ bajo licencia 
+\emph on
+Apache 2.0
+\emph default
+.
+ Para mostrar el gráfico de histórico se utiliza la biblioteca 
+\emph on
+AndroidPlot
+\emph default
+ versión 0.6.1 tambien bajo licencia 
+\emph on
+Apache 2.0
+\emph default
+.
+ Todo el código fuente puede encontrarse en el repositorio del proyecto
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bailon-ruiz_rafael1193/tfg-heart-rate-monitor_????"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Descripción general
+\end_layout
+
+\begin_layout Standard
+El lanzamiento de la aplicación se realiza pulsando sobre su icono, Figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Icono-de-la"
+
+\end_inset
+
+, en la lista de programas.
+ Tras ello se iniciará y, si el Bluetooth no está activo, pedirá al usuario
+ activarlo mostrando un mensaje como de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Solicitud-de-activación"
+
+\end_inset
+
+.
+ La respuesta negativa terminará el programa.
+ 
+\end_layout
+
+\begin_layout Standard
+Una vez activado, se debe conectar al pulsómetro.
+ Para ello hay que pulsar sobre el icono a la derecha de la 
+\emph on
+barra de acción
+\emph default
+, que mostrara una nueva vista, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Búsqueda-de-dispositivos"
+
+\end_inset
+
+, para seleccionar un dispositivo Bluetooth.
+ Si ya se habia conectado antes, aparecerá en la sección de dispositivos
+ vinculados; en caso contrario, puede encontrarlo pulsando en 
+\family sans
+BUSCAR DISPOSITIVOS
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Si la conexión es satisfactoria la aplicación comenzará a recibir las pulsacione
+s y las mostrará en la vista principal.
+ En la parte superior se encuentra el dato instantáneo y en la parte inferior,
+ el histórico (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vista-principal-de"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsometro-icono.svg
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Icono-de-la"
+
+\end_inset
+
+Icono de la aplicación Pulsómetro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/app-activar_bluetooth.png
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Solicitud-de-activación"
+
+\end_inset
+
+Solicitud de activación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/app-buscando.png
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Búsqueda-de-dispositivos"
+
+\end_inset
+
+Búsqueda de dispositivos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bluetooth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/app-midiendo.png
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vista-principal-de"
+
+\end_inset
+
+Vista principal de la aplicación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Arquitectura
+\end_layout
+
+\begin_layout Standard
+La interfaz gráfica está compuesta por dos clases que heredan de 
+\family typewriter
+\size small
+Activity
+\family default
+\size default
+:
+\end_layout
+
+\begin_layout Itemize
+La clase 
+\family typewriter
+\size small
+MainActivity
+\family default
+\size default
+ (
+\family typewriter
+\size small
+MainActivity.java
+\family default
+\size default
+) representa la vista principal y contiene el 
+\family typewriter
+\size small
+Fragment
+\family default
+\size default
+ 
+\family typewriter
+\size small
+PulseMeterDisplayFragment
+\family default
+\size default
+ (
+\family typewriter
+\size small
+PulseMeterDisplayFragment\SpecialChar \-
+.java
+\family default
+\size default
+) que muestra las pulsaciones y la gráfica histórica.
+ La gráfica es un objeto de la clase 
+\family typewriter
+\size small
+XYPlot
+\family default
+\size default
+.
+\end_layout
+
+\begin_layout Itemize
+La clase 
+\family typewriter
+\size small
+DeviceListActivity
+\family default
+\size default
+ (
+\family typewriter
+\size small
+DeviceListActivity.java
+\family default
+\size default
+) respresenta la vista de selección de dispositivos.
+\end_layout
+
+\begin_layout Standard
+La gestión de las conexiones Bluetooth se realiza a través de la clase 
+\family typewriter
+\size small
+BluetoothService
+\family default
+\size default
+ (
+\family typewriter
+\size small
+BluetoothService.java
+\family default
+\size default
+).
+\end_layout
+
+\begin_layout Subsubsection
+Gestión de la comunicación
+\end_layout
+
+\begin_layout Standard
+El primer paso para poder establecer comunicación Bluetooth es declarar
+ los permisos para ello en el 
+\emph on
+manifiesto
+\emph default
+ de la aplicación (Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Declaración-de-permisos"
+
+\end_inset
+
+).
+ Dichos permisos son 
+\family typewriter
+\size small
+BLUETOOTH
+\family default
+\size default
+ para poder conectar con dispositivos emparejados y 
+\family typewriter
+\size small
+BLUETOOTH_ADMIN
+\family default
+\size default
+ para descubrir nuevos dispositivos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=XML,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<manifest .
+ .
+ .
+ >
+\end_layout
+
+\begin_layout Plain Layout
+
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+\end_layout
+
+\begin_layout Plain Layout
+
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+\end_layout
+
+\begin_layout Plain Layout
+
+	.
+ .
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+</manifest>
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Declaración-de-permisos"
+
+\end_inset
+
+Declaración de permisos Bluetooth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con los permisos declarados, establecer la comunicación con un dispositivo
+ remoto consiste en los siguientes pasos
+\begin_inset CommandInset citation
+LatexCommand cite
+key "android_open_source_project_bluetooth_????"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Obtener 
+\family typewriter
+\size small
+BluetoothAdapter
+\family default
+\size default
+, con 
+\family typewriter
+\size small
+BluetoothAdapter.getDefaultAdapter()
+\family default
+\size default
+.
+ Una clase que representa el adapotador Bluetooth local
+\begin_inset CommandInset citation
+LatexCommand cite
+key "android_open_source_project_bluetoothadapter_????"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Activar Bluetooth con el código del Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Activación-de-Bluetooth"
+
+\end_inset
+
+.
+ Ejecutando este código se muestra el mensaje de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Solicitud-de-activación"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Buscar dispositivos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Si ya están emparejados se obtienen con 
+\family typewriter
+\size small
+mBluetoothAdapter.getBondedDevices()
+\family default
+\size default
+.
+\end_layout
+
+\begin_layout Itemize
+Si no están emparejados se llama a 
+\family typewriter
+\size small
+mBluetoothAdapter.
+\family default
+\size default
+startDiscovery(), que inicia el descubirmiento de manera asíncrona.
+ Tras 12 segundos
+\begin_inset CommandInset citation
+LatexCommand cite
+key "android_open_source_project_bluetoothadapter_????"
+
+\end_inset
+
+ notifica a la aplicación los dispositivos encontrado que se encuentren
+ en modo descubrimiento.
+ El módulo RN-42 están en este modo siempre que no esté conectado ya a otro
+ dispositivo
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roving_networks_roving_2009"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Establecer la conexión entre los dispositivos (Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Establecimiento-de-la"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+El módulo RN-42 actúa como servidor y el smartphone como cliente.
+\end_layout
+
+\begin_layout Itemize
+Este proceso debe hacerse en otro hilo distinto al de la interfaz ya que
+ la apertura del canal (
+\emph on
+Socket
+\emph default
+) bloquea la ejecución mientras se realiza.
+ Si no se paralelizara, Android mostraría el mensaje 
+\begin_inset Quotes fld
+\end_inset
+
+Esta aplicación no responde
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+El socket abierto utiliza el protocolo RFCOMM
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RFCOMM"
+description "Radio Frequency Communications"
+
+\end_inset
+
+, que proporciona un flujo de datos serie virtual similar a RS-232 sobre
+ Bluetooth
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bluetooth_sig_rfcomm_????"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Cliente y servidor deben compartir el mismo UUID
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UUID"
+description "Universally Unique IDentifier"
+
+\end_inset
+
+ para que estén en el mismo canal
+\begin_inset CommandInset citation
+LatexCommand cite
+key "android_open_source_project_bluetoothadapter_????"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if (!mBluetoothAdapter.isEnabled()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+\end_layout
+
+\begin_layout Plain Layout
+
+    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Activación-de-Bluetooth"
+
+\end_inset
+
+Activación de Bluetooth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+private static final UUID MY_UUID = 
+\end_layout
+
+\begin_layout Plain Layout
+
+        UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private class AcceptThread extends Thread {
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final BluetoothServerSocket mmServerSocket;
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public AcceptThread() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        BluetoothServerSocket tmp = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(
+\end_layout
+
+\begin_layout Plain Layout
+
+                    NAME, MY_UUID);
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmServerSocket = tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        BluetoothSocket socket = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+        while (true) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            try {
+\end_layout
+
+\begin_layout Plain Layout
+
+                socket = mmServerSocket.accept();
+\end_layout
+
+\begin_layout Plain Layout
+
+            } catch (IOException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                break;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (socket != null) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                // La gestión de la conexión se realiza en otro hilo
+\end_layout
+
+\begin_layout Plain Layout
+
+                manageConnectedSocket(socket);
+\end_layout
+
+\begin_layout Plain Layout
+
+                mmServerSocket.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+                break;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void cancel() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            mmServerSocket.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Establecimiento-de-la"
+
+\end_inset
+
+Establecimiento de la conexion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+private class ConnectedThread extends Thread {
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final BluetoothSocket mmSocket;
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final InputStream mmInStream;
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final OutputStream mmOutStream;
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public ConnectedThread(BluetoothSocket socket) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmSocket = socket;
+\end_layout
+
+\begin_layout Plain Layout
+
+        InputStream tmpIn = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+        OutputStream tmpOut = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            tmpIn = socket.getInputStream();
+\end_layout
+
+\begin_layout Plain Layout
+
+            tmpOut = socket.getOutputStream();
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmInStream = tmpIn;
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmOutStream = tmpOut;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        byte[] buffer = new byte[1024];
+\end_layout
+
+\begin_layout Plain Layout
+
+        int bytes;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        while (true) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            try {
+\end_layout
+
+\begin_layout Plain Layout
+
+                bytes = mmInStream.read(buffer);
+\end_layout
+
+\begin_layout Plain Layout
+
+                // Envía los datos obtenidos hacia el hilo principal
+\end_layout
+
+\begin_layout Plain Layout
+
+                mHandler.obtainMessage(MESSAGE_READ, bytes, -1, buffer)
+\end_layout
+
+\begin_layout Plain Layout
+
+                        .sendToTarget();
+\end_layout
+
+\begin_layout Plain Layout
+
+            } catch (IOException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                break;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void write(byte[] bytes) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            mmOutStream.write(bytes);
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void cancel() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            mmSocket.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Gestión-de-la"
+
+\end_inset
+
+Gestión de la conexión Bluetooth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La recepción de datos, Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Gestión-de-la"
+
+\end_inset
+
+, también debe hacerse en otro hilo ya que el método 
+\family typewriter
+\size small
+read(byte[])
+\family default
+\size default
+ bloquea la ejecución hasta que recibe algo para leer.
+ Una vez cargado el buffer con datos, estos se envían al hilo principal
+ a través de un objeto de la clase 
+\family typewriter
+\size small
+Handler
+\family default
+\size default
+.
+ Esta clase, incluida en la API
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "API"
+description "Application Programming Interface"
+
+\end_inset
+
+ de Android, permite enviar y recibir mensajes e información entre hilos
+ de forma segura.
+\end_layout
+
+\begin_layout Standard
+El dato de pulsaciones por minuto que se envía desde el pulsómetro viene
+ codificado como un byte cuyo valor está entre 40 y 200.
+ Debido a que el lenguaje de programación Java no permite trabajar con variables
+ enteras sin signo, los valores superiores a 128 son interpretados como
+ negativos en complemento a dos.
+ Para tratar este problema, el Listado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Ajuste-para-trabajar"
+
+\end_inset
+
+ contiene el código para solucionarlo, que pasa por trabajar con enteros
+ de tamaño superior.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+byte[] readBuf = .
+ .
+ .;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Integer firstValue = (int)readBuf[0];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if(readBuf[0] < 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    firstValue= (int) readBuf[0] & 0xff;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Ajuste-para-trabajar"
+
+\end_inset
+
+Ajuste para trabajar con enteros sin signo en Java
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Representación de la información
+\end_layout
+
+\begin_layout Standard
+Los datos se representan de forma numérica, pulsaciones por minuto actuales,
+ e histórica, gráfica con los últimos datos recibidos.
+\end_layout
+
+\begin_layout Standard
+Debido a las limitaciones de la pulsimetría, comentadas en el apartado 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+referencia a capitulo donde se explican las ventajas e inconvenientes de
+ la pulsoximetría.
+\end_layout
+
+\end_inset
+
+, hay instantes en los que no se detectan pulsos o hay variaciones en el
+ leído.
+ Para reducir la variabilidad, el dato que se muestra consiste en la media
+ de los últimos 5 valores válidos.
+ De esta manera la gráfica es precisa, porque no aparecen requiebros, sin
+ perder la exactitud ya que las pulsaciones de un paciente varían mas lentamente.
+\end_layout
+
+\begin_layout Standard
+Para dibujar sobre la gráfica tan solo hay que crear un objeto de la clase
+ 
+\family typewriter
+\size small
+SimpleXYSeries
+\family default
+\size default
+, asignarlo al objeto de la clase 
+\family typewriter
+\size small
+XYPlot
+\family default
+\size default
+ e ir añadiendo datos nuevo a la vez que se retiran los antiguos.
+\end_layout
+
 \begin_layout Chapter
 Resultados
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Resultados"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Caracterización de los filtros
+\end_layout
+
+\begin_layout Section
+Pruebas de validación
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Pruebas-de-validación"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se ha llevado a cabo pruebas de validación para comprobar la fidelidad de
+ los datos recogidos por el dispositivo diseñado.
+\end_layout
+
+\begin_layout Standard
+Los test han consistido en la toma de pulsaciones en reposo y la evolución
+ dinámica de la frecuencia cardíaca tras ejercicio moderado.
+ El sujeto de prueba ha sido un varón atleta veterano de 54 años.
+ La validación de los datos se ha realizado capturando simultáneamente y
+ de forma periódica los datos del pulsómetro basado en PPG y un cardiofrecuencím
+etro comercial basado en ECG (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cardiofrecuencímetro-Cardio-ONrh"
+
+\end_inset
+
+).
+ El cardiofrecuencímetro está compuesto por una banda que se coloca sobre
+ el pecho, a la altura del corazón, y que envía por radiofrecuencia las
+ pulsaciones detectadas a un receptor con forma de reloj que se coloca en
+ la muñeca.
+\end_layout
+
+\begin_layout Subsection
+Prueba estática
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Prueba-estática"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<row>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tiempo [s]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pulsómetro [PPM]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cardiofrecuencímetro[PPM]
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+68
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+67
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+72
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+71
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+71
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+71
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+68
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+71
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+68
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Datos-obtenidos-en"
+
+\end_inset
+
+Pulsaciones del sujeto durante la prueba estática
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prueba estática se ha realizado sobre el sujeto en estado de reposo.
+ Se ha realizado un estudio estadístico a partir de los datos del Cuadro
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Datos-obtenidos-en"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pulsómetro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cardiofrecuencímetro
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Promedio pulsaciones [PPM]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+69
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Desviación estandar
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4,01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,90
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+g
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+n
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+t student (0,9950)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3,355
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3,355
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Error absoluto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm$
+\end_inset
+
+4,49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm$
+\end_inset
+
+2,12
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Parámetros-estadísticos-de"
+
+\end_inset
+
+Parámetros estadísticos de la prueba estática
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El promedio de pulsaciones obtenido con el pulsómetro diseñado es similar
+ al del pulsómetro comercial.
+ Sin embargo, como aparece en el Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parámetros-estadísticos-de"
+
+\end_inset
+
+, la variabilidad de las muestras es mayor.
+ 
+\end_layout
+
+\begin_layout Standard
+Suponiendo que las muestras siguen una distribución normal, se puede aplicar
+ la Ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:error-t-student"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ramos_abalos_estadistica_2010"
+
+\end_inset
+
+ haciendo uso de la distribución t de student para conocer el error absoluto
+ del pulsómetro diseñado.
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ es el número de muestras y
+\begin_inset Formula $g$
+\end_inset
+
+ es el número de grados de libertad, 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+e=t\cdot\frac{S}{\sqrt{n}}\label{eq:error-t-student}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El intervalo de error de las muestras del pulsómetro PPG es 
+\begin_inset Formula $\pm4,76$
+\end_inset
+
+ con una confianza del 99,5%, mientras que el del pulsómetro ECG es 
+\begin_inset Formula $\pm2,25$
+\end_inset
+
+ también con una confianza del 99,5%.
+ El dato 
+\end_layout
+
+\begin_layout Standard
+Cabe destacar que en el instante 105
+\begin_inset space ~
+\end_inset
+
+s no se puedo obtener el dato del pulsómetro PPG.
+ La razón es que la prueba se realizó con el prototipo del instrumento,
+ cuyo sensor óptico no se fija al dedo del paciente, si no que lo posa sobre
+ el dispositivo.
+ En el momento de la medida no se encontraba bien colocado y se decidió
+ esperar al siguiente instante.
+\end_layout
+
+\begin_layout Subsection
+Prueba dinámica
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Prueba-dinámica"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prueba dinámica consiste en medir las pulsaciones del sujeto durante
+ el periodo de recuperación tras ejercicio intenso: correr subiendo escaleras
+ 8 pisos y un tramo recto de 100
+\begin_inset space ~
+\end_inset
+
+m.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="15" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<row>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tiempo [s]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pulsómetro [PPM]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cardiofrecuencímetro [PPM]
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+134
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+136
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+126
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+119
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+122
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+119
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+118
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+113
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+113
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+112
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+108
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+104
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+150
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+102
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+101
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+165
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+99
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+180
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+95
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+99
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+195
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+99
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+97
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+210
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+94
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+225
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+94
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+93
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Pulsaciones-del-sujeto"
+
+\end_inset
+
+Pulsaciones del sujeto durante el periodo de recuperación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/pulsaciones-recuperacion.svg
+	lyxscale 2
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pulsaciones-del-sujeto"
+
+\end_inset
+
+Representación de las pulsaciones del sujeto durante el periodo de recuperación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Pulsaciones-del-sujeto"
+
+\end_inset
+
+ están los datos del experimento, que son representados en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pulsaciones-del-sujeto"
+
+\end_inset
+
+.
+ Con unos coeficientes 
+\begin_inset Formula $R^{2}=0,9374$
+\end_inset
+
+ para el pulsómetro y 
+\begin_inset Formula $R^{2}=0,9339$
+\end_inset
+
+ para el cardiofrecuencímetro se puede afirmar que la evolución de las pulsacion
+es tras el ejercicio físico sigue una ley exponencial decreciente cuyo límite
+ tiende a las pulsaciones en el estado de reposo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="15" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<column alignment="decimal" decimal_point="." valignment="top" width="0pt">
+<row>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tiempo [s]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pulsómetro [PPM]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cardiofrecuencímetro [PPM]
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+67
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+56
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+61
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+53
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+43
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+44
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+150
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+165
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+180
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+195
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+210
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+225
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Incremento-de-pulsaciones"
+
+\end_inset
+
+Incremento de pulsaciones del sujeto respecto a las de reposo durante el
+ periodo de recuperación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si se toman los datos respecto a las pulsaciones en reposo del Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parámetros-estadísticos-de"
+
+\end_inset
+
+ (Cuadro
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Incremento-de-pulsaciones"
+
+\end_inset
+
+) se puede estudiar la evolución desvínculandola de las diferencias entre
+ instrumentos que se observaron en el apartado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Prueba-estática"
+
+\end_inset
+
+.
+ De nuevo se han perdido instantes de tiempo, 0 y 120
+\begin_inset space ~
+\end_inset
+
+segundos, debido a la construcción física del sensor óptico.
+\end_layout
+
+\begin_layout Standard
+La gráfica de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Incremento-de-las"
+
+\end_inset
+
+ muestra como los ajustes de mínimos cuadrados de ambos instrumentos tienen
+ la misma pendiente, con lo se puede afirmar que responden de manera similar
+ antes cambios en la frecuencía cardíaca del sujeto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/desviacion-pulsaciones.svg
+	lyxscale 2
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Incremento-de-las"
+
+\end_inset
+
+Representación del incremento de las pulsaciones del sujeto respecto al
+ reposo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, la correlación entre los datos obtenidos con el pulsómetro y
+ el cardiofrecuencímetro, representada en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pulsómetro-frente-a"
+
+\end_inset
+
+, es 1 con coeficiente de determinación 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ prácticamente 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/pulsometro-vs-cardiofrecuencimetro.svg
+	lyxscale 2
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pulsómetro-frente-a"
+
+\end_inset
+
+Representación de la correlación entre datos obtenidos del pulsómetro y
+ del cardiofrecuencímetro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -3709,22 +8143,75 @@ Conclusiones y trabajos futuros
 Conclusiones
 \end_layout
 
-\begin_layout Section
-Trabajos Futuros
+\begin_layout Standard
+Este Trabajo Fin de Grado ha presentado de manera detallada el diseño de
+ un dispositivo pulsimétrico con conexión inalábrica a un dispositivo móvil
+ para visualización de los datos.
+ Se ha realizado la descripción de los fundamentos teóricos de la técnica
+ y un estudio del estado del arte en la materia.
+ Dicho estudio ha revelado el auge de este tipo de instrumentos aplicados
+ en los campos de la salud y el deporte.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Implementarlo como wearable.
- miniaturización.
+Se ha comprobado el correcto funcionamiento del pulsómetro realizando tests
+ en comparación con otro dispositivo comercial.
+ Estas pruebas también han servido para descubrir las limitaciones del producto:
+ no se pueden obtener muestras fiables cuando el sujeto se encuentra en
+ movimiento.
+ Esto limita las aplicaciones deportivas, pero siguen siendo válidas las
+ sanitarias tanto en centros sanitarios como en el hogar.
 \end_layout
 
-\end_inset
+\begin_layout Standard
+La comunicación inalámbrica con el smartphone es un elemento novedoso que
+ sigue la guía del desarrollo tecnológico que se dirige hacia el 
+\emph on
+Internet de las cosas
+\emph default
+ y los 
+\emph on
+dispositivos vestibles
+\emph default
+.
+ La puesta en marcha y el uso del aparato es muy sencilla: lanzar la aplicación,
+ pulsar conectar y comenzar a medir.
+ Cualquier persona puede utilizarlo con facilidad, desde niños hasta personas
+ ancianas.
+\end_layout
 
+\begin_layout Standard
+El uso de la pulsimetría sobre pacientes no afecta de ningun modo a su salud
+ pues su fundamento es óptico: no hay procedimientos invasivos ni conexiones
+ eléctricas al cuerpo.
+ Esto último es especialmente importante para los usuarios de marcapasos,
+ que son muy sensibles a perturbaciones eléctricas y magnéticas.
+\end_layout
 
+\begin_layout Section
+Trabajos futuros
+\end_layout
+
+\begin_layout Standard
+El diseño presentado en este Trabajo Fin de Grado es una base tecnológica
+ que puede ser aprovechada para ser aplicada en dispositivos comerciales
+ solución a problemas de la sociedad.
+\end_layout
+
+\begin_layout Standard
+La línea principal del proyecto para el futuro es pasar del montaje experimental
+ al producto final.
+ Ha quedado pendiente producir la placa de circuito impreso que si ha sido
+ diseñada.
+ Diseñar y construir un mejor sistema de fijación del sensor al dedo es
+ importante para reducir los artefactos en la señal recogida por el instrumento.
+\end_layout
+
+\begin_layout Standard
+La aplicación móvil puede ampliarse con más funcionalidades como permitir
+ la configuración de elementos de la interfaz.
+ También podría plantearse portarla a otros sistemas operativos como iOS
+ o Windows Phone.
 \end_layout
 
 \begin_layout Standard
