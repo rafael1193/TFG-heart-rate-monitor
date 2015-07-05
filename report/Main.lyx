@@ -3491,13 +3491,10 @@ Placa de circuito impreso
 \end_layout
 
 \begin_layout Standard
-La placa de circuito impreso, Figura XXXXXXX
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-INSERTAR FIGURA
-\end_layout
+La placa de circuito impreso, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Placa-de-circuito"
 
 \end_inset
 
@@ -3509,6 +3506,51 @@ iones bluetooth.
 gerber
 \emph default
  que se encuentran en el repositorio del proyecto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsometro_pcb.svg
+	lyxscale 10
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Placa-de-circuito"
+
+\end_inset
+
+Placa de circuito impreso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

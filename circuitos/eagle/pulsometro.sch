@@ -15906,7 +15906,7 @@ Spark Fun Electronics SKU : COM-00107</description>
 <part name="R14" library="rcl" deviceset="POTENTIOMETER_" device="PT-10" value="10k"/>
 <part name="SUPPLY7" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY8" library="supply2" deviceset="GND" device=""/>
-<part name="IC3" library="microchip" deviceset="PIC18F2*_28" device="DIP" technology="550"/>
+<part name="IC3" library="microchip" deviceset="PIC18F2*_28" device="DIP" technology="550" value="PIC18LF2553_28DIP"/>
 <part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="10k"/>
 <part name="C5" library="rcl" deviceset="CPOL-EU" device="E2.5-5" value="1u"/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="0204/7" value="330"/>
