@@ -8,6 +8,9 @@
 
 \addbibresource{/home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/report/bibliography.bib}
 \renewcommand\listingname{Código}
+
+\renewcaptionname{spanish}{\listtablename}{Índice de tablas}
+\renewcaptionname{spanish}{\tablename}{Tabla}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -2507,7 +2510,7 @@ T_{PA}(j\omega)=\frac{K}{1-j\left(\frac{\omega_{PA}}{\omega}\right)}\label{eq:f-
 \end_layout
 
 \begin_layout Standard
-Al ser un filtro RC, los valores de los componentes, Cuadro 
+Al ser un filtro RC, los valores de los componentes, Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Valores-filtro-paso-alta"
@@ -2894,7 +2897,7 @@ reference "eq:ganancia-paso-baja"
 
 \end_inset
 
-, Cuadro 
+, Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Valores-filtro-paso-baja-amplificacion"
@@ -3235,7 +3238,7 @@ key "_notch_????"
 
 \end_inset
 
- con los datos del Cuadro 
+ con los datos de la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Requisitos-del-filtro-fliedge"
@@ -3418,7 +3421,7 @@ Fliedge
 \end_layout
 
 \begin_layout Standard
-En el Cuadro 
+En la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Valores-de-resistencias-fliedge"
@@ -7049,7 +7052,7 @@ Pulsaciones del sujeto durante la prueba estática
 
 \begin_layout Standard
 La prueba estática se ha realizado sobre el sujeto en estado de reposo.
- Se ha realizado un estudio estadístico a partir de los datos del Cuadro
+ Se ha realizado un estudio estadístico a partir de los datos de la Tabla
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7317,7 +7320,7 @@ Parámetros estadísticos de la prueba estática
 \begin_layout Standard
 El promedio de pulsaciones obtenido con el pulsómetro diseñado es similar
  al del pulsómetro comercial.
- Sin embargo, como aparece en el Cuadro 
+ Sin embargo, como aparece en la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Parámetros-estadísticos-de"
@@ -7942,7 +7945,7 @@ Representación de las pulsaciones del sujeto durante el periodo de recuperació
 \end_layout
 
 \begin_layout Standard
-En el Cuadro 
+En la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Pulsaciones-del-sujeto"
@@ -8452,14 +8455,14 @@ Incremento de pulsaciones del sujeto respecto a las de reposo durante el
 \end_layout
 
 \begin_layout Standard
-Si se toman los datos respecto a las pulsaciones en reposo del Cuadro 
+Si se toman los datos respecto a las pulsaciones en reposo de la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Parámetros-estadísticos-de"
 
 \end_inset
 
- (Cuadro
+ (Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Incremento-de-pulsaciones"
