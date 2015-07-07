@@ -79,7 +79,7 @@ End
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
 \use_refstyle 1
 \index Index
@@ -119,7 +119,38 @@ Rafael Bailón Ruiz
 Julio 2015
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename anexos.pdf
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Dedication
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Quiero agradecer a mis tutores de este Trabajo Fin de Grado la ayuda en
  su realización.
  Asimismo, expreso mi gratitud a los profesores del Grado en Ingeniería
@@ -134,12 +165,6 @@ Quiero agradecer a mis tutores de este Trabajo Fin de Grado la ayuda en
 A mis padres, mi hermano y mis amigos, que me apoyan en la aventura de ser
  ingeniero.
 \end_layout
-
-\begin_layout Standard
-\begin_inset External
-	template PDFPages
-	filename anexos.pdf
-	extra LaTeX "pages=-"
 
 \end_inset
 
@@ -348,6 +373,17 @@ telemedicina
 \end_layout
 
 \begin_layout Standard
+La interfaz de la instrumentación médica tradicional está diseñada para
+ ser usada por el personal sanitario que lo conoce y ha recibido entrenamiento
+ para manipularlo, pero no por los pacientes.
+ Si se desea que los afectados manejen el instrumental de monitorización
+ desde casa, éste debe ser sencillo y robusto.
+ Los teléfonos inteligentes, con sus pantallas táctiles, facilitan la interacció
+n y su capacidad de procesamiento permite crear y mostrar interfaces gráficas
+ adaptadas a las limitaciones que puedan tener los usuarios.
+\end_layout
+
+\begin_layout Standard
 Estas nuevas situaciones hacen necesario idear sistemas revolucionarios
  que permitan conectar de manera más fácil y eficiente a los pacientes con
  los profesionales sanitarios.
@@ -360,7 +396,7 @@ smartphones
 wearable devices
 \emph default
 , dispositivos vestibles, tienen en la actualidad la potencia y la conectividad
- suficiente para la piedra angular de la medicina del futuro
+ suficiente para ser la piedra angular de la medicina del futuro
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lamonaca_health_2015"
@@ -1780,8 +1816,30 @@ Evolución de relojes-pulsómetro
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 El fotopletismograma se puedede realizar sobre otras zonas del cuerpo como
  dedos y orejas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+FALTA AÑADIR DISPOSITIVOS DE PATENTES Y ARTÍCULOS
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1802,6 +1860,10 @@ PINZA SOBRE OREJA (a bebes)
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 El prinicpal aspecto de innovación de los pulsómetros PPG es la colocación
  del sensor, ya que si es correcta se reduce en gran medida los artefactos
  comentados en el apartado 
@@ -1817,6 +1879,11 @@ XXXXXX
 .
  Existen numerosas patentes y modelos de utilidad con invenciones interesantes
  en este ámbito.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3885,66 +3952,15 @@ Placa de circuito impreso
 \end_layout
 
 \begin_layout Standard
-La placa de circuito impreso, Figura 
+La placa de circuito impreso, Anexo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Placa-de-circuito"
+reference "sec:Placa-de-circuito"
 
 \end_inset
 
 , integra los circuitos analógicos, el microcontrolador y el módulo de comunicac
 iones bluetooth.
- No se ha podido realizar su implementación física por falta de tiempo pero
- se puede construir usando los archivos 
-\emph on
-gerber
-\emph default
- que se encuentran en el repositorio del proyecto.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsometro_pcb.svg
-	lyxscale 10
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Placa-de-circuito"
-
-\end_inset
-
-Placa de circuito impreso
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -7352,17 +7368,98 @@ status open
 cleardoublepage
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
-	filename ../img/circuito.svg
+	filename ../img/circuito-con-cajetin.svg
 	lyxscale 25
+	width 100text%
+	height 100theight%
+	keepAspectRatio
 	rotateAngle 90
 	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Placa de circuito impreso
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Placa-de-circuito"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsometro_pcb.svg
+	lyxscale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
 
 \end_inset
 
