@@ -11,6 +11,7 @@
 
 \renewcaptionname{spanish}{\listtablename}{Índice de tablas}
 \renewcaptionname{spanish}{\tablename}{Tabla}
+\renewcommand\nomname{Glosario}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -239,6 +240,9 @@ La frecuencia cardíaca es la tasa de latidos del corazón, e indica el nivel
  que recorren todo el cuerpo humano.
  Como consecuencia del paso de la sangre, se produce una expansión periódica
  de los vasos llamada pulso.
+ Para una persona sana en reposo la frecuencia cardíaca se encuentra entre
+ 60 y 100 pulsaciones por minuto.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -255,24 +259,30 @@ description "Photoplethysmogram, fotopletismograma"
 
 ), una representación de la variación volumétrica de las arterias obtenida
  con un sensor óptico.
+ Usa las variaciones pulsátiles en la absorbancia óptica de los tejidos
+ y la sangre bajo luz infrarroja para determinar la frecuencia cárdiaca.
  
 \end_layout
 
 \begin_layout Standard
-La pulsimétria es un método basado en fotopletismograma para monitorizar
- el pulso cardíaco.
- Usa las variaciones pulsátiles en la absorbancia óptica de los tejidos
- y la sangre bajo luz infrarroja.
+La pulsimetría basada en fotopletismografía no es invasiva ya que no requiere
+ la colocación de electrodos y por tanto no supone ningún riesgo para la
+ persona.
+ Tan solo consiste en posar una parte del cuerpo donde el flujo sanguíneo
+ se encuentre expuesto cerca de la piel.
+ Esta prueba suele realizarse sobre el dedo índice pero también es apta
+ para otras zonas como orejas y muñecas.
 \end_layout
 
 \begin_layout Standard
 Este Trabajo Fin de Grado presenta el diseño de un dispositivo pulsimétrico
- con comunicación con 
+ que se comunica inalámbricamente con un 
 \emph on
 smartphone
 \emph default
- para realizar la monitorización remota de la frecuencia cardíaca de un
- paciente.
+.
+ El teléfono inteligente muestra la frecuencia cardíaca obtenida con el
+ hardware y permite la monitorización remota de un paciente.
 \end_layout
 
 \begin_layout Section
@@ -407,6 +417,10 @@ Adquisición mediante un microcontrolador
 
 \begin_layout Itemize
 Comunicación inalámbrica con un sistema monitorización
+\end_layout
+
+\begin_layout Itemize
+Diseño del sistema en placa de circuito impreso
 \end_layout
 
 \end_deeper
@@ -1942,70 +1956,19 @@ name "sec:Hardware"
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 A continuación se describe y justifica de manera pormenorizada el diseño
  del 
 \emph on
 hardware
 \emph default
- del pulsómetro, cuyo circuito es el de la Figura 
+ del pulsómetro, cuyo circuito se encuentra en el Anexo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Circuito-del-pulsómetro"
+reference "sec:Esquema-del-hardware"
 
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../img/circuito.svg
-	lyxscale 25
-	rotateAngle 90
-	rotateOrigin center
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Circuito-del-pulsómetro"
-
-\end_inset
-
-Circuito del pulsómetro
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -2121,11 +2084,32 @@ V conectadas en serie, sumando 6
 \end_inset
 
 V en total.
- Siendo esta configuración muy habitual en dispositivos portátiles.
- Para el funcionamiento del regulador se necesita, segun el 
+ En un prototipo comercial se usaría una batería de litio de 3.7
+\begin_inset space ~
+\end_inset
+
+V, cuyo voltaje es mas cercano a 3,3
+\begin_inset space ~
+\end_inset
+
+V.
+ Sin embargo con la batería de litio sería necesario incluir un circuito
+ de carga y descarga que se encuentra fuera de los objetivos del Trabajo
+ Fin de Grado.
+\end_layout
+
+\begin_layout Standard
+Para el funcionamiento del regulador se necesita, segun el 
 \emph on
 datasheet
 \emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_mcp1700_2013"
+
+\end_inset
+
 , dos condensadores de 1
 \begin_inset space ~
 \end_inset
@@ -2358,7 +2342,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Componente TCRT1010
+Sensor TCRT1010
 \end_layout
 
 \end_inset
@@ -4049,17 +4033,6 @@ valor
 \size default
 \emph default
 .
- El IDE MPLAB X permite establecer estas directivas en el proyecto mediante
- una interfaz gráfica que se lanza haciendo click en el menu 
-\family sans
-Window \SpecialChar \menuseparator
- PIC Memory Views \SpecialChar \menuseparator
- Configuration Bits
-\family default
-.
- Este método hace mas sencilla la configuración porque muestra la descripcion
- de caa configuracion y los valores disponibles.
- De esta manera no hay que consultar la documentación del compilador XC8.
 \end_layout
 
 \begin_layout Standard
@@ -8703,6 +8676,119 @@ status open
 \backslash
 printbibliography
 \end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{Bibliografía} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptermark{Bibliografía}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+thechapter{} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Anexos
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Anexos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+thesection{
+\backslash
+Roman{section}} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Circuito
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esquema-del-hardware"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../img/circuito.svg
+	lyxscale 25
+	rotateAngle 90
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Código fuente
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Código-fuente"
 
 \end_inset
 
