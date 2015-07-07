@@ -61,7 +61,7 @@ End
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
-\papersize default
+\papersize a4paper
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -108,6 +108,10 @@ End
 \begin_body
 
 \begin_layout Title
+\begin_inset Note Note
+status open
+
+\begin_layout Title
 Diseño de un pulsómetro por infrarrojos
 \end_layout
 
@@ -117,6 +121,11 @@ Rafael Bailón Ruiz
 
 \begin_layout Date
 Julio 2015
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -147,10 +156,6 @@ cleardoublepage
 \end_layout
 
 \begin_layout Dedication
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 Quiero agradecer a mis tutores de este Trabajo Fin de Grado la ayuda en
  su realización.
  Asimismo, expreso mi gratitud a los profesores del Grado en Ingeniería
@@ -164,11 +169,6 @@ Quiero agradecer a mis tutores de este Trabajo Fin de Grado la ayuda en
 
 A mis padres, mi hermano y mis amigos, que me apoyan en la aventura de ser
  ingeniero.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2391,7 +2391,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../img/TCRT1010.jpg
+	filename ../img/TCRT1010-sin-fondo.jpg
 	lyxscale 20
 	width 20text%
 
@@ -2406,10 +2406,6 @@ Sensor TCRT1010
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -2713,17 +2709,10 @@ Valores de los componentes del filtro paso alta
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 En la Figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insertar figura de simulación
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simulación-del-filtro"
 
 \end_inset
 
@@ -2731,11 +2720,59 @@ insertar figura de simulación
 \emph on
 SpiceGUI
 \emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bailon-ruiz_spicegui_????"
+
+\end_inset
+
 , una interfaz gráfica del simulador 
 \emph on
 ngspice
 \emph default
  para sistemas operativos GNU/Linux.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/filtro paso alta.svg
+	lyxscale 1
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simulación-del-filtro"
+
+\end_inset
+
+Simulación del filtro paso alta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -3125,30 +3162,6 @@ Valores de los componentes del filtro paso baja con amplificación
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-En la Figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insertar figura de simulación
-\end_layout
-
-\end_inset
-
- se muestra la simulación de la función de transferencia del filtro paso
- baja con amplificación.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 El amplificador operacional escogido es el TLV2472
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3162,6 +3175,64 @@ rail-to-rail
 \emph default
 , importante al trabajar con baterías y con rangos de voltaje limitados
  como es el caso.
+\end_layout
+
+\begin_layout Standard
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simulación-del-filtro-p-baja"
+
+\end_inset
+
+ se muestra la simulación de la función de transferencia del filtro paso
+ baja con amplificación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/filtro paso baja.svg
+	lyxscale 1
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simulación-del-filtro-p-baja"
+
+\end_inset
+
+Simulación del filtro paso baja con amplificación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -3632,6 +3703,125 @@ rail-to-rail
 .
 \end_layout
 
+\begin_layout Standard
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simulación-del-filtro-elimina-banda"
+
+\end_inset
+
+ muestra la simulación del filtro donde se puede comprobar la frecuencia
+ central del filtro a 50
+\begin_inset space ~
+\end_inset
+
+Hz.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/filtro elimina banda.svg
+	lyxscale 1
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simulación-del-filtro-elimina-banda"
+
+\end_inset
+
+Simulación del filtro elimina banda
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La simulación de las tres etapas en conjunto, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simulación-de-las"
+
+\end_inset
+
+, corrobora los parámetros de diseño.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/filtros conjunto.svg
+	lyxscale 1
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simulación-de-las"
+
+\end_inset
+
+Simulación de las etapas de filtrado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Discretizado
 \begin_inset CommandInset label
@@ -3884,9 +4074,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../img/RN-42 bluetooth module.jpg
+	filename ../img/RN-42 bluetooth module-sin-fondo.jpg
 	lyxscale 20
-	width 50text%
+	width 40text%
 
 \end_inset
 
