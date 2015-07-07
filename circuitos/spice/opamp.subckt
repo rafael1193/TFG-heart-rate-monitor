@@ -1,0 +1,19 @@
+* opamp
+*             non-inverting
+*             | inverting
+*             | | vcc
+*             | | |  vss
+*             | | |  |  out
+*             | | |  |  |
+.subckt opamp 1 2 30 40 6
+
+RIN	1	2	10MEG
+
+EGAIN	3 0	1 2	100K
+
+RP1	3	4	1K
+CP1	4	0	1.5915U
+
+EBUFFER	5 0	4 0	1
+ROUT	5	6	10
+.ends

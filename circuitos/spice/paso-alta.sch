@@ -1,0 +1,82 @@
+v 20130925 2
+C 40000 40000 0 0 0 title-B.sym
+C 42200 46200 1 0 0 vac-1.sym
+{
+T 42900 46850 5 10 1 1 0 0 1
+refdes=V1
+T 42900 47050 5 10 0 0 0 0 1
+device=vac
+T 42900 47250 5 10 0 0 0 0 1
+footprint=none
+T 42900 46650 5 10 1 1 0 0 1
+value=dc 0 ac 1
+}
+C 44900 47200 1 270 0 resistor-1.sym
+{
+T 45300 46900 5 10 0 0 270 0 1
+device=RESISTOR
+T 45200 46800 5 10 1 1 0 0 1
+refdes=R1
+T 45200 46600 5 10 1 1 0 0 1
+value=820k
+}
+C 43300 47500 1 0 0 capacitor-1.sym
+{
+T 43500 48200 5 10 0 0 0 0 1
+device=CAPACITOR
+T 43500 48000 5 10 1 1 0 0 1
+refdes=C1
+T 43500 48400 5 10 0 0 0 0 1
+symversion=0.1
+T 43800 48000 5 10 1 1 0 0 1
+value=740n
+}
+C 44900 45700 1 0 0 gnd-1.sym
+C 42400 45700 1 0 0 gnd-1.sym
+N 42500 47400 42500 47700 4
+N 42500 47700 43300 47700 4
+{
+T 42600 47700 5 10 1 1 0 0 1
+netname=in
+}
+N 44200 47700 45000 47700 4
+{
+T 44700 47700 5 10 1 1 0 0 1
+netname=out
+}
+N 45000 47700 45000 47200 4
+N 45000 46300 45000 46000 4
+N 42500 46200 42500 46000 4
+C 45900 46800 1 0 0 spice-directive-1.sym
+{
+T 46000 47100 5 10 0 1 0 0 1
+device=directive
+T 46000 47200 5 10 1 1 0 0 1
+refdes=A2
+T 46000 46900 5 10 0 1 0 0 1
+file=unknown
+T 46000 46900 5 10 1 1 0 0 1
+value=.ac dec 10 0.01 100
+}
+C 45900 46200 1 0 0 spice-directive-1.sym
+{
+T 46000 46500 5 10 0 1 0 0 1
+device=directive
+T 46000 46300 5 10 0 1 0 0 1
+file=unknown
+T 46000 46600 5 10 1 1 0 0 1
+refdes=A3
+T 46000 46300 5 10 1 1 0 0 1
+value=.print ac Vm(out)
+}
+C 45900 47400 1 0 0 spice-directive-1.sym
+{
+T 46000 47700 5 10 0 1 0 0 1
+device=directive
+T 46000 47800 5 10 1 1 0 0 1
+refdes=A1
+T 46000 47500 5 10 0 1 0 0 1
+file=unknown
+T 46000 47500 5 10 1 1 0 0 1
+value=.title Filtro paso alta
+}

@@ -1,0 +1,117 @@
+v 20130925 2
+C 40000 40000 0 0 0 title-B.sym
+C 43700 46200 1 0 0 vac-1.sym
+{
+T 44400 46850 5 10 1 1 0 0 1
+refdes=V1
+T 44400 47050 5 10 0 0 0 0 1
+device=vac
+T 44400 47250 5 10 0 0 0 0 1
+footprint=none
+T 44400 46650 5 10 1 1 0 0 1
+value=dc 0 ac 1
+}
+C 45500 45900 1 270 0 resistor-1.sym
+{
+T 45900 45600 5 10 0 0 270 0 1
+device=RESISTOR
+T 45800 45600 5 10 1 1 0 0 1
+refdes=R2
+T 45800 45400 5 10 1 1 0 0 1
+value=4.6k
+}
+C 46000 46700 1 0 0 capacitor-1.sym
+{
+T 46200 47400 5 10 0 0 0 0 1
+device=CAPACITOR
+T 46200 47200 5 10 1 1 0 0 1
+refdes=C1
+T 46200 47600 5 10 0 0 0 0 1
+symversion=0.1
+T 46500 47200 5 10 1 1 0 0 1
+value=7.4n
+}
+C 45500 44600 1 0 0 gnd-1.sym
+C 43900 45800 1 0 0 gnd-1.sym
+N 44000 47400 44000 48500 4
+N 45600 45000 45600 44900 4
+N 44000 46200 44000 46100 4
+C 41800 48900 1 0 0 spice-directive-1.sym
+{
+T 41900 49200 5 10 0 1 0 0 1
+device=directive
+T 41900 49300 5 10 1 1 0 0 1
+refdes=A2
+T 41900 49000 5 10 0 1 0 0 1
+file=unknown
+T 41900 49000 5 10 1 1 0 0 1
+value=.ac dec 10 0.1 1000
+}
+C 44200 49500 1 0 0 spice-directive-1.sym
+{
+T 44300 49800 5 10 0 1 0 0 1
+device=directive
+T 44300 49600 5 10 0 1 0 0 1
+file=unknown
+T 44300 49900 5 10 1 1 0 0 1
+refdes=A3
+T 44300 49600 5 10 1 1 0 0 1
+value=.print ac Vm(out)
+}
+C 41800 49500 1 0 0 spice-directive-1.sym
+{
+T 41900 49800 5 10 0 1 0 0 1
+device=directive
+T 41900 49900 5 10 1 1 0 0 1
+refdes=A1
+T 41900 49600 5 10 0 1 0 0 1
+file=unknown
+T 41900 49600 5 10 1 1 0 0 1
+value=.title Filtro paso baja
+}
+N 46000 48500 44000 48500 4
+C 46000 46100 1 0 0 resistor-1.sym
+{
+T 46300 46500 5 10 0 0 0 0 1
+device=RESISTOR
+T 46200 46400 5 10 1 1 0 0 1
+refdes=R1
+T 46500 46400 5 10 1 1 0 0 1
+value=820k
+}
+N 46000 48100 45600 48100 4
+N 45600 48100 45600 45900 4
+N 46000 46200 45600 46200 4
+N 46000 46900 45600 46900 4
+N 46900 46900 47500 46900 4
+N 47500 46200 47500 48300 4
+N 46900 46200 47500 46200 4
+N 47000 48300 47500 48300 4
+{
+T 47300 48300 5 10 1 1 0 0 1
+netname=out
+}
+C 44200 48700 1 0 0 spice-model-1.sym
+{
+T 44300 49400 5 10 0 1 0 0 1
+device=model
+T 44300 49300 5 10 1 1 0 0 1
+refdes=A4
+T 45500 49000 5 10 1 1 0 0 1
+model-name=opamp
+T 44700 48800 5 10 1 1 0 0 1
+file=opamp.subckt
+}
+C 46000 47900 1 0 0 opamp-1.sym
+{
+T 46700 48700 5 10 0 0 0 0 1
+device=OPAMP
+T 46700 48500 5 10 1 1 0 0 1
+refdes=U1
+T 46700 49300 5 10 0 0 0 0 1
+symversion=0.1
+T 46700 48700 5 10 1 0 0 0 1
+model-name=opamp
+}
+C 46400 47600 1 0 0 gnd-1.sym
+C 46600 49000 1 180 0 gnd-1.sym
