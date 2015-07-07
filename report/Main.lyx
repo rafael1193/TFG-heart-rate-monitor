@@ -7,8 +7,7 @@
 \usepackage[style=numeric,backend=biber]{biblatex}
 
 \addbibresource{/home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/report/bibliography.bib}
-\renewcommand\listingname{Listado}
-\addto\captionsspanish{\renewcommand{\lstlistlistingname}{Índice de Listados}}
+\renewcommand\listingname{Código}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -21,7 +20,7 @@ Float
     Extension             lol
     NumberWithin          chapter
     Style                 ruled
-    ListName              "List of Listings"
+    ListName              "Índice de código"
     IsPredefined false
     UsesFloatPkg true
 End
