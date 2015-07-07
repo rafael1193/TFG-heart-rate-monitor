@@ -7,11 +7,11 @@
 \usepackage[style=numeric,backend=biber]{biblatex}
 
 \addbibresource{/home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/report/bibliography.bib}
-\renewcommand\listingname{Código}
 
 \renewcaptionname{spanish}{\listtablename}{Índice de tablas}
 \renewcaptionname{spanish}{\tablename}{Tabla}
 \renewcommand\nomname{Glosario}
+\renewcommand\listingname{Código}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -165,14 +165,6 @@ LatexCommand tableofcontents
 
 \begin_layout Standard
 \begin_inset FloatList table
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FloatList listing
 
 \end_inset
 
@@ -4040,7 +4032,7 @@ Las directivas modifcadas para configurar el oscilador externo a 20
 \begin_inset space ~
 \end_inset
 
-Mhz son las que aparecen en el Listado 
+Mhz son las que aparecen en el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Directivas-del-compilador"
@@ -4057,69 +4049,8 @@ configuration_bits.c
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4,extendedchars=true"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-// Selección del Postscaler (Dividir por 1)
-\end_layout
-
-\begin_layout Plain Layout
-
-#pragma config CPUDIV = OSC1_PLL2
-\end_layout
-
-\begin_layout Plain Layout
-
-// Selección del oscilador (Oscilador HS)
-\end_layout
-
-\begin_layout Plain Layout
-
-#pragma config FOSC = HS
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Directivas-del-compilador"
-
-\end_inset
-
-Directivas del compilador para configurar el oscilador a 20
-\begin_inset space ~
-\end_inset
-
-MHz
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Además, para que funcionen algunas bibliotecas y macros, es necesario definir
- la frecuencia del oscilador que se está utilizando con el código del Listado
+ la frecuencia del oscilador que se está utilizando con el código del Código
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4128,58 +4059,6 @@ reference "lis:Macros-para-definir"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4,extendedchars=true"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-#define _XTAL_FREQ	20000000
-\end_layout
-
-\begin_layout Plain Layout
-
-#define SYS_FREQ	20000000L
-\end_layout
-
-\begin_layout Plain Layout
-
-#define FCY			SYS_FREQ/4
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Macros-para-definir"
-
-\end_inset
-
-Macros para definir la frecuencia del oscilador
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -4327,14 +4206,14 @@ periodo=CCPR1+\left(65536*N_{desbordamientos}\right)\label{eq:periodo-en-ciclos}
 \end_layout
 
 \begin_layout Standard
-En el Listado 
+En el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Configuración-del-Timer-1"
 
 \end_inset
 
-, se configura el 
+ se configura el 
 \emph on
 Timer 1
 \emph default
@@ -4342,84 +4221,7 @@ Timer 1
 \begin_inset Formula $\nicefrac{1}{8}$
 \end_inset
 
- para conseguir los mínimos desbordamientos.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-TMR1 = 0;					// Pone a 0 el regsitro TMR1
-\end_layout
-
-\begin_layout Plain Layout
-
-T1CONbits.RD16 = 1;			// 1: Modo 16 bits
-\end_layout
-
-\begin_layout Plain Layout
-
-T1CONbits.T1CKPS = 0b11;	// 0b11: Preescala 1/8
-\end_layout
-
-\begin_layout Plain Layout
-
-T1CONbits.TMR1CS = 0;		// 0: Reloj interno
-\end_layout
-
-\begin_layout Plain Layout
-
-T1CONbits.TMR1ON = 1;		// 1: Activa el Timer1
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Configuración-del-Timer-1"
-
-\end_inset
-
-Configuración del 
-\emph on
-Timer 1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En el Listado 
+ para conseguir los mínimos desbordamientos; y en el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Configuración-del-modo-CCP"
@@ -4427,53 +4229,6 @@ reference "lis:Configuración-del-modo-CCP"
 \end_inset
 
  se inicializa el módulo CCP para capturar los flancos de subida.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-CCP1CONbits.CCP1M = 0b0101; // 0101: Captura cada flanco de subida
-\end_layout
-
-\begin_layout Plain Layout
-
-PIE1bits.CCP1IE = 1;		// 1: Activa las interrupciones CCP
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Configuración-del-modo-CCP"
-
-\end_inset
-
-Configuración del modo CCP
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4493,7 +4248,7 @@ high_isr()
 \end_layout
 
 \begin_layout Standard
-La implementación del conteo de pulsos se encuentra en el Listado 
+La implementación del conteo de pulsos se encuentra en el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Obtención-del-periodo"
@@ -4504,183 +4259,6 @@ reference "lis:Obtención-del-periodo"
  Solo queda por destacar de ella que se desprecian los pulsos cuyo periodo
  no esté comprendido entre 187500 y 937500 pulsos, que corresponden respectivame
 nte a 40 y 200 pulsaciones por minuto.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-/* Timer1
-\end_layout
-
-\begin_layout Plain Layout
-
- * timer1_ov_count se incrementa cada vez que timer1 se desborda para
-\end_layout
-
-\begin_layout Plain Layout
-
- * poder registrar intervalos mayores de tiempo a 65536 pulsos
-\end_layout
-
-\begin_layout Plain Layout
-
- */
-\end_layout
-
-\begin_layout Plain Layout
-
-if(T1CONbits.TMR1ON && PIR1bits.TMR1IF) {
-\end_layout
-
-\begin_layout Plain Layout
-
-    timer1_ov_count += 1;
-\end_layout
-
-\begin_layout Plain Layout
-
-    PIR1bits.TMR1IF = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-/* CCP interrupt handler
-\end_layout
-
-\begin_layout Plain Layout
-
- * Cuando llega un flanco de subida, se almacena en CCPR1 el valor de TMR1
-\end_layout
-
-\begin_layout Plain Layout
-
- * y se resetea.
- El valor de CCPR1 es el periodo de la señal.
- Se tiene en
-\end_layout
-
-\begin_layout Plain Layout
-
- * cuenta el desbordamiento que se hubiera producido en timer1 entre pulsos
-\end_layout
-
-\begin_layout Plain Layout
-
- * 
-\end_layout
-
-\begin_layout Plain Layout
-
- * TMR1 debe resetearse manualmente.
-\end_layout
-
-\begin_layout Plain Layout
-
- */
-\end_layout
-
-\begin_layout Plain Layout
-
-if (PIE1bits.CCP1IE && PIR1bits.CCP1IF) {
-\end_layout
-
-\begin_layout Plain Layout
-
-    period_tmp = CCPR1 + (65536 * timer1_ov_count);
-\end_layout
-
-\begin_layout Plain Layout
-
-    /* Almacena el valor del periodo si está entre 40 y 200 PPM */
-\end_layout
-
-\begin_layout Plain Layout
-
-    if(period_tmp >= 0x02DC6C && period_tmp <= 0x0E4E1C) {
-\end_layout
-
-\begin_layout Plain Layout
-
-        period = period_tmp;
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-    timer1_ov_count = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-    TMR1 = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-    PIR1bits.CCP1IF = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-    PIR1bits.TMR1IF = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Obtención-del-periodo"
-
-\end_inset
-
-Obtención del periodo de los latidos
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4802,7 +4380,7 @@ Para inicializar la comunicación se llama a la función
 OpenUSART
 \family default
 \size default
- con las banderas que se quieren activar como se hace en el Listado 
+ con las banderas que se quieren activar como se hace en el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Configuración-de-UART"
@@ -4810,86 +4388,6 @@ reference "lis:Configuración-de-UART"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-const unsigned SPBRG = 10;
-\end_layout
-
-\begin_layout Plain Layout
-
-OpenUSART( USART_TX_INT_OFF  & // Desactiva interrupción TX
-\end_layout
-
-\begin_layout Plain Layout
-
-           USART_RX_INT_OFF  & // Desactiva interrupción RX
-\end_layout
-
-\begin_layout Plain Layout
-
-           USART_ASYNCH_MODE & // Modo asíncrono
-\end_layout
-
-\begin_layout Plain Layout
-
-           USART_EIGHT_BIT   & // Sin bit de paridad
-\end_layout
-
-\begin_layout Plain Layout
-
-           USART_BRGH_HIGH,    // Transmisión de alta velocidad
-\end_layout
-
-\begin_layout Plain Layout
-
-           SPBRG              );
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Configuración-de-UART"
-
-\end_inset
-
-Configuración de la interfaz UART
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4933,7 +4431,7 @@ El envío de información se debe hacer periodicamente.
 \emph on
 Timer 0
 \emph default
- con el objetivo de activar una señal cada varios segundos (Listado
+ con el objetivo de activar una señal cada varios segundos (Código
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Configuración-del-Timer"
@@ -4965,93 +4463,6 @@ T_{desbordamiento}=4\cdot T_{clk}\cdot256\cdot TOPS=4\cdot\left(0,05\cdot10^{-6}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-TMR0L = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-T0CONbits.T0PS0 = 1;
-\end_layout
-
-\begin_layout Plain Layout
-
-T0CONbits.T0PS1 = 1;
-\end_layout
-
-\begin_layout Plain Layout
-
-T0CONbits.T0PS2 = 1; //TOPS2:TOPS0 -> 1/256
-\end_layout
-
-\begin_layout Plain Layout
-
-T0CONbits.PSA = 0;   // 0: Usar prescaler
-\end_layout
-
-\begin_layout Plain Layout
-
-T0CONbits.T0CS = 0;  // 0: Usar reloj interno -> Fosc/4
-\end_layout
-
-\begin_layout Plain Layout
-
-T0CONbits.TMR0ON = 1;
-\end_layout
-
-\begin_layout Plain Layout
-
-T0CONbits.T08BIT = 1;
-\end_layout
-
-\begin_layout Plain Layout
-
-INTCONbits.TMR0IE = 1;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Configuración-del-Timer"
-
-\end_inset
-
-Configuración del 
-\emph on
-Timer 0
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 En la funcion 
 \family typewriter
 high_isr()
@@ -5060,7 +4471,7 @@ high_isr()
 \emph on
 Timer 0
 \emph default
- (Listado
+ (Código
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Manejo-del-desbordamiento"
@@ -5076,98 +4487,7 @@ send_value
 \family default
 \size default
 , que indica al código de la función principal que debe enviar el dato de
- pulsaciones (Listado XXXXXX).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-if(INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
-\end_layout
-
-\begin_layout Plain Layout
-
-    if(conteo_timer0 >=152) { // 2 segundos aprox.
-\end_layout
-
-\begin_layout Plain Layout
-
-        send_value = true;
-\end_layout
-
-\begin_layout Plain Layout
-
-        conteo_timer0 = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-    } else {
-\end_layout
-
-\begin_layout Plain Layout
-
-        conteo_timer0 += 1; // Incrementar contador de desborde de timer0
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-    INTCONbits.TMR0IF = 0; // Limpiamos bandera de desborde  
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Manejo-del-desbordamiento"
-
-\end_inset
-
-Manejo del desbordamiento del 
-\emph on
-Timer 0
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+ pulsaciones.
 \end_layout
 
 \begin_layout Standard
@@ -5611,7 +4931,7 @@ El primer paso para poder establecer comunicación Bluetooth es declarar
 \emph on
 manifiesto
 \emph default
- de la aplicación (Listado 
+ de la aplicación (Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Declaración-de-permisos"
@@ -5632,81 +4952,6 @@ BLUETOOTH_ADMIN
 \family default
 \size default
  para descubrir nuevos dispositivos.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=XML,basicstyle={\footnotesize},breaklines=true,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-<manifest .
- .
- .
- >
-\end_layout
-
-\begin_layout Plain Layout
-
-	<uses-permission android:name="android.permission.BLUETOOTH" />
-\end_layout
-
-\begin_layout Plain Layout
-
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-\end_layout
-
-\begin_layout Plain Layout
-
-	.
- .
- .
-\end_layout
-
-\begin_layout Plain Layout
-
-</manifest>
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Declaración-de-permisos"
-
-\end_inset
-
-Declaración de permisos Bluetooth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -5746,7 +4991,7 @@ key "android_open_source_project_bluetoothadapter_????"
 \end_layout
 
 \begin_layout Enumerate
-Activar Bluetooth con el código del Listado 
+Activar Bluetooth con el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Activación-de-Bluetooth"
@@ -5809,7 +5054,7 @@ key "roving_networks_roving_2009"
 
 \end_deeper
 \begin_layout Enumerate
-Establecer la conexión entre los dispositivos (Listado 
+Establecer la conexión entre los dispositivos (Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Establecimiento-de-la"
@@ -5883,574 +5128,7 @@ key "android_open_source_project_bluetoothadapter_????"
 
 \end_deeper
 \begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=Java,basicstyle={\footnotesize},tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-if (!mBluetoothAdapter.isEnabled()) {
-\end_layout
-
-\begin_layout Plain Layout
-
-    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-\end_layout
-
-\begin_layout Plain Layout
-
-    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Activación-de-Bluetooth"
-
-\end_inset
-
-Activación de Bluetooth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=Java,basicstyle={\footnotesize},tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-private static final UUID MY_UUID = 
-\end_layout
-
-\begin_layout Plain Layout
-
-        UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-private class AcceptThread extends Thread {
-\end_layout
-
-\begin_layout Plain Layout
-
-    private final BluetoothServerSocket mmServerSocket;
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-    public AcceptThread() {
-\end_layout
-
-\begin_layout Plain Layout
-
-        BluetoothServerSocket tmp = null;
-\end_layout
-
-\begin_layout Plain Layout
-
-        try {
-\end_layout
-
-\begin_layout Plain Layout
-
-            tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(
-\end_layout
-
-\begin_layout Plain Layout
-
-                    NAME, MY_UUID);
-\end_layout
-
-\begin_layout Plain Layout
-
-        } catch (IOException e) { }
-\end_layout
-
-\begin_layout Plain Layout
-
-        mmServerSocket = tmp;
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-    public void run() {
-\end_layout
-
-\begin_layout Plain Layout
-
-        BluetoothSocket socket = null;
-\end_layout
-
-\begin_layout Plain Layout
-
-        while (true) {
-\end_layout
-
-\begin_layout Plain Layout
-
-            try {
-\end_layout
-
-\begin_layout Plain Layout
-
-                socket = mmServerSocket.accept();
-\end_layout
-
-\begin_layout Plain Layout
-
-            } catch (IOException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-                break;
-\end_layout
-
-\begin_layout Plain Layout
-
-            }
-\end_layout
-
-\begin_layout Plain Layout
-
-            if (socket != null) {
-\end_layout
-
-\begin_layout Plain Layout
-
-                // La gestión de la conexión se realiza en otro hilo
-\end_layout
-
-\begin_layout Plain Layout
-
-                manageConnectedSocket(socket);
-\end_layout
-
-\begin_layout Plain Layout
-
-                mmServerSocket.close();
-\end_layout
-
-\begin_layout Plain Layout
-
-                break;
-\end_layout
-
-\begin_layout Plain Layout
-
-            }
-\end_layout
-
-\begin_layout Plain Layout
-
-        }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-    public void cancel() {
-\end_layout
-
-\begin_layout Plain Layout
-
-        try {
-\end_layout
-
-\begin_layout Plain Layout
-
-            mmServerSocket.close();
-\end_layout
-
-\begin_layout Plain Layout
-
-        } catch (IOException e) { }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Establecimiento-de-la"
-
-\end_inset
-
-Establecimiento de la conexion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=Java,basicstyle={\footnotesize},breaklines=true,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-private class ConnectedThread extends Thread {
-\end_layout
-
-\begin_layout Plain Layout
-
-    private final BluetoothSocket mmSocket;
-\end_layout
-
-\begin_layout Plain Layout
-
-    private final InputStream mmInStream;
-\end_layout
-
-\begin_layout Plain Layout
-
-    private final OutputStream mmOutStream;
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-    public ConnectedThread(BluetoothSocket socket) {
-\end_layout
-
-\begin_layout Plain Layout
-
-        mmSocket = socket;
-\end_layout
-
-\begin_layout Plain Layout
-
-        InputStream tmpIn = null;
-\end_layout
-
-\begin_layout Plain Layout
-
-        OutputStream tmpOut = null;
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-        try {
-\end_layout
-
-\begin_layout Plain Layout
-
-            tmpIn = socket.getInputStream();
-\end_layout
-
-\begin_layout Plain Layout
-
-            tmpOut = socket.getOutputStream();
-\end_layout
-
-\begin_layout Plain Layout
-
-        } catch (IOException e) { }
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-        mmInStream = tmpIn;
-\end_layout
-
-\begin_layout Plain Layout
-
-        mmOutStream = tmpOut;
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-    public void run() {
-\end_layout
-
-\begin_layout Plain Layout
-
-        byte[] buffer = new byte[1024];
-\end_layout
-
-\begin_layout Plain Layout
-
-        int bytes;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-        while (true) {
-\end_layout
-
-\begin_layout Plain Layout
-
-            try {
-\end_layout
-
-\begin_layout Plain Layout
-
-                bytes = mmInStream.read(buffer);
-\end_layout
-
-\begin_layout Plain Layout
-
-                // Envía los datos obtenidos hacia el hilo principal
-\end_layout
-
-\begin_layout Plain Layout
-
-                mHandler.obtainMessage(MESSAGE_READ, bytes, -1, buffer)
-\end_layout
-
-\begin_layout Plain Layout
-
-                        .sendToTarget();
-\end_layout
-
-\begin_layout Plain Layout
-
-            } catch (IOException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-                break;
-\end_layout
-
-\begin_layout Plain Layout
-
-            }
-\end_layout
-
-\begin_layout Plain Layout
-
-        }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-    public void write(byte[] bytes) {
-\end_layout
-
-\begin_layout Plain Layout
-
-        try {
-\end_layout
-
-\begin_layout Plain Layout
-
-            mmOutStream.write(bytes);
-\end_layout
-
-\begin_layout Plain Layout
-
-        } catch (IOException e) { }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-    public void cancel() {
-\end_layout
-
-\begin_layout Plain Layout
-
-        try {
-\end_layout
-
-\begin_layout Plain Layout
-
-            mmSocket.close();
-\end_layout
-
-\begin_layout Plain Layout
-
-        } catch (IOException e) { }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Gestión-de-la"
-
-\end_inset
-
-Gestión de la conexión Bluetooth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La recepción de datos, Listado 
+La recepción de datos, Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Gestión-de-la"
@@ -6490,7 +5168,7 @@ El dato de pulsaciones por minuto que se envía desde el pulsómetro viene
  Debido a que el lenguaje de programación Java no permite trabajar con variables
  enteras sin signo, los valores superiores a 128 son interpretados como
  negativos en complemento a dos.
- Para tratar este problema, el Listado 
+ Para tratar este problema, el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Ajuste-para-trabajar"
@@ -6499,82 +5177,6 @@ reference "lis:Ajuste-para-trabajar"
 
  contiene el código para solucionarlo, que pasa por trabajar con enteros
  de tamaño superior.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float listing
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-lstparams "language=Java,basicstyle={\footnotesize},breaklines=true,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-byte[] readBuf = .
- .
- .;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Integer firstValue = (int)readBuf[0];
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-if(readBuf[0] < 0) {
-\end_layout
-
-\begin_layout Plain Layout
-
-    firstValue= (int) readBuf[0] & 0xff;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:Ajuste-para-trabajar"
-
-\end_inset
-
-Ajuste para trabajar con enteros sin signo en Java
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -8696,25 +7298,8 @@ chaptermark{Bibliografía}
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-renewcommand
-\backslash
-thechapter{} 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
+\start_of_appendix
 Anexos
 \begin_inset CommandInset label
 LatexCommand label
@@ -8789,6 +7374,1347 @@ Código fuente
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Código-fuente"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Selección del Postscaler (Dividir por 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+#pragma config CPUDIV = OSC1_PLL2
+\end_layout
+
+\begin_layout Plain Layout
+
+// Selección del oscilador (Oscilador HS)
+\end_layout
+
+\begin_layout Plain Layout
+
+#pragma config FOSC = HS
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Directivas-del-compilador"
+
+\end_inset
+
+Directivas del compilador para configurar el oscilador a 20
+\begin_inset space ~
+\end_inset
+
+MHz
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#define _XTAL_FREQ	20000000
+\end_layout
+
+\begin_layout Plain Layout
+
+#define SYS_FREQ	20000000L
+\end_layout
+
+\begin_layout Plain Layout
+
+#define FCY			SYS_FREQ/4
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Macros-para-definir"
+
+\end_inset
+
+Macros para definir la frecuencia del oscilador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+TMR1 = 0;					// Pone a 0 el regsitro TMR1
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.RD16 = 1;			// 1: Modo 16 bits
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.T1CKPS = 0b11;	// 0b11: Preescala 1/8
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.TMR1CS = 0;		// 0: Reloj interno
+\end_layout
+
+\begin_layout Plain Layout
+
+T1CONbits.TMR1ON = 1;		// 1: Activa el Timer1
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-del-Timer-1"
+
+\end_inset
+
+Configuración del 
+\emph on
+Timer 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+CCP1CONbits.CCP1M = 0b0101; // 0101: Captura cada flanco de subida
+\end_layout
+
+\begin_layout Plain Layout
+
+PIE1bits.CCP1IE = 1;		// 1: Activa las interrupciones CCP
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-del-modo-CCP"
+
+\end_inset
+
+Configuración del modo CCP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* Timer1
+\end_layout
+
+\begin_layout Plain Layout
+
+ * timer1_ov_count se incrementa cada vez que timer1 se desborda para
+\end_layout
+
+\begin_layout Plain Layout
+
+ * poder registrar intervalos mayores de tiempo a 65536 pulsos
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+if(T1CONbits.TMR1ON && PIR1bits.TMR1IF) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    timer1_ov_count += 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+    PIR1bits.TMR1IF = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/* CCP interrupt handler
+\end_layout
+
+\begin_layout Plain Layout
+
+ * Cuando llega un flanco de subida, se almacena en CCPR1 el valor de TMR1
+\end_layout
+
+\begin_layout Plain Layout
+
+ * y se resetea.
+ El valor de CCPR1 es el periodo de la señal.
+ Se tiene en
+\end_layout
+
+\begin_layout Plain Layout
+
+ * cuenta el desbordamiento que se hubiera producido en timer1 entre pulsos
+\end_layout
+
+\begin_layout Plain Layout
+
+ * 
+\end_layout
+
+\begin_layout Plain Layout
+
+ * TMR1 debe resetearse manualmente.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+if (PIE1bits.CCP1IE && PIR1bits.CCP1IF) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    period_tmp = CCPR1 + (65536 * timer1_ov_count);
+\end_layout
+
+\begin_layout Plain Layout
+
+    /* Almacena el valor del periodo si está entre 40 y 200 PPM */
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(period_tmp >= 0x02DC6C && period_tmp <= 0x0E4E1C) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        period = period_tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    timer1_ov_count = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    TMR1 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    PIR1bits.CCP1IF = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    PIR1bits.TMR1IF = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Obtención-del-periodo"
+
+\end_inset
+
+Obtención del periodo de los latidos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+const unsigned SPBRG = 10;
+\end_layout
+
+\begin_layout Plain Layout
+
+OpenUSART( USART_TX_INT_OFF  & // Desactiva interrupción TX
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_RX_INT_OFF  & // Desactiva interrupción RX
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_ASYNCH_MODE & // Modo asíncrono
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_EIGHT_BIT   & // Sin bit de paridad
+\end_layout
+
+\begin_layout Plain Layout
+
+           USART_BRGH_HIGH,    // Transmisión de alta velocidad
+\end_layout
+
+\begin_layout Plain Layout
+
+           SPBRG              );
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-de-UART"
+
+\end_inset
+
+Configuración de la interfaz UART
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+TMR0L = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0PS0 = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0PS1 = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0PS2 = 1; //TOPS2:TOPS0 -> 1/256
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.PSA = 0;   // 0: Usar prescaler
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T0CS = 0;  // 0: Usar reloj interno -> Fosc/4
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.TMR0ON = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+T0CONbits.T08BIT = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+INTCONbits.TMR0IE = 1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Configuración-del-Timer"
+
+\end_inset
+
+Configuración del 
+\emph on
+Timer 0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=C,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if(INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(conteo_timer0 >=152) { // 2 segundos aprox.
+\end_layout
+
+\begin_layout Plain Layout
+
+        send_value = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+        conteo_timer0 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    } else {
+\end_layout
+
+\begin_layout Plain Layout
+
+        conteo_timer0 += 1; // Incrementar contador de desborde de timer0
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    INTCONbits.TMR0IF = 0; // Limpiamos bandera de desborde  
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Manejo-del-desbordamiento"
+
+\end_inset
+
+Manejo del desbordamiento del 
+\emph on
+Timer 0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=XML,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<manifest .
+ .
+ .
+ >
+\end_layout
+
+\begin_layout Plain Layout
+
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+\end_layout
+
+\begin_layout Plain Layout
+
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+\end_layout
+
+\begin_layout Plain Layout
+
+	.
+ .
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+</manifest>
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Declaración-de-permisos"
+
+\end_inset
+
+Declaración de permisos Bluetooth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if (!mBluetoothAdapter.isEnabled()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+\end_layout
+
+\begin_layout Plain Layout
+
+    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Activación-de-Bluetooth"
+
+\end_inset
+
+Activación de Bluetooth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+private static final UUID MY_UUID = 
+\end_layout
+
+\begin_layout Plain Layout
+
+        UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private class AcceptThread extends Thread {
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final BluetoothServerSocket mmServerSocket;
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public AcceptThread() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        BluetoothServerSocket tmp = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(
+\end_layout
+
+\begin_layout Plain Layout
+
+                    NAME, MY_UUID);
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmServerSocket = tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        BluetoothSocket socket = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+        while (true) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            try {
+\end_layout
+
+\begin_layout Plain Layout
+
+                socket = mmServerSocket.accept();
+\end_layout
+
+\begin_layout Plain Layout
+
+            } catch (IOException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                break;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (socket != null) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                // La gestión de la conexión se realiza en otro hilo
+\end_layout
+
+\begin_layout Plain Layout
+
+                manageConnectedSocket(socket);
+\end_layout
+
+\begin_layout Plain Layout
+
+                mmServerSocket.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+                break;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void cancel() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            mmServerSocket.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Establecimiento-de-la"
+
+\end_inset
+
+Establecimiento de la conexion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+private class ConnectedThread extends Thread {
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final BluetoothSocket mmSocket;
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final InputStream mmInStream;
+\end_layout
+
+\begin_layout Plain Layout
+
+    private final OutputStream mmOutStream;
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public ConnectedThread(BluetoothSocket socket) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmSocket = socket;
+\end_layout
+
+\begin_layout Plain Layout
+
+        InputStream tmpIn = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+        OutputStream tmpOut = null;
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            tmpIn = socket.getInputStream();
+\end_layout
+
+\begin_layout Plain Layout
+
+            tmpOut = socket.getOutputStream();
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmInStream = tmpIn;
+\end_layout
+
+\begin_layout Plain Layout
+
+        mmOutStream = tmpOut;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        byte[] buffer = new byte[1024];
+\end_layout
+
+\begin_layout Plain Layout
+
+        int bytes;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        while (true) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            try {
+\end_layout
+
+\begin_layout Plain Layout
+
+                bytes = mmInStream.read(buffer);
+\end_layout
+
+\begin_layout Plain Layout
+
+                // Envía los datos obtenidos hacia el hilo principal
+\end_layout
+
+\begin_layout Plain Layout
+
+                mHandler.obtainMessage(MESSAGE_READ, bytes, -1, buffer)
+\end_layout
+
+\begin_layout Plain Layout
+
+                        .sendToTarget();
+\end_layout
+
+\begin_layout Plain Layout
+
+            } catch (IOException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                break;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void write(byte[] bytes) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            mmOutStream.write(bytes);
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void cancel() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+            mmSocket.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (IOException e) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Gestión-de-la"
+
+\end_inset
+
+Gestión de la conexión Bluetooth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float listing
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,basicstyle={\footnotesize},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+byte[] readBuf = .
+ .
+ .;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Integer firstValue = (int)readBuf[0];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if(readBuf[0] < 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    firstValue= (int) readBuf[0] & 0xff;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Ajuste-para-trabajar"
+
+\end_inset
+
+Ajuste para trabajar con enteros sin signo en Java
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
