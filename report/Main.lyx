@@ -273,43 +273,6 @@ smartphone
  paciente.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-El método clásico de medida consiste en contar el número de pulsos cardíacos
- que ocurren en un periodo de un minuto.
- Los pulsos se pueden tomar con un esfigmomanómetro y directamente usando
- el dedo índice sobre zonas en las que las arterias se encuentran cerca
- de la piel; por ejemplo, cuello o muñeca.
-\end_layout
-
-\begin_layout Plain Layout
-El electrocardiograma es la medida de la actividad eléctrica que se produce
- en los músculos del corazón durante el ciclo cardíaco.
- Esta prueba se realiza colocando electrodos sobre el cuerpo y adquiriendo
- las señales eléctricas con un electrocardiógrafo.
- El periodo de las señales corresponde con la tasa de latidos y por tanto,
- con la frecuencia cardíaca.
-\end_layout
-
-\begin_layout Plain Layout
-El pletismograma es el resultado de convertir la variación en el volumen
- de un órgano o una parte del cuerpo humano en una señal eléctrica.
- Cuando se usa un sensor óptico, se llama fotopletismograma.
-\end_layout
-
-\begin_layout Plain Layout
-El dispositivo para obtener la tasa cardíaca a partir de un fotopletismograma
- es el pulsómetro, el objeto del presente Trabajo Fin de Grado.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Motivación
 \begin_inset CommandInset label
@@ -665,6 +628,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -679,7 +643,7 @@ status open
 \begin_inset Graphics
 	filename ../img/Heart_systole.svg
 	lyxscale 10
-	width 50text%
+	width 25text%
 
 \end_inset
 
@@ -721,15 +685,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/Heart_diasystole.svg
 	lyxscale 10
-	width 50text%
+	width 25text%
 
 \end_inset
 
@@ -917,22 +877,30 @@ Fotopletismograma
 \begin_layout Standard
 El paso de la sangre a través de las arterias da lugar a un incremento volumeric
 o en las mismas ligado a las variaciones de presión en el corazón.
- El diagrama de Wigger, Figura 
+ La medida de este incremento da lugar al fotopletismograma.
+\end_layout
+
+\begin_layout Standard
+La fotopletismografía es una manifestación de la actividad cardíaca y se
+ puede realizar en zonas del cuerpo donde el aparato circulatorio se expone
+ cerca de la piel, como dedos, muñeca y orejas.
+ 
+\end_layout
+
+\begin_layout Standard
+El diagrama de Wigger, Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Wiggers"
 
 \end_inset
 
-, representa bajo los mismos ejes la evolución en la presión, el volumen
-\end_layout
-
-\begin_layout Standard
-La medida de este incremento es conocida como fotopletismograma.
-\end_layout
-
-\begin_layout Standard
-El fotopletismograma se obtiene mediante sensores ópticos que miden la variación
+, representa bajo los mismos ejes la evolución de varias magnitudes.
+ Se observa como tras el complejo QRS se produce la contracción ventricular,
+ aumenta la presión en la arteria aorta y el volumen del ventrículo disminuye
+ al expulsarse la sangre.
+ Tras la onda T de repolarización, se cierra la válvula aorta provocando
+ un ligero incremento de la presión.
 \end_layout
 
 \begin_layout Standard
@@ -945,8 +913,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/Wiggers_Diagram.svg
-	lyxscale 10
-	width 100text%
+	lyxscale 20
+	width 75text%
 
 \end_inset
 
@@ -968,6 +936,74 @@ Diagrama de Wiggers
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este efecto sobre la arteria es el que se puede percibir en todo el sistema
+ circulatorio mediante la fotopletismografía.
+ En ocasiones, incluso la pequeña varaición producida por la onda T pequeña
+ puede identificarse como un pico secundario.
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Representación-de-ECG,"
+
+\end_inset
+
+ se observa la representación de ECG, traza inferior, tomada sobre el pie
+ de un sujeto
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gonzalez-landaeta_heart_2008"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/ECG-y-PPG-González-Landaeta.svg
+	lyxscale 10
+	width 75text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Representación-de-ECG,"
+
+\end_inset
+
+Representación de ECG, traza superior, y PPG, traza inferior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
 
 \end_layout
@@ -979,6 +1015,329 @@ Diagrama de Wiggers
 
 \begin_layout Subsection
 Medida de las pulsaciones
+\end_layout
+
+\begin_layout Standard
+La fotopletismografía es un método óptico con el que se registra la variación
+ de la absorbancia de tejidos, órganos y fluidos al ser iluminados.
+ El rango de frecuencias habitual oscila entre el infrarrojo y el rojo.
+\end_layout
+
+\begin_layout Standard
+Los sensores para fotopletismografía estan compuestos por un diodo emisor
+ y un receptor, transistor o fotodiodo, selectivo para la frecuencia emitida.
+ Los circuitos para su polarización son los habituales: transistor en emisor
+ común o conversor I--V para el fotodiodo.
+\end_layout
+
+\begin_layout Standard
+Existen dos topolgías para la colocación de los sensores.
+ Una de ellas es por transmisión (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Transmisión"
+
+\end_inset
+
+) donde el tejido u órgano sobre el que se quiere medir se coloca entre
+ el emisor y el receptor.
+ La otra forma es por reflexión (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Reflexión"
+
+\end_inset
+
+), el receptor se coloca al lado del emisor captando la luz que se refleja
+ en los tejidos.
+ El método de transmisión solo se puede utilizar en zonas donde el espesor
+ del órgano o tejido es pequeño.
+ Por tanto, lo mas habitual es hacerlo por reflexión.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/transmision.png
+	lyxscale 20
+	width 20text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Transmisión"
+
+\end_inset
+
+Transmisión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/reflexion.png
+	lyxscale 20
+	width 20text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Reflexión"
+
+\end_inset
+
+Reflexión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Topologías de colocación del sensor fotopletismográfico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El fotopletismograma obtenido es la superposición de varias señales como
+ se observa en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Componentes-del-fotopletismogram"
+
+\end_inset
+
+.
+ Las componentes venosa de retorno, capilar y tejidos deben eliminarse con
+ un filtro paso alta pues las pulsaciones sólo se pueden detectar sobre
+ el flujo arterial.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/PPG-components-Reddy.png
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Componentes-del-fotopletismogram"
+
+\end_inset
+
+Componentes del fotopletismograma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsos-bn.jpg
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pulsos-obtenidos-desde"
+
+\end_inset
+
+Pulsos obtenidos desde fotopletismogama filtrado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Determinación de la frecuencia cardía mediante fotopletismograma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede incluir otros elementos del filtrado para obtener una señal mas
+ limpia.
+ Filtros paso baja para limitar el ancho de banda y filtros elimina--banda
+ o peine para reducir el efecto de la interferencia electromagnética con
+ origen en la red eléctrica.
+ Este ruido afecta sensiblemente a estos dispositivos ya que su frecuencia,
+ 50
+\begin_inset space ~
+\end_inset
+
+Hz o 60
+\begin_inset space ~
+\end_inset
+
+Hz, es cercana a la frecuencia cardíaca que está entorno a 1
+\begin_inset space ~
+\end_inset
+
+Hz.
+\end_layout
+
+\begin_layout Standard
+Finalmente, se detectan los pulsos con un comparador
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ramlee_low_2014"
+
+\end_inset
+
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pulsos-obtenidos-desde"
+
+\end_inset
+
+).
+ Otras técnicas utilizan el análisis espectral, pero requieren hardware
+ y software con potencia suficiente para realizar la transformada rápida
+ de fourier
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhang_heart_2014"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1043,7 +1402,7 @@ status open
 \begin_inset Graphics
 	filename ../img/Stethoscope-bn.jpg
 	lyxscale 25
-	width 50text%
+	width 30text%
 
 \end_inset
 
@@ -1109,7 +1468,7 @@ status open
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/portable-ecg.jpg
 	lyxscale 10
-	width 50text%
+	width 30text%
 
 \end_inset
 
@@ -1190,7 +1549,7 @@ status open
 \begin_inset Graphics
 	filename ../img/cardiofrecuencimetro.jpg
 	lyxscale 25
-	width 50text%
+	width 30text%
 
 \end_inset
 
@@ -1317,6 +1676,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -1327,7 +1687,7 @@ status open
 \begin_inset Graphics
 	filename ../img/BP-400.jpg
 	lyxscale 10
-	width 50text%
+	width 30text%
 
 \end_inset
 
@@ -1366,7 +1726,7 @@ status open
 \begin_inset Graphics
 	filename ../img/apple-watch.jpg
 	lyxscale 10
-	width 50text%
+	width 30text%
 
 \end_inset
 
@@ -1417,11 +1777,20 @@ El fotopletismograma se puedede realizar sobre otras zonas del cuerpo como
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 PINZA PULSIMETRICA EN DEDO
 \end_layout
 
-\begin_layout Standard
-PINZA SOBRE OREJA
+\begin_layout Plain Layout
+PINZA SOBRE OREJA (a bebes)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1870,8 +2239,8 @@ reference "fig:Circuito-de-adquisición"
 
 , se encarga de convertir las pulsaciones de los vasos sanguíneos en una
  señal eléctrica.
- Para ello se utiliza el componente TCRT1010, un sensor óptico reflectivo
- y salida con transistor.
+ Para ello se utiliza el componente TCRT1010 (Figura XXXXXX), un sensor
+ óptico reflectivo y salida con transistor.
  Este dispositivo emite luz infrarroja a 950
 \begin_inset space ~
 \end_inset
@@ -1896,6 +2265,13 @@ mA.
 \emph on
 datasheet
 \emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "vishay_semiconductors_reflective_????"
+
+\end_inset
+
 , para dicha corriente la caida de tensión 
 \begin_inset Formula $V_{F}$
 \end_inset
@@ -1955,6 +2331,46 @@ V.
 \end_inset
 
  se cumple este criterio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/TCRT1010.jpg
+	lyxscale 20
+	width 20text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Componente TCRT1010
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -6198,7 +6614,7 @@ Los datos se representan de forma numérica, pulsaciones por minuto actuales,
 \begin_layout Standard
 Debido a las limitaciones de la pulsimetría, comentadas en el apartado 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 referencia a capitulo donde se explican las ventajas e inconvenientes de
