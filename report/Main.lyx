@@ -14,6 +14,9 @@
 \renewcommand\listingname{Código}
 \end_preamble
 \use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
 \maintain_unincluded_children false
 \begin_local_layout
 Format 49
@@ -52,6 +55,8 @@ End
 \paperfontsize 12
 \spacing onehalf
 \use_hyperref true
+\pdf_title "Diseno de un pulsómetro por infrarrojos"
+\pdf_author "Rafael Bailon-Ruiz"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
@@ -97,7 +102,7 @@ End
 \quotes_language french
 \papercolumns 1
 \papersides 2
-\paperpagestyle headings
+\paperpagestyle fancy
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -106,10 +111,6 @@ End
 \end_header
 
 \begin_body
-
-\begin_layout Title
-\begin_inset Note Note
-status open
 
 \begin_layout Title
 Diseño de un pulsómetro por infrarrojos
@@ -121,38 +122,6 @@ Rafael Bailón Ruiz
 
 \begin_layout Date
 Julio 2015
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cleardoublepage
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset External
-	template PDFPages
-	filename anexos.pdf
-	extra LaTeX "pages=-"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Dedication
@@ -169,6 +138,17 @@ Quiero agradecer a mis tutores de este Trabajo Fin de Grado la ayuda en
 
 A mis padres, mi hermano y mis amigos, que me apoyan en la aventura de ser
  ingeniero.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename anexos.pdf
+	extra LaTeX "pages=3-"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -200,6 +180,35 @@ LatexCommand tableofcontents
 \begin_inset CommandInset nomencl_print
 LatexCommand printnomenclature
 set_width "auto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[LE,RO]{
+\backslash
+slshape Diseño de un pulsómetro por infrarrojos}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[LO,RE]{
+\backslash
+slshape 
+\backslash
+rightmark}
+\end_layout
 
 \end_inset
 
@@ -251,7 +260,7 @@ Frecuencia respiratoria
 \end_layout
 
 \begin_layout Standard
-La frecuencia cardíaca es la tasa de latidos del corazón, e indica el nivel
+La frecuencia cardíaca es la tasa de latidos del corazón e indica el nivel
  de actividad de este.
  Los latidos provocan el bombeo de la sangre a través de los vasos sanguíneos
  que recorren todo el cuerpo humano.
@@ -266,7 +275,7 @@ La frecuencia cardíaca es la tasa de latidos del corazón, e indica el nivel
 La adquisición de la tasa de latidos es un procedimiento básico en el diagnóstic
 o de un paciente y la pulsimetría es uno de los métodos utilizadas para
  ello.
- Esta técnica se basa en el procesamiento de un Fotopletismograma (PPG
+ Esta técnica se basa en el procesamiento de un fotopletismograma (PPG
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "PPG"
@@ -277,7 +286,7 @@ description "Photoplethysmogram, fotopletismograma"
 ), una representación de la variación volumétrica de las arterias obtenida
  con un sensor óptico.
  Usa las variaciones pulsátiles en la absorbancia óptica de los tejidos
- y la sangre bajo luz infrarroja para determinar la frecuencia cárdiaca.
+ y la sangre bajo luz infrarroja para determinar la frecuencia cardíaca.
  
 \end_layout
 
@@ -326,7 +335,7 @@ La población en los países desarrollados es cada vez más anciana y cada
 \emph on
 telecuidado
 \emph default
- se pantea como un posible solución al incremento de necesidades sanitarias
+ se plantea como un posible solución al incremento de necesidades sanitarias
  de los ciudadanos
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -365,7 +374,7 @@ key "ramlee_low_2014"
 
 .
  Gracias a las comunicaciones inalámbricas, ZigBee, Bluetooth, WiFi, y a
- internet la 
+ Internet la 
 \emph on
 telemedicina
 \emph default
@@ -432,37 +441,51 @@ Diseño y fabricación de un pulsómetro con sensor infrarrojo.
 
 \begin_deeper
 \begin_layout Itemize
-Obtención del fotopletismograma
+Obtención del fotopletismograma.
 \end_layout
 
 \begin_layout Itemize
-Procesado de la señal
+Procesado de la señal.
 \end_layout
 
 \begin_layout Itemize
-Adquisición mediante un microcontrolador
+Adquisición mediante un microcontrolador.
 \end_layout
 
 \begin_layout Itemize
-Comunicación inalámbrica con un sistema monitorización
+Comunicación inalámbrica con un sistema monitorización.
 \end_layout
 
 \begin_layout Itemize
-Diseño del sistema en placa de circuito impreso
+Diseño del sistema en placa de circuito impreso.
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
 Diseño e implementación de una aplicación móvil para la monitorización remota
- el pulso cardíaco de un paciente.
+ del pulso cardíaco de un paciente.
 \end_layout
 
 \begin_layout Chapter
 Estado del Arte
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Estado-del-Arte"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Fundamento Teórico
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Fundamento-Teórico"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -489,7 +512,7 @@ status open
 \begin_inset Graphics
 	filename ../img/corazon.svg
 	lyxscale 10
-	width 50text%
+	width 60text%
 
 \end_inset
 
@@ -521,24 +544,32 @@ Diagrama del corazón
 \end_layout
 
 \begin_layout Standard
-Este músculo está dividido en cuatro cámaras, Figura 
+Este músculo está dividido en cuatro cámaras: dos aurículas, derecha e izquierda
+ y dos ventrículos, derecho e izquierdo (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-del-corazón"
 
 \end_inset
 
-: dos aurículas, derecha e izquierda y dos ventrículos, derecho e izquierdo.
+).
 \end_layout
 
 \begin_layout Subsection
 Ciclo cardíaco
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Ciclo-cardíaco"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 El ciclo cardíaco es la secuencia de eventos eléctricos, mecánicos, sonoros
  y de presión, relacionados con el flujo de sangre a través de las cavidades
- cardiacas, la contracción y relajación de cada una de ellas (aurículas
+ cardíacas, la contracción y relajación de cada una de ellas (aurículas
  y ventrículos), el cierre y apertura de las válvulas y la producción de
  ruidos a ellas asociados
 \begin_inset CommandInset citation
@@ -648,8 +679,8 @@ ventricular
 \begin_inset space \space{}
 \end_inset
 
-pasivo Durante las otras fases las aurículas han estado llenandose de sangre.
- El aumento del la presión en estas cavidades respecto a la de los ventrículos
+pasivo Durante las otras fases las aurículas han estado llenándose de sangre.
+ El aumento de la presión en estas cavidades respecto a la de los ventrículos
  provoca que la sangre fluya hacia ellos, comenzando el siguiente ciclo
  (Figura 
 \begin_inset CommandInset ref
@@ -800,10 +831,24 @@ PPM.
 
 \begin_layout Subsection
 Las señales cardíacas
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Las-señales-cardíacas"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Electrocardiograma
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Electrocardiograma"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -905,29 +950,36 @@ El complejo QRS se produce por la superposición de las señales eléctricas
  durante la contracción ventricular.
  Es uno de los segmentos mas característicos para la detección de la frecuencia
  cardíaca y su amplitud es mayor porque el área muscular del ventrículo
- es mucho mas poderosa, para poder bombear la sangre.
+ es mucho mas poderosa para poder bombear la sangre.
 \end_layout
 
 \begin_layout Standard
-El segmento ST refleja la despolarización auricular, es decir, la diástole
+El segmento ST refleja la despolarización auricular, es decir, la diástole,
  y la onda T la repolarización previa a la apertura de las válvulas para
  el nuevo ciclo.
 \end_layout
 
 \begin_layout Subsubsection
 Fotopletismograma
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Fotopletismograma"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-El paso de la sangre a través de las arterias da lugar a un incremento volumeric
-o en las mismas ligado a las variaciones de presión en el corazón.
+El paso de la sangre a través de las arterias da lugar a un incremento volumétri
+co en las mismas ligado a las variaciones de presión en el corazón.
  La medida de este incremento da lugar al fotopletismograma.
 \end_layout
 
 \begin_layout Standard
-La fotopletismografía es una manifestación de la actividad cardíaca y se
- puede realizar en zonas del cuerpo donde el aparato circulatorio se expone
- cerca de la piel, como dedos, muñeca y orejas.
+La fotopletismografía refleja la manifestación de la actividad cardíaca
+ y se puede realizar en zonas del cuerpo donde el aparato circulatorio se
+ expone cerca de la piel, como dedos, muñecas y pabellones auriculares.
  
 \end_layout
 
@@ -988,20 +1040,16 @@ Diagrama de Wiggers
 \begin_layout Standard
 Este efecto sobre la arteria es el que se puede percibir en todo el sistema
  circulatorio mediante la fotopletismografía.
- En ocasiones, incluso la pequeña varaición producida por la onda T pequeña
- puede identificarse como un pico secundario.
-\end_layout
-
-\begin_layout Standard
-En la Figura 
+ En ocasiones, incluso la pequeña variación producida por la onda T puede
+ identificarse como un pico secundario.
+ En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Representación-de-ECG,"
 
 \end_inset
 
- se observa la representación de ECG, traza inferior, tomada sobre el pie
- de un sujeto
+ se observa la relación, con datos reales, entre ECG y PPG
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gonzalez-landaeta_heart_2008"
@@ -1059,6 +1107,13 @@ Representación de ECG, traza superior, y PPG, traza inferior
 
 \begin_layout Subsection
 Medida de las pulsaciones
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Medida-de-las-1"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1068,14 +1123,14 @@ La fotopletismografía es un método óptico con el que se registra la variació
 \end_layout
 
 \begin_layout Standard
-Los sensores para fotopletismografía estan compuestos por un diodo emisor
+Los sensores para fotopletismografía están compuestos por un diodo emisor
  y un receptor, transistor o fotodiodo, selectivo para la frecuencia emitida.
  Los circuitos para su polarización son los habituales: transistor en emisor
  común o conversor I--V para el fotodiodo.
 \end_layout
 
 \begin_layout Standard
-Existen dos topolgías para la colocación de los sensores.
+Existen dos topologías para la colocación de los sensores.
  Una de ellas es por transmisión (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1303,7 +1358,7 @@ name "fig:Pulsos-obtenidos-desde"
 
 \end_inset
 
-Pulsos obtenidos desde fotopletismogama filtrado
+Pulsos obtenidos desde fotopletismograma filtrado
 \end_layout
 
 \end_inset
@@ -1321,7 +1376,7 @@ Pulsos obtenidos desde fotopletismogama filtrado
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Determinación de la frecuencia cardía mediante fotopletismograma
+Determinación de la frecuencia cardíaca mediante fotopletismograma
 \end_layout
 
 \end_inset
@@ -1335,7 +1390,7 @@ Determinación de la frecuencia cardía mediante fotopletismograma
 \end_layout
 
 \begin_layout Standard
-Se puede incluir otros elementos del filtrado para obtener una señal mas
+Se puede incluir otros elementos de filtrado para obtener una señal mas
  limpia.
  Filtros paso baja para limitar el ancho de banda y filtros elimina--banda
  o peine para reducir el efecto de la interferencia electromagnética con
@@ -1349,7 +1404,7 @@ Hz o 60
 \begin_inset space ~
 \end_inset
 
-Hz, es cercana a la frecuencia cardíaca que está entorno a 1
+Hz, es cercana a la frecuencia cardíaca, que está entorno a 1
 \begin_inset space ~
 \end_inset
 
@@ -1386,29 +1441,43 @@ key "zhang_heart_2014"
 
 \begin_layout Section
 Dispositivos comerciales
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Dispositivos-comerciales"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Existe una gran variedad de instrumentos portátiles para la medida de la
- frecuencia cardíaca basados principalmente en electrocardiograma y fotopletismo
+ frecuencia cardíaca basados, esencialmente en electrocardiograma y fotopletismo
 grama.
 \end_layout
 
 \begin_layout Subsection
 Primeros pulsómetros portátiles
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Primeros-pulsómetros-portátiles"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-El instrumento mas rudimentatio para la medida de las pulsaciones es el
+El instrumento mas rudimentario para la medida de las pulsaciones es el
  el propio ser humano.
  Cualquier persona puede 
 \emph on
 tomar el pulso
 \emph default
  de si mismo o de otro posando su dedo sobre zonas donde los cambios de
- presión arteriales son palpables, habitualmente muñeca y cuello.
+ presión arterial son palpables, habitualmente muñeca y cuello.
  El método consiste en contar los pulsos durante un periodo de tiempo, normalmen
-te 1 minuto para obtener el dato en pulsaciones por minuto (PPM).
+te un minuto, para obtener el dato en pulsaciones por minuto (PPM).
  Esta forma es poco eficiente pues al no ser automático el individuo que
  realiza el procedimiento debe prestar su atención durante el tiempo de
  la prueba y realizar tareas de monitorización se hacen inviables.
@@ -1426,7 +1495,7 @@ reference "fig:Estetoscopio"
 
 \end_inset
 
-, es un dispositivo acústico para oir los sonidos internos del cuerpo.
+, es un dispositivo acústico para oír los sonidos internos del cuerpo.
  Este procedimiento solo puede ser aplicado por un especialista, que posee
  el instrumento adecuado y tiene el entrenamiento para realizarlo.
 \end_layout
@@ -1479,10 +1548,17 @@ Estetoscopio
 
 \begin_layout Subsection
 Pulsómetros basados en electrocardiograma
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Pulsómetros-basados-en"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Todos los centros hospitalarios están equipados con instrmental para la
+Todos los centros hospitalarios están equipados con instrumental para la
  realización de electrocardiogramas, Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1493,8 +1569,8 @@ reference "fig:Electrocardiógrafo-portátil"
 .
  Sin embargo su uso en este ámbito está mucho mas orientado al diagnóstico
  de enfermedades cardíacas mas que a la monitorización del pulso.
- El ECG proporciona mucha mas información al especialista a costa de de
- una preparación del paciente más compleja.
+ El ECG proporciona mucha mas información al especialista a costa de una
+ preparación del paciente más compleja.
 \end_layout
 
 \begin_layout Standard
@@ -1551,7 +1627,7 @@ key "_role_????"
 \end_layout
 
 \begin_layout Standard
-Fuera del ámbito sanitario, en el mundo del deporte, existen mutitiud de
+Fuera del ámbito sanitario, en el mundo del deporte, existen multitud de
  dispositivos para monitorizar la frecuencia cardíaca
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1568,11 +1644,11 @@ key "_decathlon_????"
 smartphones
 \emph default
 , los más avanzados.
- Estos dispositivos son conocidos con el nombre de cardiógrafos y están
- compuestos de dos partes: una banda que se coloca sobre el pecho, que contiene
- el circuito para realizar el ECG y un emisor de radiofrecuencia, y un receptor
- que se coloca en la muñeca con una pantalla para mostrar la información
- (Figura 
+ Estos dispositivos son conocidos con el nombre de cardiofrecuencímetros
+ y están compuestos de dos partes: una banda que se coloca sobre el pecho,
+ que contiene el circuito para realizar el ECG y el emisor de radiofrecuencia,
+ y un receptor que se coloca en la muñeca con una pantalla para mostrar
+ la información (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Cardiofrecuencímetro-Cardio-ONrh"
@@ -1639,7 +1715,7 @@ key "_cardio_????"
 Los cardiofrecuencímetros son mucho más prácticos de usar que realizar un
  ECG convencional y se pueden utilizar mientras se hace deporte al aire
  libre.
- Sin embargo presentan algunos problemas orginados por la naturaleza eléctrica
+ Sin embargo presentan algunos problemas originados por la naturaleza eléctrica
  de la prueba:
 \end_layout
 
@@ -1651,40 +1727,55 @@ La zona del pecho donde se coloca la banda, a la altura del corazón, debe
 
 \begin_layout Itemize
 Su uso está fuertemente desaconsejado en usuarios de marcapasos pues el
- cardiofrecuencímetro puede interferír sobre él.
+ cardiofrecuencímetro puede interferir sobre él.
  
 \end_layout
 
 \begin_layout Standard
-Estos aparatos no se podrían usar para la monitorización muchas personas,
+Estos aparatos no se podrían usar para la monitorización de muchas personas,
  sobre todo ancianas, que tienen problemas de corazón.
  Y son precisamente los cardiópatas los que mas lo necesitan.
 \end_layout
 
 \begin_layout Subsection
 Pulsómetros basados en fotopletismograma
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Pulsómetros-basados-en-1"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Los pulsómetros basados en foto pletismograma actualmente tienen su nicho
+Los pulsómetros basados en fotopletismograma tienen originariamente su nicho
  en la monitorización hospitalaria, sin embargo ha habido y sigue habiendo
  intentos en universalizar su uso fuera de ese ámbito.
 \end_layout
 
 \begin_layout Standard
-Uno de los primeros dispostivos de pulsimetría de uso no hospitalario es
+Uno de los primeros dispositivos de pulsimetría de uso no hospitalario es
  el reloj BP-400 fabricado por Casio en los años 90 del siglo XX, que ya
  incorporaba un sensor óptico para obtener las pulsaciones.
- el usuario debía colocar su dedo sobre la zona del sensor, Figura 
+ El usuario debía colocar su dedo sobre la zona del sensor, Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Casio-BP-400-(1994)"
 
 \end_inset
 
-, y esperar unos instantes hasta que la medida a pareciera en la pantalla
- LCD.
- Tuvo un exito limitado ya que requería calibrarlo para cada persona que
+, y esperar unos instantes hasta que la medida apareciera en la pantalla
+ LCD
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LCD"
+description "Liquid Crystal Display"
+
+\end_inset
+
+.
+ Tuvo un éxito limitado ya que requería calibrarlo para cada persona que
  fuera a utilizarlo
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1696,7 +1787,7 @@ key "_casio_????"
 \end_layout
 
 \begin_layout Standard
-Dos décadas despues la empresa Apple comercializa un reloj inteligente,
+Dos décadas después, la empresa Apple comercializa un reloj inteligente,
  
 \emph on
 smartwatch
@@ -1816,12 +1907,170 @@ Evolución de relojes-pulsómetro
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Otros dispositivos pulsimétricos con forma de reloj son las pulseras fabricadas
+ por FitBit Inc.
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pulsera-FitBit-ChargeHR"
+
+\end_inset
+
+), que han tenido mucho éxito en Estados Unidos.
+ Esta empresa tiene asignadas al menos 100 patentes en la USPTO
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "USPTO"
+description "United States Patent and Trademark Office"
+
+\end_inset
+
+ relacionadas con dispositivos de monitorización biométrica y de actividad.
+ Una parte importante de ellas sobre frecuencia cardíaca y 5 tituladas 
+\emph on
+Wearable heart rate monitor
+\emph default
+ (Monitor de frecuencia cardíaca vestible).
+ En 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hong_united_2015"
+
+\end_inset
+
+ se presenta una pulsera que incluye un sensor PPG capaz de medir las caracterís
+ticas de la forma de onda y detectar cuando el usuario la lleva puesta.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "venkatraman_united_2015,venkatraman_united_2015-1,venkatraman_united_2015-2"
+
+\end_inset
+
+ reclaman métodos que combinan un sensor fotopletismográfico con acelerómetro
+ para mejorar la medida de pulsaciones mientras se hace deporte.
+ Algunos diseños incluyen la visualización de las pulsaciones en el mismo
+ dispositivo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yuen_united_2015"
+
+\end_inset
+
+, y la mayoría ofrecen comunicación con teléfonos inteligentes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-El fotopletismograma se puedede realizar sobre otras zonas del cuerpo como
- dedos y orejas.
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsera-fitbit.png
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pulsera-FitBit-ChargeHR"
+
+\end_inset
+
+Pulsera FitBit ChargeHR
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_sitio_????"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/samsung-gear-fit.jpg
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Samsung-Gear-Fit"
+
+\end_inset
+
+Samsung Gear Fit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "_samsung_????"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pulseras de monitorización biométrica
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -1830,11 +2079,65 @@ El fotopletismograma se puedede realizar sobre otras zonas del cuerpo como
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
+El principal problema de los dispositivos fotopletismográficos es que se
+ ven afectados por el movimiento del sujeto.
+ Un sensor PPG colocado sobre el dedo o la muñeca de un usuario haciendo
+ deporte recogerá artefactos, alteraciones no deseadas en la señal que dan
+ lugar a datos erróneos (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Efectos-de-los"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-FALTA AÑADIR DISPOSITIVOS DE PATENTES Y ARTÍCULOS
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/PPG-artifacts-Zhilin-Zhang.png
+	width 80text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Efectos-de-los"
+
+\end_inset
+
+Efectos de los artefactos sobre la medida de pulsaciones
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhang_heart_2014"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -1843,42 +2146,121 @@ FALTA AÑADIR DISPOSITIVOS DE PATENTES Y ARTÍCULOS
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-PINZA PULSIMETRICA EN DEDO
-\end_layout
-
-\begin_layout Plain Layout
-PINZA SOBRE OREJA (a bebes)
-\end_layout
+Por un lado existen propuestas de algoritmos complejos para extraer la frecuenci
+a cardíaca a pesar de los artefactos.
+ En 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhang_heart_2014"
 
 \end_inset
 
+ se presenta un método para reducir los artefactos basado en análisis espectral
+ y, según el investigador, consigue un error inferior al 2% en sujetos corriendo
+ a 15
+\begin_inset space ~
+\end_inset
 
-\end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-El prinicpal aspecto de innovación de los pulsómetros PPG es la colocación
- del sensor, ya que si es correcta se reduce en gran medida los artefactos
- comentados en el apartado 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-XXXXXX
-\end_layout
-
+\begin_inset Formula $km/h$
 \end_inset
 
 .
- Existen numerosas patentes y modelos de utilidad con invenciones interesantes
- en este ámbito.
+ Esta técnica se ha implementado en el Samsung Gear Fit (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Samsung-Gear-Fit"
+
+\end_inset
+
+), un dispositivo similar a los de FitBit para monitorización de actividad.
+\end_layout
+
+\begin_layout Standard
+En otra línea, una alternativa está en realizar el PPG para obtener las
+ pulsaciones durante un instante, y no constantemente como en las otras
+ propuestas.
+ Se proponen topologías en la que se coloca el dedo sobre una superficie
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yuen_united_2015"
+
+\end_inset
+
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pose-del-dedo"
+
+\end_inset
+
+), leer desde sensores colocados sobre zonas específicas de una pulsera
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor-sobre-muñeca"
+
+\end_inset
+
+) o dispositivos situados en el pabellón auricular (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor-sobre-oreja"
+
+\end_inset
+
+).
+ Todos ellos son igual de efectivos, siendo el más básico de construir el
+ primero.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/US-patent-9039614-5.jpg
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pose-del-dedo"
+
+\end_inset
+
+Pose del dedo sobre el sensor
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yuen_united_2015"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1886,20 +2268,112 @@ XXXXXX
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-::::Buscar catálogo de siemens
+
 \end_layout
 
 \begin_layout Plain Layout
-::::Buscar descripción del galaxy gear fit
-\end_layout
+\align center
+\begin_inset Graphics
+	filename ../img/US-patent-9014790-9.jpg
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-::::Wearable
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sensor-sobre-muñeca"
+
+\end_inset
+
+Sensores sobre pulsera
+\begin_inset CommandInset citation
+LatexCommand cite
+key "richards_united_2015"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/PPG-oreja.jpg
+	width 40text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sensor-sobre-oreja"
+
+\end_inset
+
+Sensor sobre oreja
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang_multichannel_2007"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Métodos de medida PPG según colocación del sensor
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1958,7 +2432,7 @@ name "fig:Diagrama-conceptual-del"
 
 \end_inset
 
-Diagrama conceptual del sistema
+Diagrama del sistema
 \end_layout
 
 \end_inset
@@ -2091,7 +2565,7 @@ El pulsómetro está diseñado para operar a una tensión regulada,
 \begin_inset Formula $V_{DD}$
 \end_inset
 
-, de 3,3V, alimentandose a partir de un sistema de baterías.
+, de 3,3V, alimentándose a partir de un sistema de baterías.
  La regulación la realiza el componente MCP1700
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2108,8 +2582,8 @@ mA con un consumo de 1,6
 \end_inset
 
 µA (valor típico).
- Posee proteccion integrada contra corctocircuito y sobre calientamiento,
- y admite hasta 6
+ Posee protección integrada contra cortocircuito y sobrecalentamiento, y
+ admite hasta 6
 \begin_inset space ~
 \end_inset
 
@@ -2124,17 +2598,7 @@ Se ha elegido utilizar un regulador en lugar de un conversor DC-DC, mas
 \end_layout
 
 \begin_layout Standard
-La alimentación se realiza mediante 4
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-¿o 3 baterías?
-\end_layout
-
-\end_inset
-
- baterías tipo AA de 1,5
+La alimentación se realiza mediante 4 baterías tipo AA de 1,5
 \begin_inset space ~
 \end_inset
 
@@ -2143,7 +2607,7 @@ V conectadas en serie, sumando 6
 \end_inset
 
 V en total.
- En un prototipo comercial se usaría una batería de litio de 3.7
+ En un prototipo comercial se usaría una batería de litio de 3,7
 \begin_inset space ~
 \end_inset
 
@@ -2153,12 +2617,11 @@ V, cuyo voltaje es mas cercano a 3,3
 
 V.
  Sin embargo con la batería de litio sería necesario incluir un circuito
- de carga y descarga que se encuentra fuera de los objetivos del Trabajo
- Fin de Grado.
+ de carga y descarga.
 \end_layout
 
 \begin_layout Standard
-Para el funcionamiento del regulador se necesita, segun el 
+Para el funcionamiento del regulador se necesita, según el 
 \emph on
 datasheet
 \emph default
@@ -2284,16 +2747,22 @@ reference "fig:Circuito-de-adquisición"
 
 , se encarga de convertir las pulsaciones de los vasos sanguíneos en una
  señal eléctrica.
- Para ello se utiliza el componente TCRT1010 (Figura XXXXXX), un sensor
- óptico reflectivo y salida con transistor.
+ Para ello se utiliza el componente TCRT1010 (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor-TCRT1010"
+
+\end_inset
+
+), un sensor óptico reflectivo y salida con transistor.
  Este dispositivo emite luz infrarroja a 950
 \begin_inset space ~
 \end_inset
 
-nm, parte de ella es reflejada por los vasos sanguineos y es recibida por
+nm, parte de ella es reflejada por los vasos sanguíneos y es recibida por
  el transistor que se activa con la luz recibida.
- Según la hoja de características el sensor óptico tiene incorporado un
- filtro que bloquea la luz visible.
+ Según la hoja de características, el sensor óptico tiene incorporado un
+ filtro que bloquea las frecuencias de la luz visible.
 \end_layout
 
 \begin_layout Standard
@@ -2306,7 +2775,7 @@ El diodo emisor se ha polarizado para que pase por él una corriente
 \end_inset
 
 mA.
- Según la Figura 3 del 
+ Según el 
 \emph on
 datasheet
 \emph default
@@ -2317,7 +2786,7 @@ key "vishay_semiconductors_reflective_????"
 
 \end_inset
 
-, para dicha corriente la caida de tensión 
+, para dicha corriente la caída de tensión 
 \begin_inset Formula $V_{F}$
 \end_inset
 
@@ -2401,6 +2870,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sensor-TCRT1010"
+
+\end_inset
+
 Sensor TCRT1010
 \end_layout
 
@@ -2431,8 +2906,8 @@ La señal eléctrica obtenida en la fase de adquisición es muy débil: su ampli
 \begin_inset space ~
 \end_inset
 
-mV y está superpuesta a una señal contínua.
- En esta fase del procesado, se adecúa la onda para poder identificar los
+mV y está superpuesta a una señal continua.
+ En esta fase del procesado, se adecua la onda para poder identificar los
  pulsos en la fase posterior.
 \end_layout
 
@@ -2495,19 +2970,9 @@ reference "fig:Circuito-del-filtro-p-alta"
 
 \end_inset
 
- elimina la componente continua de la señal debida a la polarización del
+, elimina la componente continua de la señal debida a la polarización del
  transistor y otras componentes no deseadas.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(la reflexión de los tejidos, el flujo capilar y el flujo venoso)
-\end_layout
-
-\end_inset
-
-Con uno de tipo pasivo, de primer orden, y frecuencia de corte 
+ Con uno de tipo pasivo, de primer orden, y frecuencia de corte 
 \begin_inset Formula $f_{PA}$
 \end_inset
 
@@ -2515,7 +2980,7 @@ Con uno de tipo pasivo, de primer orden, y frecuencia de corte
 \begin_inset space ~
 \end_inset
 
-Hz es suficiente para alzancanzar los requerimientos exigidos.
+Hz es suficiente para alcanzar los requerimientos exigidos.
  La función de transferencia del filtro es la descrita en la Ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2837,7 +3302,7 @@ Circuito del filtro paso baja con amplificación
 
 \begin_layout Standard
 En esta etapa se limita el ancho de banda y se amplifica la señal.
- Está compuesta por un filtro paso baja RC activo de primer órden, con ganancia,
+ Está compuesta por un filtro paso baja RC activo de primer orden, con ganancia,
  como se muestra en la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2857,8 +3322,8 @@ La frecuencia de corte
 \begin_inset space ~
 \end_inset
 
-Hz, suficiente tratandose de un sistema para monitorización y no diagnóstico.
- Se elimina el ruido significativamente a cambio de perden componentes de
+Hz, suficiente tratándose de un sistema para monitorización y no diagnóstico.
+ Se elimina el ruido significativamente a cambio de perder componentes de
  frecuencias superiores a la de corte.
 \end_layout
 
@@ -2874,7 +3339,7 @@ T_{PB}(j\omega)=\frac{K}{1+j\left(\frac{\omega}{\omega_{PB}}\right)}\label{eq:f-
 \end_layout
 
 \begin_layout Standard
-A partir de la función de transferencia del filtro paso baja de primer órden
+A partir de la función de transferencia del filtro paso baja de primer orden
 \begin_inset CommandInset citation
 LatexCommand cite
 key "sedra_microelectronic_2011"
@@ -2911,7 +3376,7 @@ f_{PB}=\frac{1}{2\pi\omega_{PB}}=\frac{1}{2\pi RC}\label{eq:corte-paso-baja}
 \end_layout
 
 \begin_layout Standard
-Como la señal de de entrada tiene amplitud del orden de 10
+Como la señal de entrada tiene amplitud del orden de 10
 \begin_inset space ~
 \end_inset
 
@@ -3185,8 +3650,8 @@ reference "fig:Simulación-del-filtro-p-baja"
 
 \end_inset
 
- se muestra la simulación de la función de transferencia del filtro paso
- baja con amplificación.
+ muestra la simulación de la función de transferencia del filtro paso baja
+ con amplificación.
 \end_layout
 
 \begin_layout Standard
@@ -3289,7 +3754,7 @@ Circuito del filtro rechaza banda estrecho centrado a 50Hz
 \begin_layout Standard
 Cualquier dispositivo electrónico que procese señales de baja frecuencia,
  como ocurre con el pulsómetro, se ve sometido de manera significativa al
- ruido electromagnético con produce la red eléctrica.
+ ruido electromagnético que produce la red eléctrica.
  Esta interferencia de frecuencia 50
 \begin_inset space ~
 \end_inset
@@ -3341,7 +3806,7 @@ Estas características hacen que se pueda incluir el potenciómetro
 \begin_inset Formula $R_{14}$
 \end_inset
 
-para ajustar la frecuencia central manteniendo buenas prestaciones.
+ para ajustar la frecuencia central manteniendo buenas prestaciones.
 \end_layout
 
 \begin_layout Standard
@@ -3519,7 +3984,7 @@ name "tab:Requisitos-del-filtro-fliedge"
 
 \end_inset
 
-Requisitos del filtro rechaza banda con topolgía 
+Requisitos del filtro rechaza banda con topología 
 \emph on
 Fliedge
 \end_layout
@@ -3696,7 +4161,7 @@ Fliedge
 
 \begin_layout Standard
 Los amplificadores operacionales no requieren características especiales.
- Se mantiene el TLV2472 para mantener el rango 
+ Se mantiene el TLV2472 por el rango 
 \emph on
 rail-to-rail
 \emph default
@@ -3711,8 +4176,8 @@ reference "fig:Simulación-del-filtro-elimina-banda"
 
 \end_inset
 
- muestra la simulación del filtro donde se puede comprobar la frecuencia
- central del filtro a 50
+ muestra la simulación del filtro donde se puede comprobar que la frecuencia
+ central está en 50
 \begin_inset space ~
 \end_inset
 
@@ -3903,7 +4368,7 @@ reference "fig:Circuito-comparador"
 \end_layout
 
 \begin_layout Standard
-Los pulsos de salida de la fase de discretizado son leidos por el microcontrolad
+Los pulsos de salida de la fase de discretizado son leídos por el microcontrolad
 or a través del pin 
 \emph on
 CCP1
@@ -4005,7 +4470,7 @@ key "microcontrollers_28/40/44-pin_2007"
 \end_inset
 
 .
- El pin 13 recibe los pulsos a través del interfaz CCP
+ El pin 13 recibe los pulsos a través de la interfaz CCP
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CCP"
@@ -4150,7 +4615,7 @@ reference "sec:Placa-de-circuito"
 \end_inset
 
 , integra los circuitos analógicos, el microcontrolador y el módulo de comunicac
-iones bluetooth.
+iones Bluetooh.
 \end_layout
 
 \begin_layout Section
@@ -4166,11 +4631,65 @@ name "sec:Firmware"
 
 \begin_layout Standard
 El firmware está compuesto por el software del microcontrolador, que se
- encarga de medir el periodo entre pulsos y enviar este dato al módulo bluetooth.
+ encarga de medir el periodo entre pulsos y enviar este dato al módulo Bluetooh.
+ En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-flujo"
+
+\end_inset
+
+ se representa el diagrama de flujo del programa.
 \end_layout
 
 \begin_layout Standard
-El codigo fuente del microcontrolador, escrito en C, se encuentra en carpeta
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/diagrama-firmware.svg
+	width 90text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-flujo"
+
+\end_inset
+
+Diagrama de flujo del firmware
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El código fuente del microcontrolador, escrito en C, se encuentra en carpeta
  
 \family typewriter
 \size small
@@ -4234,7 +4753,7 @@ valor
 \end_layout
 
 \begin_layout Standard
-Las directivas modifcadas para configurar el oscilador externo a 20
+Las directivas modificadas para configurar el oscilador externo a 20
 \begin_inset space ~
 \end_inset
 
@@ -4256,8 +4775,7 @@ configuration_bits.c
 
 \begin_layout Standard
 Además, para que funcionen algunas bibliotecas y macros, es necesario definir
- la frecuencia del oscilador que se está utilizando con el código del Código
- 
+ la frecuencia del oscilador que se está utilizando con el Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Macros-para-definir"
@@ -4303,7 +4821,11 @@ Capture
 .
  En esta situación, el registro CCPR1 se carga con el valor de TMR1 cuando
  ocurre un flanco en el pin CCP1.
- Para medir el periodo de una señal los pasos son los siguientes
+ 
+\end_layout
+
+\begin_layout Standard
+Para medir el periodo de una señal los pasos son los siguientes
 \begin_inset CommandInset citation
 LatexCommand cite
 key "microcontrollers_picmicro_2003"
@@ -4464,12 +4986,17 @@ reference "lis:Obtención-del-periodo"
 .
  Solo queda por destacar de ella que se desprecian los pulsos cuyo periodo
  no esté comprendido entre 187500 y 937500 pulsos, que corresponden respectivame
-nte a 40 y 200 pulsaciones por minuto.
+nte a 200 y 40 pulsaciones por minuto.
 \end_layout
 
 \begin_layout Standard
-El valor que almacena la variable periodo es el periodo en unidades de ciclo
- de reloj.
+El valor que almacena la variable 
+\family typewriter
+\size small
+periodo
+\family default
+\size default
+ es el periodo en unidades de ciclo de reloj.
  Para convertirlo a pulsaciones por minuto se hace según las Ecuaciones
  
 \begin_inset CommandInset ref
@@ -4499,7 +5026,7 @@ reference "eq:periodo-en-ppm"
 
 , el valor del 
 \emph on
-preescaler
+prescaler
 \emph default
  del 
 \emph on
@@ -4509,7 +5036,7 @@ Timer 1
 \begin_inset Formula $T_{clk}$
 \end_inset
 
-, el periodo de un ciclo de reloj del micorcontrolador y 
+, el periodo de un ciclo de reloj del microcontrolador y 
 \begin_inset Formula $PPM$
 \end_inset
 
@@ -4569,7 +5096,7 @@ smartphone
 \end_layout
 
 \begin_layout Standard
-Esta transmisión se hace mediante la interfaz UART y para configrarla se
+Esta transmisión se hace mediante la interfaz UART y para configurarla se
  ha utilizado la biblioteca 
 \family typewriter
 \size small
@@ -4615,7 +5142,7 @@ key "microcontrollers_28/40/44-pin_2007"
 \begin_inset space ~
 \end_inset
 
-baudios que requiere el módulo bluetooth el valor de SPBRG debe ser 10.
+baudios que requiere el módulo Bluetooh el valor de SPBRG debe ser 10.
 \end_layout
 
 \begin_layout Standard
@@ -4626,13 +5153,13 @@ WriteUSART()
 \family default
 \size default
  que acepta un byte como argumento.
- El dato de pulsaciones por minuto, que siempre estará entre 40 y 200 se
+ El dato de pulsaciones por minuto, que siempre estará entre 40 y 200, se
  puede codificar sin problemas con un solo byte lo que simplifica la comunicació
 n.
 \end_layout
 
 \begin_layout Standard
-El envío de información se debe hacer periodicamente.
+El envío de información se debe hacer periódicamente.
  Para ello se configura el 
 \emph on
 Timer 0
@@ -4645,8 +5172,8 @@ reference "lis:Configuración-del-Timer"
 \end_inset
 
 ).
- El tiempo de desbordamieno de este temporizador viene determinado por la
- Ecuación 
+ El tiempo de desbordamiento de este temporizador viene determinado por
+ la Ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:desbordamiento-timer0"
@@ -4669,7 +5196,7 @@ T_{desbordamiento}=4\cdot T_{clk}\cdot256\cdot TOPS=4\cdot\left(0,05\cdot10^{-6}
 \end_layout
 
 \begin_layout Standard
-En la funcion 
+En la función 
 \family typewriter
 high_isr()
 \family default
@@ -4702,7 +5229,11 @@ Si en el periodo entre envíos el pulsómetro no ha detectado ninguna pulsación
 \begin_inset space ~
 \end_inset
 
-PPM, se envía un byte con valor 0 que el smartphone interpreta como nulo.
+PPM, se envía un byte con valor 0 que el 
+\emph on
+smartphone
+\emph default
+ interpreta como nulo.
 \end_layout
 
 \begin_layout Section
@@ -4758,7 +5289,7 @@ Apache 2.0
 \emph on
 AndroidPlot
 \emph default
- versión 0.6.1 tambien bajo licencia 
+ versión 0.6.1 también bajo licencia 
 \emph on
 Apache 2.0
 \emph default
@@ -4814,7 +5345,7 @@ reference "fig:Búsqueda-de-dispositivos"
 \end_inset
 
 , para seleccionar un dispositivo Bluetooth.
- Si ya se habia conectado antes, aparecerá en la sección de dispositivos
+ Si ya se había conectado antes, aparecerá en la sección de dispositivos
  vinculados; en caso contrario, puede encontrarlo pulsando en 
 \family sans
 BUSCAR DISPOSITIVOS
@@ -5108,7 +5639,7 @@ DeviceListActivity
 DeviceListActivity.java
 \family default
 \size default
-) respresenta la vista de selección de dispositivos.
+) representa la vista de selección de dispositivos.
 \end_layout
 
 \begin_layout Standard
@@ -5186,7 +5717,7 @@ BluetoothAdapter.getDefaultAdapter()
 \family default
 \size default
 .
- Una clase que representa el adapotador Bluetooth local
+ Una clase que representa el adaptador Bluetooth local
 \begin_inset CommandInset citation
 LatexCommand cite
 key "android_open_source_project_bluetoothadapter_????"
@@ -5234,10 +5765,10 @@ mBluetoothAdapter.getBondedDevices()
 Si no están emparejados se llama a 
 \family typewriter
 \size small
-mBluetoothAdapter.
+mBluetoothAdapter.startDiscovery()
 \family default
 \size default
-startDiscovery(), que inicia el descubirmiento de manera asíncrona.
+, que inicia el descubrimiento de manera asíncrona.
  Tras 12 segundos
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -5245,9 +5776,9 @@ key "android_open_source_project_bluetoothadapter_????"
 
 \end_inset
 
- notifica a la aplicación los dispositivos encontrado que se encuentren
+ notifica a la aplicación los dispositivos encontrados que se encuentren
  en modo descubrimiento.
- El módulo RN-42 están en este modo siempre que no esté conectado ya a otro
+ El módulo RN-42 está en este modo siempre que no esté conectado ya a otro
  dispositivo
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -5395,23 +5926,13 @@ Los datos se representan de forma numérica, pulsaciones por minuto actuales,
 \end_layout
 
 \begin_layout Standard
-Debido a las limitaciones de la pulsimetría, comentadas en el apartado 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-referencia a capitulo donde se explican las ventajas e inconvenientes de
- la pulsoximetría.
-\end_layout
-
-\end_inset
-
-, hay instantes en los que no se detectan pulsos o hay variaciones en el
- leído.
+Debido a las limitaciones de la pulsimetría respecto a la colocación del
+ sensor, hay instantes en los que no se detectan pulsos o hay variaciones
+ en lo leído.
  Para reducir la variabilidad, el dato que se muestra consiste en la media
  de los últimos 5 valores válidos.
  De esta manera la gráfica es precisa, porque no aparecen requiebros, sin
- perder la exactitud ya que las pulsaciones de un paciente varían mas lentamente.
+ perder la exactitud ya que las pulsaciones de un paciente varían más lentamente.
 \end_layout
 
 \begin_layout Standard
@@ -5428,7 +5949,7 @@ SimpleXYSeries
 XYPlot
 \family default
 \size default
- e ir añadiendo datos nuevo a la vez que se retiran los antiguos.
+ e ir añadiendo datos nuevos a la vez que se retiran los antiguos.
 \end_layout
 
 \begin_layout Chapter
@@ -5440,10 +5961,6 @@ name "chap:Resultados"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Caracterización de los filtros
 \end_layout
 
 \begin_layout Section
@@ -5480,6 +5997,64 @@ reference "fig:Cardiofrecuencímetro-Cardio-ONrh"
  el pecho, a la altura del corazón, y que envía por radiofrecuencia las
  pulsaciones detectadas a un receptor con forma de reloj que se coloca en
  la muñeca.
+ 
+\end_layout
+
+\begin_layout Standard
+La prueba se realizó con el montaje experimental del pulsómetro (Figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Montaje-experimental-del"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../img/dedo-sobre-pulsometro.jpg
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Montaje-experimental-del"
+
+\end_inset
+
+Montaje experimental del pulsómetro.
+ El dedo está colocado sobre el sensor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -5921,7 +6496,7 @@ Promedio pulsaciones [PPM]
 \begin_inset Text
 
 \begin_layout Plain Layout
-Desviación estandar
+Desviación estándar
 \end_layout
 
 \end_inset
@@ -6134,7 +6709,7 @@ key "ramos_abalos_estadistica_2010"
 \begin_inset Formula $n$
 \end_inset
 
- es el número de muestras y
+ es el número de muestras y 
 \begin_inset Formula $g$
 \end_inset
 
@@ -6166,7 +6741,6 @@ El intervalo de error de las muestras del pulsómetro PPG es
 \end_inset
 
  también con una confianza del 99,5%.
- El dato 
 \end_layout
 
 \begin_layout Standard
@@ -6174,7 +6748,7 @@ Cabe destacar que en el instante 105
 \begin_inset space ~
 \end_inset
 
-s no se puedo obtener el dato del pulsómetro PPG.
+s no se pudo obtener el dato del pulsómetro PPG.
  La razón es que la prueba se realizó con el prototipo del instrumento,
  cuyo sensor óptico no se fija al dedo del paciente, si no que lo posa sobre
  el dispositivo.
@@ -7250,15 +7824,15 @@ reference "tab:Incremento-de-pulsaciones"
 
 \end_inset
 
-) se puede estudiar la evolución desvínculandola de las diferencias entre
- instrumentos que se observaron en el apartado 
+) se puede estudiar la evolución desvinculándola de las diferencias entre
+ pulsaciones en reposo que se observaron en el apartado 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Prueba-estática"
 
 \end_inset
 
-.
+ para los dos dispositivos.
  De nuevo se han perdido instantes de tiempo, 0 y 120
 \begin_inset space ~
 \end_inset
@@ -7276,7 +7850,7 @@ reference "fig:Incremento-de-las"
 
  muestra como los ajustes de mínimos cuadrados de ambos instrumentos tienen
  la misma pendiente, con lo se puede afirmar que responden de manera similar
- antes cambios en la frecuencía cardíaca del sujeto.
+ antes cambios en la frecuencia cardíaca del sujeto.
 \end_layout
 
 \begin_layout Standard
@@ -7386,7 +7960,7 @@ Conclusiones
 
 \begin_layout Standard
 Este Trabajo Fin de Grado ha presentado de manera detallada el diseño de
- un dispositivo pulsimétrico con conexión inalábrica a un dispositivo móvil
+ un dispositivo pulsimétrico con conexión inalámbrica a un dispositivo móvil
  para visualización de los datos.
  Se ha realizado la descripción de los fundamentos teóricos de la técnica
  y un estudio del estado del arte en la materia.
@@ -7401,7 +7975,7 @@ Se ha comprobado el correcto funcionamiento del pulsómetro realizando tests
  no se pueden obtener muestras fiables cuando el sujeto se encuentra en
  movimiento.
  Esto limita las aplicaciones deportivas, pero siguen siendo válidas las
- sanitarias tanto en centros sanitarios como en el hogar.
+ sanitarias tanto en hospitales como en el hogar.
 \end_layout
 
 \begin_layout Standard
@@ -7422,7 +7996,7 @@ dispositivos vestibles
 \end_layout
 
 \begin_layout Standard
-El uso de la pulsimetría sobre pacientes no afecta de ningun modo a su salud
+El uso de la pulsimetría sobre pacientes no afecta de ningún modo a su salud
  pues su fundamento es óptico: no hay procedimientos invasivos ni conexiones
  eléctricas al cuerpo.
  Esto último es especialmente importante para los usuarios de marcapasos,
@@ -7442,8 +8016,6 @@ El diseño presentado en este Trabajo Fin de Grado es una base tecnológica
 \begin_layout Standard
 La línea principal del proyecto para el futuro es pasar del montaje experimental
  al producto final.
- Ha quedado pendiente producir la placa de circuito impreso que si ha sido
- diseñada.
  Diseñar y construir un mejor sistema de fijación del sensor al dedo es
  importante para reducir los artefactos en la señal recogida por el instrumento.
 \end_layout
@@ -8650,7 +9222,7 @@ name "lis:Establecimiento-de-la"
 
 \end_inset
 
-Establecimiento de la conexion
+Establecimiento de la conexión
 \end_layout
 
 \end_inset
