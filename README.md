@@ -2,7 +2,22 @@
 
 Trabajo Fin de Grado consistente en diseñar un pulsómetro basado en pleistomografía con sensor infrarrojo.
 
-## Licensing
+## Estructura del repositorio
+
+* `circuitos/`  Archivos CAD y CAM del proyecto
+  - `circuitos/eagle/`  Esquema del circuito y diseño de la PCB, usando *Eagle*
+  - `circuitos/kicad/`  Esquema del circuito auxiliar para programar el firmware durante la fase de prototipo, usando *KiCad*
+  - `circuitos/spice/`  Esquemas de los filtros, usando *gschem*, y *netlist* para simulación con *ngspice*
+* `data/`       Resultados en bruto de pruebas de validación y resultados de simulaciones
+* `datasheets/` Hojas de características
+* `img/`        Imágenes usadas en la memoria
+* `report/`     Memoria del Trabajo Fin de Grado, fuentes para construirla y bibliografía
+* `src/`        Código fuente
+  - `src/Pulsometro`    Fuentes de la aplicación Pulsómetro para Android, usando Android Studio
+  - `src/androidplot`   Referencia, `git submodule`, a las fuentes de la biblioteca *androidplot*.
+  - `src/pulsometro.X`  Fuentes del firmware para el micocontrolador, usando MPLAB X
+
+## Licencias/Licensing
 
  * circuitos/
  ``` 
