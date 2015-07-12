@@ -18,7 +18,29 @@ Trabajo Fin de Grado consistente en diseñar un pulsómetro basado en pleistomog
     Please see the CERN OHL v.1.2 for applicable conditions.
  ```
  
+ * data/
+ ```
+    Copyright (C) 2015  Rafael Bailón-Ruiz
+    
+    This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+    International License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by-sa/4.0/.
+ ```
+ 
  * img/
+ ```
+    Images with bibliography citation (/report/bibliography.bib) are property
+    of their respective authors. Otherwise, images are own-work or come from
+    public domain and the following copyright notice applies:
+    
+    Copyright (C) 2015  Rafael Bailón-Ruiz
+    
+    This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+    International License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by-sa/4.0/.
+ ```
+ 
+ * data/
  ```
     Copyright (C) 2015  Rafael Bailón-Ruiz
     
