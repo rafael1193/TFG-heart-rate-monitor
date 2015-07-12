@@ -1,6 +1,6 @@
-# TFG
+# Diseño de un pulsómetro por infrarrojos
 
-Pulsómetro
+Trabajo Fin de Grado consistente en diseñar un pulsómetro basado en pleistomografía con sensor infrarrojo.
 
 ## Licensing
 
