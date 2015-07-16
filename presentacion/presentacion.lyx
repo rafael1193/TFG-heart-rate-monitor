@@ -1,0 +1,2862 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage[sfdefault]{FiraSans}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{endnotes}
+\let\footnote=\endnote
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multimedia}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{definitions}
+\usetheme{Granada}
+%\usefonttheme[onlylarge]{structuresmallcapsserif}
+%\usefonttheme[onlysmall]{structurebold}
+%\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
+
+%\useoutertheme[footline=authortitle]{miniframes}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family sfdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tutor{Dr.
+ Alberto J.
+ Palma López}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cotutor{Dr.
+ Fernando Martínez Martí}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+departament{Departamento de Electrónica y Tecnología de Computadores}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This file is a solution template for:
+\end_layout
+
+\begin_layout Itemize
+Talk at a conference/colloquium.
+ 
+\end_layout
+
+\begin_layout Itemize
+Talk length is about 20min.
+ 
+\end_layout
+
+\begin_layout Itemize
+Style is ornate.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Diseño de un pulsómetro por infrarrojos
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Pulsómetro por infrarrojos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+Trabajo Fin de Grado
+\end_layout
+
+\begin_layout Author
+Rafael Bailón Ruiz
+\end_layout
+
+\begin_layout Institute
+Universidad de Granada
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+Use the 
+\begin_inset Quotes eld
+\end_inset
+
+Institute mark
+\begin_inset Quotes erd
+\end_inset
+
+ inset (
+\family sans
+Insert\SpecialChar \menuseparator
+Custom Insets\SpecialChar \menuseparator
+InstituteMark
+\family default
+) only if there are several affiliations.
+\end_layout
+
+\begin_layout Itemize
+Keep it simple, no one is interested in your street address.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+UGR
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+20 julio de 2015
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+Either use conference name or its abbreviation.
+ 
+\end_layout
+
+\begin_layout Itemize
+Not really informative to the audience, more for people (including yourself)
+ who are reading the slides online
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+20
+\begin_inset space \thinspace{}
+\end_inset
+
+/
+\begin_inset space \thinspace{}
+\end_inset
+
+7
+\begin_inset space \thinspace{}
+\end_inset
+
+/
+\begin_inset space \thinspace{}
+\end_inset
+
+2015
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout TitleGraphic
+\begin_inset Graphics
+	filename ../img/anexo-logo-ugr-small.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The following causes the table of contents to be shown at the beginning
+ of every subsection.
+ Delete this, if you do not want it.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSubsection[]{%
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Índice}   
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection,currentsubsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If you wish to uncover everything in a step-wise fashion, uncomment the
+ following command:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+beamerdefaultoverlayspecification{<+->}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Índice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Structuring a talk is a difficult task and the following structure may not
+ be suitable.
+ Here are some rules that apply for this solution: 
+\end_layout
+
+\begin_layout Itemize
+Exactly two or three sections (other than the summary).
+ 
+\end_layout
+
+\begin_layout Itemize
+At *most* three subsections per section.
+ 
+\end_layout
+
+\begin_layout Itemize
+Talk about 30s to 2min per frame.
+ So there should be between about 15 and 30 frames, all told.
+\end_layout
+
+\begin_layout Itemize
+A conference audience is likely to know very little of what you are going
+ to talk about.
+ So *simplify*! 
+\end_layout
+
+\begin_layout Itemize
+In a 20min talk, getting the main ideas across is hard enough.
+ Leave out details, even if it means being less precise than you think necessary.
+ 
+\end_layout
+
+\begin_layout Itemize
+If you omit details that are vital to the proof/implementation, just say
+ so once.
+ Everybody will be happy with that.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Conceptos clave
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Itemize
+Signos vitales:
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+son los parámetros que permiten valorar el estado de las funciones cor-
+ porales básicas de los seres humanos.
+ Dichos signos son cuatro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Temperatura corporal
+\end_layout
+
+\begin_layout Itemize
+Frecuencia respiratoria
+\end_layout
+
+\begin_layout Itemize
+Tensión arterial
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Alert
+status open
+
+\begin_layout Plain Layout
+Frecuencia cardíaca
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+es la tasa de latidos del corazón e indica el nivel de actividad de este.
+ Los latidos provocan el bombeo de la sangre a través de los vasos sanguíneos
+ que recorren todo el cuerpo humano
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Pulsimetría
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Método no invasivo de monitorización de la frecuencia cardíaca
+\end_layout
+
+\end_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+Como consecuencia del paso de la sangre, se produce una expansión periódica
+ de los vasos llamada pulso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Fotopletismografía (PPG)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Representación de la variación volumétrica de las arterias obtenida mediante
+ luz
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Motivación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Itemize
+Aumento de las enfermedades crónicas
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Incremento de incidentes cardiacos inesperados
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Infarto
+\end_layout
+
+\begin_layout Itemize
+Muerte súbita
+\end_layout
+
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Necesidad de monitorización fuera del recinto hospitalario (
+\emph on
+home care
+\emph default
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+La instrumentación médica suele ser aparatosa y compleja de utilizar
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Auge de los 
+\emph on
+smartphones
+\emph default
+ y 
+\emph on
+wearable devices
+\emph default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Potencia
+\end_layout
+
+\begin_layout Itemize
+Interfaz de usuario
+\end_layout
+
+\begin_layout Itemize
+Conectividad
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Objetivos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Itemize
+Estudio bibliográfico de las señales cardíacas y de dispositivos existentes
+ para su medida.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Diseño y fabricación de un pulsómetro con sensor infrarrojo.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Itemize
+Obtención del fotopletismograma.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Procesado de la señal.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Adquisición mediante un microcontrolador.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Comunicación inalámbrica con un sistema monitorización.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Diseño del sistema en placa de circuito impreso.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Diseño e implementación de una aplicación móvil para la monitorización remota
+ del pulso cardíaco de un paciente.
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Estado del Arte
+\end_layout
+
+\begin_layout Subsection
+Fundamento teórico
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Corazón
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/corazon.svg
+	lyxscale 10
+	width 60text%
+
+\end_inset
+
+
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+El corazón es el órgano principal del aparato circulatorio.
+ Es un músculo hueco situado en la cavidad torácica que funciona como una
+ bomba impulsando la sangre a todo el cuerpo.
+\end_layout
+
+\begin_layout Plain Layout
+Está dividido en cuatro cámaras: dos aurículas, derecha e izquierda y dos
+ ven- trículos, derecho e izquierdo.
+\end_layout
+
+\begin_layout Plain Layout
+Las arterias y venas pulmonares comunican el corazón y los pulmones para
+ la oxigenación de la sangre.
+ A través de la arteria aorta sale la sangre oxigenada para repartrse por
+ el cuerpo y por las venas cava regresa desoxigenada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ciclo cardíaco
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Itemize
+Secuencia de eventos 
+\begin_inset Flex Alert
+status open
+
+\begin_layout Plain Layout
+eléctricos
+\end_layout
+
+\end_inset
+
+, mecánicos, sonoros y de 
+\begin_inset Flex Alert
+status open
+
+\begin_layout Plain Layout
+presión
+\end_layout
+
+\end_inset
+
+ relacionados con el flujo de sangre a través de las cavidades cardíacas
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Fases:
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Description
+Sístole Contracción
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/Heart_systole.svg
+	lyxscale 10
+	width 33text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Description
+Diástole Relajación
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/Heart_diasystole.svg
+	lyxscale 10
+	width 33text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Señales cardíacas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/Wiggers_Diagram.svg
+	lyxscale 20
+	height 90theight%
+
+\end_inset
+
+
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+Las contracciones y relajaciones de los músculos cardíacos tienen un manifestaci
+ón eléctrica y se refleja en el Electrocardiograma.
+\end_layout
+
+\begin_layout Plain Layout
+El complejo QRS aparece en el desencadenamiento de la sístole.
+ La onda T refleja la repolariación previa a la apertura de las vávulas
+ para el nuevo ciclo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+ECG y PPG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/ECG-y-PPG-González-Landaeta.svg
+	lyxscale 10
+	width 90text%
+
+\end_inset
+
+
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+En esta gráfica observamos un ECG en la parte superior y el PPG correspondiente
+ en la traza inferior.
+ Tras la fase de eyección a través de la arteria aorta, la presión que provoca
+ el incremento de volumen en los vasos sanguíneos y que se refleja en el
+ fotopletismograma crece [Señalar].
+ El intervalo entre el cierre de la válvula mitral y la apertura de la aorta
+ que se refleja en el ECG como el complejo QRS aparece en el fotopletismograma
+ como un pequeño incremento y una disminución brusca de la presión [Señalar].
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Medida de las pulsaciones
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Sensor fotopletismográfico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Itemize
+Registra la variación de la absorbancia de tejidos, órganos y fluidos al
+ ser iluminados
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Compuesto por
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Itemize
+Emisor: 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+diodo
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Receptor: 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+transistor
+\end_layout
+
+\end_inset
+
+ o 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+fotodiodo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Rango de frecuencias: infrarrojo -- rojo
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+Los circuitos para su polarización son los habituales: transistor en emisor
+ común o conversor I–V para el fotodiodo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Topología del sensor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Transmisión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/transmision.png
+	lyxscale 20
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\end_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Reflexión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/reflexion.png
+	lyxscale 20
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+ghghg
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Componentes del PPG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/PPG-components-Reddy.png
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+El fotopletismograma obtenido es la superposición de varias señales como
+ se observa en la figura.
+ Las componentes venosa de retorno, capilar y tejidos deben eliminarse con
+ un filtro paso alta pues las pulsaciones sólo se pueden detectar sobre
+ el flujo arterial.
+\end_layout
+
+\begin_layout Plain Layout
+Se puede incluir otros elementos de filtrado para obtener una señal mas
+ limpia.
+ Filtros paso baja para limitar el ancho de banda y filtros elimina--banda
+ o peine para reducir el efecto de la interferencia electromagnética con
+ origen en la red eléctrica.
+ Este ruido afecta sensiblemente a estos dispositivos ya que su frecuencia,
+ 50
+\begin_inset space ~
+\end_inset
+
+Hz o 60
+\begin_inset space ~
+\end_inset
+
+Hz, es cercana a la frecuencia cardíaca, que está entorno a 1
+\begin_inset space ~
+\end_inset
+
+Hz.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pulsos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsos-bn.jpg
+	lyxscale 10
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+Finalmente, se detectan los pulsos con un comparador.
+ Otras técnicas utilizan el análisis espectral, pero requieren hardware
+ y software con potencia suficiente para realizar la transformada rápida
+ de fourier.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Dispositivos comerciales
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pulsómetros ECG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Monitor ECG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/portable-ecg.jpg
+	lyxscale 10
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\end_deeper
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Cardiofrecuencimetro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/cardiofrecuencimetro.jpg
+	lyxscale 25
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+ghghg
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pulsómetros PPG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Itemize
+Pulsera 
+\emph on
+Fitbit
+\end_layout
+
+\begin_layout Itemize
+FitBit Inc.
+ >100 patentes sobre 
+\emph on
+pulsómetros vestibles
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsera-fitbit.png
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Itemize
+Pulsera 
+\emph on
+Samsung Gear Fit
+\end_layout
+
+\begin_layout Itemize
+Diseñada para comuncación con smartphone
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/samsung-gear-fit.jpg
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+ghghg
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Problema de los pulsómetros PPG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Artefactos debidos al movimiento
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/PPG-artifacts-Zhilin-Zhang.png
+	height 70theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Topología de los sensores
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+4cm
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/US-patent-9039614-5.jpg
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+4cm
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/US-patent-9014790-9.jpg
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+3cm
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/PPG-oreja.jpg
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Flex Beamer Note
+status open
+
+\begin_layout Plain Layout
+ghghg
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Diseño y desarrollo del sistema
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Diseño del sistema
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Diagrama
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/diagrama-sistema.svg
+	lyxscale 5
+	width 100text%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Hardware
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Alimentación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-alimentacion.svg
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Adquisición y procesado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-analogico.svg
+	lyxscale 5
+	width 100text%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Característica de los filtros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/filtros conjunto.svg
+	lyxscale 5
+	width 100text%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Microcontrolador y comunicación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/circuito-digital.svg
+	lyxscale 5
+	width 100text%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Firmware
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Función principal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/diagrama-firmware-main.svg
+	lyxscale 5
+	width 100text%
+	height 90theight%
+	keepAspectRatio
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Manejo de interrupciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/diagrama-firmware-high_isr.svg
+	lyxscale 5
+	width 100text%
+	height 90theight%
+	keepAspectRatio
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Software
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Aplicación Android
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/app-midiendo.png
+	lyxscale 25
+	height 90theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Resultados
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pulsómetro en funcionamiento 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+movie[externalviewer]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/dedo-sobre-pulsometro.jpg
+	width 75text%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}{/home/rafael/drone-flight-fail.webm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Prueba de validación estática
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Prueba estática
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Condiciones de test
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Toma de pulsaciones en reposo
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Sujeto:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Varón
+\end_layout
+
+\begin_layout Itemize
+Atleta veterano
+\end_layout
+
+\begin_layout Itemize
+54 años
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Validación de los datos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Comparación con cardiofrecuencímetro comercial basado en ECG
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Resultados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pulsómetro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cardiofrecuencímetro
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Promedio pulsaciones [PPM]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+69
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Desviación estándar
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4,01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,90
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+g
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+n
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+t student (0,9950)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3,355
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3,355
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Error absoluto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm$
+\end_inset
+
+4,49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm$
+\end_inset
+
+2,12
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Prueba de validación dinámica
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Prueba dinámica
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Condiciones de test
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Toma de pulsaciones durante el periodo de recuperación tras sesión de ejercicio
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Sujeto:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Varón
+\end_layout
+
+\begin_layout Itemize
+Atleta veterano
+\end_layout
+
+\begin_layout Itemize
+54 años
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+La validación de los datos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Comparación con cardiofrecuencímetro comercial basado en ECG
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Resultados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/pulsaciones-recuperacion.svg
+	lyxscale 2
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Resultados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/desviacion-pulsaciones.svg
+	lyxscale 2
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Resultados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../img/pulsometro-vs-cardiofrecuencimetro.svg
+	lyxscale 2
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Conclusiones y trabajos futuros
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Conclusiones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+El estudio del estado del arte ha revelado las posibilidades de la pulsimetría
+ basada en PPG
+\end_layout
+
+\begin_layout Itemize
+La comunicación inalámbrica y los 
+\emph on
+smartphones
+\emph default
+ facilitan el uso de la instrumentación médica
+\end_layout
+
+\begin_layout Itemize
+Comprobación del correcto funcionamiento del pulsómetro
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Trabajos Futuros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Pasar del montaje experimental al producto final
+\end_layout
+
+\begin_layout Itemize
+Diseñar un sistema de fijación del sensor al dedo
+\end_layout
+
+\begin_layout Itemize
+Ampliar funcionalidad de la aplicación
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Portar a otros sistema operativos
+\end_layout
+
+\begin_layout Itemize
+Más opciones de configuración y personalización
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section*
+Final
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Preguntas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\size larger
+¡Gracias por su atención!
+\size default
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../img/thesis_defense.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Thesis Defense de Randall Munroe traducido por Gabriel Rodríguez Alberich,
+ disponible bajo la licencia CC BY-NC 2.0 http://es.xkcd.com/strips/defensa-de-tesi
+s/ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Contenido disponible en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{https://github.com/rafael1193/TFG-heart-rate-monitor}{https://github.com/rafa
+el1193/TFG-heart-rate-monitor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section*
+\start_of_appendix
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+All of the following is optional and typically not needed.
+\end_layout
+
+\end_inset
+
+Apéndice
+\end_layout
+
+\begin_layout Subsection*
+Referencias
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 3
+status collapsed
+
+\begin_layout Plain Layout
+allowframebreaks
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Referencias
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+theendnotes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\end_body
+\end_document

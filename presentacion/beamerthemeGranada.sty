@@ -1,0 +1,93 @@
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\useoutertheme[]{infolines}
+\useinnertheme{circles}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+
+\definecolor{beamer@blendedblue}{rgb}{0.137,0.466,0.741}
+
+\setbeamercolor{structure}{fg=beamer@blendedblue}
+\setbeamercolor{titlelike}{parent=structure}
+\setbeamercolor{frametitle}{fg=beamer@blendedblue}
+\setbeamercolor{title}{fg=beamer@blendedblue}
+\setbeamercolor{subtitle}{fg=beamer@blendedblue}
+\setbeamercolor{item}{fg=black}
+
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{description item}{shape=\bfseries}
+
+% Remove navigation symbol at the bottom
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+
+\setbeamertemplate{title page}
+{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \ifx\insertsubtitle\@empty%
+      \else%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \vskip0.25em%
+      \fi%   
+      \usebeamerfont{title}\inserttitle\par%
+      \end{beamercolorbox}%
+    \vskip0.5em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\textbf{\insertauthor}
+    \end{beamercolorbox}
+    \vskip0.5em\par
+    
+      % tutors
+      \begin{columns}
+        % tutor in first column
+        \column{.5\paperwidth}%
+          \vspace{\stretch{0.25}}%
+          \begin{beamercolorbox}[sep=1pt,center]{white}
+            \usebeamerfont{definition}Tutor
+          \end{beamercolorbox}
+
+	      \begin{beamercolorbox}[sep=1pt,center]{white}
+            \usebeamerfont{person}\@tutor
+          \end{beamercolorbox}
+          \vspace{\stretch{1}}%
+
+        % cotutor in second column
+        \column{.5\paperwidth}%
+          \vspace{\stretch{0.25}}%
+          \begin{beamercolorbox}[sep=1pt,center]{white}
+            \usebeamerfont{definition}Cotutor
+          \end{beamercolorbox}
+
+	      \begin{beamercolorbox}[sep=1pt,center]{white}
+            \usebeamerfont{person}\@cotutor
+          \end{beamercolorbox}
+          \vspace{\stretch{1}}%
+
+      \end{columns}
+    \vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\@departament \\
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+  \endgroup
+  \vfill
+}
+
+\makeatother
+
+\mode
+<all>
