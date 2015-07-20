@@ -5,24 +5,16 @@
 \textclass beamer
 \begin_preamble
 \usepackage[sfdefault]{FiraSans}
-
 %%%%%%%%%%%%%%%%%%%%%%
-
+\usepackage[style=numeric,backend=biber]{biblatex}
+%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{endnotes}
 \let\footnote=\endnote
-
 %%%%%%%%%%%%%%%%%%%%%%
-
 \usepackage{multimedia}
-
 %%%%%%%%%%%%%%%%%%%%%%
 \usepackage{definitions}
 \usetheme{Granada}
-%\usefonttheme[onlylarge]{structuresmallcapsserif}
-%\usefonttheme[onlysmall]{structurebold}
-%\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
-
-%\useoutertheme[footline=authortitle]{miniframes}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -107,8 +99,7 @@ tutor{Dr.
 
 
 \backslash
-cotutor{Dr.
- Fernando Martínez Martí}
+cotutor{Fernando Martínez Martí}
 \end_layout
 
 \begin_layout Plain Layout
@@ -215,7 +206,7 @@ UGR
 \end_layout
 
 \begin_layout Date
-20 julio de 2015
+22 julio de 2015
 \begin_inset Note Note
 status collapsed
 
@@ -236,7 +227,7 @@ Not really informative to the audience, more for people (including yourself)
 status open
 
 \begin_layout Plain Layout
-20
+22
 \begin_inset space \thinspace{}
 \end_inset
 
@@ -459,8 +450,8 @@ Signos vitales:
 status open
 
 \begin_layout Plain Layout
-son los parámetros que permiten valorar el estado de las funciones cor-
- porales básicas de los seres humanos.
+son los parámetros que permiten valorar el estado de las funciones corporales
+ básicas de los seres humanos.
  Dichos signos son cuatro
 \end_layout
 
@@ -722,50 +713,22 @@ Diseño y fabricación de un pulsómetro con sensor infrarrojo.
 \end_layout
 
 \begin_deeper
-\begin_layout Pause
-
-\end_layout
-
 \begin_layout Itemize
 Obtención del fotopletismograma.
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 Procesado de la señal.
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 Adquisición mediante un microcontrolador.
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 Comunicación inalámbrica con un sistema monitorización.
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 Diseño del sistema en placa de circuito impreso.
 \end_layout
@@ -782,12 +745,6 @@ Diseño e implementación de una aplicación móvil para la monitorización remo
  del pulso cardíaco de un paciente.
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
 \end_deeper
 \begin_layout Separator
 
@@ -799,7 +756,8 @@ Estado del Arte
 
 \begin_layout Subsection
 Fundamento teórico
-\end_layout
+\begin_inset Note Note
+status open
 
 \begin_layout Frame
 \begin_inset Argument 4
@@ -815,7 +773,7 @@ Corazón
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../img/corazon.svg
@@ -856,6 +814,11 @@ Las arterias y venas pulmonares comunican el corazón y los pulmones para
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Frame
 \begin_inset Argument 4
 status open
@@ -870,10 +833,6 @@ Ciclo cardíaco
 \end_layout
 
 \begin_deeper
-\begin_layout Pause
-
-\end_layout
-
 \begin_layout Itemize
 Secuencia de eventos 
 \begin_inset Flex Alert
@@ -1089,10 +1048,6 @@ Sensor fotopletismográfico
 \end_layout
 
 \begin_deeper
-\begin_layout Pause
-
-\end_layout
-
 \begin_layout Itemize
 Registra la variación de la absorbancia de tejidos, órganos y fluidos al
  ser iluminados
@@ -1127,12 +1082,6 @@ diodo
  
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 Receptor: 
 \begin_inset Flex Emphasize
@@ -1157,12 +1106,6 @@ fotodiodo
 
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
 \end_deeper
 \begin_layout Itemize
 Rango de frecuencias: infrarrojo -- rojo
@@ -1208,10 +1151,6 @@ Topología del sensor
 \end_layout
 
 \begin_deeper
-\begin_layout Pause
-
-\end_layout
-
 \begin_layout Columns
 
 \end_layout
@@ -1328,7 +1267,7 @@ Componentes del PPG
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/PPG-components-Reddy.png
 	lyxscale 10
-	width 50text%
+	width 75text%
 
 \end_inset
 
@@ -1395,7 +1334,7 @@ Pulsos
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsos-bn.jpg
 	lyxscale 10
-	width 50text%
+	width 75text%
 
 \end_inset
 
@@ -1469,7 +1408,7 @@ Monitor ECG
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/portable-ecg.jpg
 	lyxscale 10
-	width 30text%
+	width 90text%
 
 \end_inset
 
@@ -1508,7 +1447,7 @@ Cardiofrecuencimetro
 \begin_inset Graphics
 	filename ../img/cardiofrecuencimetro.jpg
 	lyxscale 25
-	width 30text%
+	width 90text%
 
 \end_inset
 
@@ -1557,7 +1496,7 @@ Pulsómetros PPG
 \end_layout
 
 \begin_deeper
-\begin_layout ColumnsTopAligned
+\begin_layout ColumnsCenterAligned
 
 \end_layout
 
@@ -1583,7 +1522,7 @@ pulsómetros vestibles
 \align center
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/pulsera-fitbit.png
-	width 30text%
+	width 50text%
 
 \end_inset
 
@@ -1591,7 +1530,7 @@ pulsómetros vestibles
 \end_layout
 
 \end_deeper
-\begin_layout ColumnsTopAligned
+\begin_layout ColumnsCenterAligned
 
 \end_layout
 
@@ -1614,7 +1553,7 @@ Diseñada para comuncación con smartphone
 \align center
 \begin_inset Graphics
 	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/samsung-gear-fit.jpg
-	width 30text%
+	width 90text%
 
 \end_inset
 
@@ -1622,17 +1561,7 @@ Diseñada para comuncación con smartphone
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-\align center
-\begin_inset Flex Beamer Note
-status open
-
-\begin_layout Plain Layout
-ghghg
-\end_layout
-
-\end_inset
-
+\begin_layout ColumnsTopAligned
 
 \end_layout
 
@@ -1689,10 +1618,6 @@ Topología de los sensores
 \end_layout
 
 \begin_deeper
-\begin_layout Pause
-
-\end_layout
-
 \begin_layout Columns
 
 \end_layout
@@ -1793,8 +1718,8 @@ Diseño del sistema
 
 \end_layout
 
-\begin_layout Separator
-
+\begin_layout Subsection
+Hardware
 \end_layout
 
 \begin_layout Frame
@@ -1829,10 +1754,6 @@ Diagrama
 
 \end_layout
 
-\begin_layout Subsection
-Hardware
-\end_layout
-
 \begin_layout Frame
 \begin_inset Argument 4
 status open
@@ -1847,6 +1768,10 @@ Alimentación
 \end_layout
 
 \begin_deeper
+\begin_layout Itemize
+Regulador: MCP1700
+\end_layout
+
 \begin_layout Standard
 \align center
 \begin_inset Graphics
@@ -1891,6 +1816,10 @@ Adquisición y procesado
 
 \end_deeper
 \begin_layout Separator
+\begin_inset Note Note
+status open
+
+\begin_layout Separator
 
 \end_layout
 
@@ -1908,7 +1837,7 @@ Característica de los filtros
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../img/filtros conjunto.svg
@@ -1923,6 +1852,11 @@ Característica de los filtros
 
 \end_deeper
 \begin_layout Separator
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1967,7 +1901,7 @@ Firmware
 status open
 
 \begin_layout Plain Layout
-Función principal
+Manejo de interrupciones
 \end_layout
 
 \end_inset
@@ -1979,7 +1913,7 @@ Función principal
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../img/diagrama-firmware-main.svg
+	filename ../img/diagrama-firmware-high_isr.svg
 	lyxscale 5
 	width 100text%
 	height 90theight%
@@ -2001,7 +1935,7 @@ Función principal
 status open
 
 \begin_layout Plain Layout
-Manejo de interrupciones
+Función principal
 \end_layout
 
 \end_inset
@@ -2013,7 +1947,7 @@ Manejo de interrupciones
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../img/diagrama-firmware-high_isr.svg
+	filename ../img/diagrama-firmware-main.svg
 	lyxscale 5
 	width 100text%
 	height 90theight%
@@ -2048,18 +1982,43 @@ Aplicación Android
 \end_layout
 
 \begin_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
 \begin_layout Standard
 \align center
 \begin_inset Graphics
 	filename ../img/app-midiendo.png
 	lyxscale 25
-	height 90theight%
+	height 80theight%
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/rafael/Documentos/4o Curso/8o Semestre/Trabajo Fin de Grado/img/app-vista_bluetooth.png
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Separator
 
@@ -2151,6 +2110,10 @@ Condiciones de test
 \end_layout
 
 \begin_deeper
+\begin_layout Pause
+
+\end_layout
+
 \begin_layout Itemize
 Toma de pulsaciones en reposo
 \end_layout
@@ -2178,13 +2141,11 @@ Atleta veterano
 54 años
 \end_layout
 
-\begin_deeper
+\end_deeper
 \begin_layout Pause
 
 \end_layout
 
-\end_deeper
-\end_deeper
 \begin_layout Itemize
 Validación de los datos:
 \end_layout
@@ -2499,8 +2460,12 @@ Atleta veterano
 \end_layout
 
 \end_deeper
+\begin_layout Pause
+
+\end_layout
+
 \begin_layout Itemize
-La validación de los datos:
+Validación de los datos:
 \end_layout
 
 \begin_deeper
@@ -2510,6 +2475,10 @@ Comparación con cardiofrecuencímetro comercial basado en ECG
 
 \end_deeper
 \end_deeper
+\begin_layout Separator
+\begin_inset Note Note
+status open
+
 \begin_layout Separator
 
 \end_layout
@@ -2528,7 +2497,7 @@ Resultados
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../img/pulsaciones-recuperacion.svg
@@ -2542,6 +2511,11 @@ Resultados
 
 \end_deeper
 \begin_layout Separator
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -2611,6 +2585,10 @@ Resultados
 Conclusiones y trabajos futuros
 \end_layout
 
+\begin_layout Subsection
+Conclusiones
+\end_layout
+
 \begin_layout Frame
 \begin_inset Argument 4
 status open
@@ -2630,6 +2608,12 @@ El estudio del estado del arte ha revelado las posibilidades de la pulsimetría
  basada en PPG
 \end_layout
 
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 La comunicación inalámbrica y los 
 \emph on
@@ -2638,8 +2622,14 @@ smartphones
  facilitan el uso de la instrumentación médica
 \end_layout
 
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
-Comprobación del correcto funcionamiento del pulsómetro
+Comprobación del funcionamiento del pulsómetro diseñado
 \end_layout
 
 \end_deeper
@@ -2647,12 +2637,16 @@ Comprobación del correcto funcionamiento del pulsómetro
 
 \end_layout
 
+\begin_layout Subsection
+Trabajos futuros
+\end_layout
+
 \begin_layout Frame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Trabajos Futuros
+Trabajos futuros
 \end_layout
 
 \end_inset
@@ -2665,10 +2659,22 @@ Trabajos Futuros
 Pasar del montaje experimental al producto final
 \end_layout
 
-\begin_layout Itemize
-Diseñar un sistema de fijación del sensor al dedo
+\begin_deeper
+\begin_layout Pause
+
 \end_layout
 
+\end_deeper
+\begin_layout Itemize
+Mejorar la topología del sensor fotopletismografico
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 Ampliar funcionalidad de la aplicación
 \end_layout
@@ -2692,12 +2698,40 @@ Más opciones de configuración y personalización
 Final
 \end_layout
 
+\begin_layout Section*
+\start_of_appendix
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+All of the following is optional and typically not needed.
+\end_layout
+
+\end_inset
+
+Apéndice
+\end_layout
+
+\begin_layout Subsection*
+Bibliografía fundamental
+\end_layout
+
 \begin_layout Frame
+\begin_inset Argument 3
+status collapsed
+
+\begin_layout Plain Layout
+allowframebreaks
+\end_layout
+
+\end_inset
+
+
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Preguntas
+Referencias
 \end_layout
 
 \end_inset
@@ -2705,8 +2739,229 @@ Preguntas
 
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+beamertemplatebookbibitems
+\end_layout
+
+\end_inset
+
+
+\lang spanish
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+beamertemplatearticlebibitems
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Ramlee2014"
+
+\end_inset
+
+ Ramlee, R.A.
+ et al.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+
+\emph on
+Low cost heart rate monitoring device using Bluetooth
+\emph default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+
+\emph on
+2014 2nd International Conference on Information and Communication Technology
+ (ICoICT)
+\emph default
+.
+ 42--46, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Venkatraman2015"
+
+\end_inset
+
+Venkatraman, S.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+
+\emph on
+Wearable heart rate monitor
+\emph default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+
+\emph on
+United States Patent: 8945017
+\emph default
+.
+ February 3, 2015.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+beamertemplatearticlebibitems
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Zhilin2014"
+
+\end_inset
+
+Zhang, Z.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+
+\emph on
+Heart rate monitoring from wrist-type photoplethysmographic (PPG) signals
+ during intensive physical exercise
+\emph default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+2014 IEEE Global Conference on Signal and Information Processing (GlobalSIP).
+ 698--702, 2014.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+theendnotes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+Referencias a las imágenes y diagramas en la memoria.
+\end_layout
+
+\end_deeper
 \begin_layout Separator
 
+\end_layout
+
+\begin_layout Subsection*
+Final
 \end_layout
 
 \begin_layout Frame
@@ -2783,69 +3038,6 @@ status open
 \backslash
 href{https://github.com/rafael1193/TFG-heart-rate-monitor}{https://github.com/rafa
 el1193/TFG-heart-rate-monitor}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Section*
-\start_of_appendix
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-All of the following is optional and typically not needed.
-\end_layout
-
-\end_inset
-
-Apéndice
-\end_layout
-
-\begin_layout Subsection*
-Referencias
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 3
-status collapsed
-
-\begin_layout Plain Layout
-allowframebreaks
-\end_layout
-
-\end_inset
-
-
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Referencias
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-theendnotes
 \end_layout
 
 \end_inset
