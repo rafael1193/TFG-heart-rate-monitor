@@ -114,33 +114,6 @@ departament{Departamento de Electrónica y Tecnología de Computadores}
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-This file is a solution template for:
-\end_layout
-
-\begin_layout Itemize
-Talk at a conference/colloquium.
- 
-\end_layout
-
-\begin_layout Itemize
-Talk length is about 20min.
- 
-\end_layout
-
-\begin_layout Itemize
-Style is ornate.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Title
 Diseño de un pulsómetro por infrarrojos
 \begin_inset Argument 1
@@ -165,34 +138,6 @@ Rafael Bailón Ruiz
 
 \begin_layout Institute
 Universidad de Granada
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Itemize
-Use the 
-\begin_inset Quotes eld
-\end_inset
-
-Institute mark
-\begin_inset Quotes erd
-\end_inset
-
- inset (
-\family sans
-Insert\SpecialChar \menuseparator
-Custom Insets\SpecialChar \menuseparator
-InstituteMark
-\family default
-) only if there are several affiliations.
-\end_layout
-
-\begin_layout Itemize
-Keep it simple, no one is interested in your street address.
-\end_layout
-
-\end_inset
-
-
 \begin_inset Argument 1
 status open
 
@@ -207,22 +152,6 @@ UGR
 
 \begin_layout Date
 22 julio de 2015
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Itemize
-Either use conference name or its abbreviation.
- 
-\end_layout
-
-\begin_layout Itemize
-Not really informative to the audience, more for people (including yourself)
- who are reading the slides online
-\end_layout
-
-\end_inset
-
-
 \begin_inset Argument 1
 status open
 
@@ -265,6 +194,8 @@ status open
 status open
 
 \begin_layout Plain Layout
+
+\lang english
 The following causes the table of contents to be shown at the beginning
  of every subsection.
  Delete this, if you do not want it.
@@ -324,6 +255,8 @@ tableofcontents[currentsection,currentsubsection]
 status open
 
 \begin_layout Plain Layout
+
+\lang english
 If you wish to uncover everything in a step-wise fashion, uncomment the
  following command:
 \end_layout
@@ -374,42 +307,56 @@ LatexCommand tableofcontents
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
+
+\lang english
 Structuring a talk is a difficult task and the following structure may not
  be suitable.
  Here are some rules that apply for this solution: 
 \end_layout
 
 \begin_layout Itemize
+
+\lang english
 Exactly two or three sections (other than the summary).
  
 \end_layout
 
 \begin_layout Itemize
+
+\lang english
 At *most* three subsections per section.
  
 \end_layout
 
 \begin_layout Itemize
+
+\lang english
 Talk about 30s to 2min per frame.
  So there should be between about 15 and 30 frames, all told.
 \end_layout
 
 \begin_layout Itemize
+
+\lang english
 A conference audience is likely to know very little of what you are going
  to talk about.
  So *simplify*! 
 \end_layout
 
 \begin_layout Itemize
+
+\lang english
 In a 20min talk, getting the main ideas across is hard enough.
  Leave out details, even if it means being less precise than you think necessary.
  
 \end_layout
 
 \begin_layout Itemize
+
+\lang english
 If you omit details that are vital to the proof/implementation, just say
  so once.
  Everybody will be happy with that.
@@ -596,7 +543,7 @@ Aumento de las enfermedades crónicas
 
 \end_deeper
 \begin_layout Itemize
-Incremento de incidentes cardiacos inesperados
+Incremento de incidentes cardíacos inesperados
 \end_layout
 
 \begin_deeper
@@ -794,7 +741,7 @@ El corazón es el órgano principal del aparato circulatorio.
 
 \begin_layout Plain Layout
 Está dividido en cuatro cámaras: dos aurículas, derecha e izquierda y dos
- ven- trículos, derecho e izquierdo.
+ ventrículos, derecho e izquierdo.
 \end_layout
 
 \begin_layout Plain Layout
@@ -968,7 +915,7 @@ Las contracciones y relajaciones de los músculos cardíacos tienen un manifesta
 
 \begin_layout Plain Layout
 El complejo QRS aparece en el desencadenamiento de la sístole.
- La onda T refleja la repolariación previa a la apertura de las vávulas
+ La onda T refleja la repolarización previa a la apertura de las vávulas
  para el nuevo ciclo
 \end_layout
 
@@ -1434,7 +1381,7 @@ Monitor ECG
 status open
 
 \begin_layout Plain Layout
-Cardiofrecuencimetro
+Cardiofrecuencímetro
 \end_layout
 
 \end_inset
@@ -1546,7 +1493,7 @@ Samsung Gear Fit
 \end_layout
 
 \begin_layout Itemize
-Diseñada para comuncación con smartphone
+Diseñada para comunicación con smartphone
 \end_layout
 
 \begin_layout Standard
@@ -1816,12 +1763,12 @@ Adquisición y procesado
 
 \end_deeper
 \begin_layout Separator
-\begin_inset Note Note
-status open
-
-\begin_layout Separator
 
 \end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Frame
 \begin_inset Argument 4
@@ -2476,12 +2423,12 @@ Comparación con cardiofrecuencímetro comercial basado en ECG
 \end_deeper
 \end_deeper
 \begin_layout Separator
-\begin_inset Note Note
-status open
-
-\begin_layout Separator
 
 \end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Frame
 \begin_inset Argument 4
@@ -2666,7 +2613,7 @@ Pasar del montaje experimental al producto final
 
 \end_deeper
 \begin_layout Itemize
-Mejorar la topología del sensor fotopletismografico
+Mejorar la topología del sensor fotopletismográfico
 \end_layout
 
 \begin_deeper
@@ -2700,15 +2647,6 @@ Final
 
 \begin_layout Section*
 \start_of_appendix
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-All of the following is optional and typically not needed.
-\end_layout
-
-\end_inset
-
 Apéndice
 \end_layout
 
@@ -2741,23 +2679,6 @@ Referencias
 
 \begin_deeper
 \begin_layout Standard
-
-\lang english
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-beamertemplatebookbibitems
-\end_layout
-
-\end_inset
-
-
-\lang spanish
-
 \begin_inset ERT
 status collapsed
 
