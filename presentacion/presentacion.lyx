@@ -2016,7 +2016,7 @@ status open
 
 \begin_layout Plain Layout
 
-}{/home/rafael/drone-flight-fail.webm}
+}{video/video.mpeg}
 \end_layout
 
 \end_inset
@@ -2679,18 +2679,6 @@ Referencias
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-beamertemplatearticlebibitems
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -2739,6 +2727,19 @@ newblock
 \emph default
 .
  42--46, 2014.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+beamertemplatearticlebibitems
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -2785,7 +2786,7 @@ United States Patent: 8945017
 .
  February 3, 2015.
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2839,6 +2840,19 @@ newblock
 
 2014 IEEE Global Conference on Signal and Information Processing (GlobalSIP).
  698--702, 2014.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+beamertemplatearticlebibitems
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
